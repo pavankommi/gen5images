@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MrCool Hero Section</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .logo-img-desktop {
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      aspect-ratio: 260.453 / 119;
+      object-fit: contain;
+      z-index: 10;
+      display: block;
+    }
+
+    .logo-img-mobile {
+      width: 160px;
+      margin: 20px 0 16px 12px;
+      display: none;
+    }
+
+    .gradient-box-wrapper {
+      padding: 80px 11px 0;
+    }
+
+    .gradient-box-container {
+      position: relative;
+      width: 100%;
+      max-width: 1478px;
+      margin: auto;
+    }
+
+    .gradient-box {
+      width: 100%;
+      aspect-ratio: 1478 / 652;
+      border-radius: 30px;
+      background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
+      color: #fff;
+      box-sizing: border-box;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      width: 100%;
+    }
+
+    .headline {
+      font-size: 48px;
+      font-weight: 500;
+      line-height: 1.25;
+      margin: 0;
+      text-align: center;
+    }
+
+    .subheadline {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.3;
+      margin: 0;
+      text-align: center;
+    }
+
+    .divider-vertical {
+      width: 2px;
+      height: 100px;
+      background: white;
+    }
+
+    .headline-section,
+    .subheadline-section {
+      flex: 1;
+    }
+
+    /* ✅ IMAGE SECTION MATCHES GRADIENT BOX */
+    .image-split-section {
+      display: flex;
+      width: 100%;
+      max-width: 1478px;
+      margin: 0 auto;
+      padding: 10px 11px 0;
+      box-sizing: border-box;
+    }
+
+    .left-content {
+      width: 33.33%;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+      /* background-color: #f4f4f4; */
+      text-align: center;
+      /* border-radius: 30px 0 0 30px; */
+    }
+
+    .airhandler-overlay {
+      position: absolute;
+      top: -60%;
+      /* shift upward */
+      left: -5%;
+      width: 100%;
+      /* span full width of .right-image */
+      height: auto;
+      aspect-ratio: 2 / 1;
+      /* maintains rectangular shape */
+      background-image: url("https://raw.githubusercontent.com/pavankommi/gen5images/refs/heads/main/header-overlay-airhandler.png");
+      background-size: 80% auto;
+      /* scales image to 80% width */
+      background-repeat: no-repeat;
+      background-position: top left;
+      z-index: 10;
+    }
+
+    .right-image {
+      width: 66.66%;
+      background-image: url("https://github.com/pavankommi/gen5images/blob/main/remotecontrol.jpg?raw=true");
+      background-size: cover;
+      background-position: center;
+      aspect-ratio: 1478 / 952;
+      border-radius: 30px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .left-content {
+      width: 33.33%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 40px;
+    }
+
+    .info-box {
+      max-width: 280px;
+      text-align: left;
+    }
+
+    .info-img {
+      width: 100%;
+      border: 2px solid #00629C;
+      border-radius: 30px;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+    }
+
+    .info-text {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .info-button {
+      display: inline-block;
+      background-color: #1C8EFF;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: background 0.3s;
+      align-self: flex-start;
+    }
+
+    .info-button:hover {
+      background-color: #00629C;
+    }
+
+    /*video section */
+
+    .overlap-wrapper {
+      position: relative;
+      max-width: 1478px;
+      margin: 80px auto 0;
+      padding: 0 11px;
+    }
+
+    .background-card {
+      background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+      border-radius: 30px;
+      min-height: 552px;
+      padding: 60px;
+      padding-left: 35%;
+      box-sizing: border-box;
+      color: #fff;
+      width: 66%;
+      margin-left: auto;
+    }
+
+    .text-content h2 {
+      font-size: 45px;
+      font-weight: 500;
+      line-height: 1.2459;
+      /* 124.59% */
+      margin: 0 0 16px 0;
+    }
+
+    .text-content p {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 30px;
+      /* or use: line-height: 1.36; */
+      margin: 0;
+    }
+
+
+    /* Top div on left */
+    .foreground-card {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      width: 66%;
+      height: 552px;
+      background-color: #ccc;
+      border-radius: 30px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+    }
+
+    .gradient-feature-wrapper {
+      max-width: 1478px;
+      margin: 0 auto;
+      padding: 80px 11px 0;
+      box-sizing: border-box;
+    }
+
+    .gradient-feature-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1478px;
+      margin: auto;
+      background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+      border-radius: 30px;
+      padding: 60px;
+      color: #fff;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .feature-left {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      margin-top: auto;
+      /* ✅ push from top */
+      margin-bottom: auto;
+      /* ✅ push from bottom */
+      height: auto;
+    }
+
+    .feature-left h2 {
+      font-size: 45px;
+      font-weight: 500;
+      line-height: 1.25;
+      margin: 0 0 16px;
+    }
+
+    .feature-left p {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 30px;
+      margin: 0 0 20px;
+      opacity: 0.95;
+    }
+
+    .feature-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      min-width: 300px;
+    }
+
+    .feature-box {
+      position: relative;
+      border-radius: 16px;
+      overflow: visible;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: #eee;
+    }
+
+    .feature-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .feature-label {
+      position: absolute;
+      bottom: 16px;
+      left: -8px;
+      /* ⬅️ increased negative value to protrude more */
+      background: #00629C;
+      border-radius: 0 10px 10px 0;
+      padding: 10px 16px 10px 24px;
+      /* ⬅️ more left padding for spacing inside */
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.11;
+      color: #FFF;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      /* ⬅️ vertically center the text */
+      width: 70%;
+      height: 15%;
+    }
+
+    /*product cards and swipe */
+    .carousel-section {
+      margin-top: 20px;
+      padding: 20px 0;
+    }
+
+    .carousel-section-title {
+      text-align: center;
+      font-size: 45px;
+      font-weight: 500;
+      color: #0D1C37;
+    }
+
+    .carousel-description {
+      color: #0D1C37;
+      text-align: center;
+      max-width: 1478px;
+      margin: 0 auto;
+      padding: 0px 28px 40px 28px;
+      /* ⬅️ 20px top, 40px bottom, 28px sides */
+      font-family: Poppins, sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px;
+    }
+
+
+
+    .carousel-container {
+      max-width: 1478px;
+      margin: 0 auto;
+      position: relative;
+      padding: 0;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      position: relative;
+    }
+
+    .carousel-slide {
+      flex: 0 0 25%;
+      /* Each slide takes up 25% of the container */
+      padding: 10px;
+      box-sizing: border-box;
+      transition: all 0.5s ease;
+      min-height: 650px;
+    }
+
+    .product-card {
+      border-radius: 16px;
+      background: #FFF;
+      box-shadow: 0px 4px 60px 0px rgba(13, 89, 239, 0.08);
+      padding: 30px;
+      height: 85%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .product-card.active {
+      background-color: white;
+      border: 2px solid #00629C;
+      box-shadow: 0px 4px 60px 0px rgba(13, 89, 239, 0.12);
+      transform: scale(1);
+    }
+
+    .product-card.inactive {
+      position: relative;
+      /* So overlay positions inside */
+      transform: scale(0.9);
+    }
+
+    .product-card.inactive::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(28, 142, 255, 0.52);
+      /* semi-transparent blue */
+      border-radius: 16px;
+      /* match card rounding */
+      z-index: 2;
+      pointer-events: none;
+      /* allows clicks to pass through */
+    }
+
+    .product-image {
+      width: 235px;
+      height: 235px;
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 20px auto;
+      /* center it */
+      border-radius: 16px;
+      /* optional, for rounded image box */
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-title {
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 15px;
+      color: #000;
+      line-height: 29px;
+    }
+
+    .product-price {
+      font-size: 22px;
+      color: #1C8EFF;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .shop-button {
+      background-color: #1C8EFF;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 30px;
+      font-size: 20px;
+      cursor: pointer;
+      display: block;
+      width: 80%;
+      margin: 0 auto 0 auto;
+      margin-top: 24px;
+    }
+
+    .mz-shop-button {
+      border-radius: 100px;
+      background: #00629C;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.10);
+      color: white;
+      font-family: Poppins, sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      border: none;
+      padding: 12px 30px;
+      cursor: pointer;
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 64px;
+    }
+
+
+    /* Navigation controls - moved closer to active products */
+    .nav-arrow {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 68px;
+      height: 68px;
+      padding: 0;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%) border-box;
+      background-clip: padding-box, border-box;
+      /* ✅ this is crucial */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+
+    .nav-prev {
+      left: 20%;
+      /* Moved closer to the active products */
+    }
+
+    .nav-next {
+      right: 20%;
+      /* Moved closer to the active products */
+    }
+
+    .nav-dots {
+      display: flex;
+      justify-content: center;
+      /* margin-top: 20px; */
+    }
+
+    .nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #D9D9D9;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border: none;
+    }
+
+    .nav-dot.active {
+      background-color: #1C8EFF;
+    }
+
+    /* Hide slides outside of view */
+    .carousel-wrapper {
+      overflow: hidden;
+    }
+
+    /* Mobile product grid for when carousel is disabled */
+    .mobile-product-grid {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .mobile-product-card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #00629C;
+      box-shadow: 0px 4px 60px 0px rgba(13, 89, 239, 0.08);
+    }
+
+    /* Multi-zone specific styles */
+    .multi-zone-section {
+      background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+      padding: 60px 20px;
+      margin-top: 80px;
+    }
+
+    .multi-zone-section .section-heading {
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins, sans-serif;
+      font-size: 45px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin: 0 auto;
+    }
+
+
+    .multi-zone-section .carousel-description {
+      overflow: hidden;
+      color: #FFF;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: Poppins, sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px;
+      /* 135% */
+    }
+
+
+    /* Override product card style for this section only */
+    .multi-zone-section .product-card {
+      border-radius: 16px;
+      border: 2px solid #00629C;
+      background: rgba(255, 255, 255, 0.30);
+    }
+
+    .multi-zone-section .product-card.active {
+      background: rgba(255, 255, 255, 0.50);
+    }
+
+    .multi-zone-section .product-card.inactive {
+      border: none;
+    }
+
+    .multi-zone-section .product-title,
+    .multi-zone-section .product-price {
+      color: #fff;
+    }
+
+    .multi-zone-section .shop-button {
+      border: 2px solid white;
+    }
+
+    /* Navigation dots for multi-zone section */
+    .multi-zone-section .nav-dot {
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+    }
+
+    .multi-zone-section .nav-dot.active {
+      background-color: white;
+    }
+
+    /* Medium screens: One active product in center */
+    @media (max-width: 992px) {
+      .carousel-slide {
+        flex: 0 0 33.33%;
+        /* Each slide takes up 1/3 of the container */
+      }
+
+      .nav-prev {
+        left: 10%;
+        /* Adjust navigation position */
+      }
+
+      .nav-next {
+        right: 10%;
+      }
+
+      .carousel-section-title {
+        font-size: 36px;
+      }
+    }
+
+    /* Mobile screens */
+    @media (max-width: 768px) {
+
+      body,
+      html {
+        overflow-x: hidden;
+      }
+
+      .gradient-box-wrapper {
+        padding: 0 0 10px 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .gradient-box-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 12px;
+        box-sizing: border-box;
+      }
+
+      .gradient-box {
+        width: 100%;
+        height: 593px;
+        padding: 30px;
+        border-radius: 30px;
+        background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        box-sizing: border-box;
+      }
+
+      .hero-content {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .divider-vertical {
+        display: none;
+      }
+
+      .divider-horizontal {
+        height: 2px;
+        width: 120px;
+        background: white;
+        margin: 16px auto;
+      }
+
+      .headline {
+        font-size: 52px;
+        line-height: 1.3;
+        font-weight: 400;
+      }
+
+      .subheadline {
+        font-size: 22px;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .logo-img-mobile {
+        display: block;
+        width: auto;
+        height: 80px;
+        margin: 0px 0 0px 12px;
+        object-fit: contain;
+      }
+
+      .logo-img-desktop {
+        display: none;
+      }
+
+      .image-split-section {
+        flex-direction: column-reverse;
+        max-width: 100%;
+        padding: 0 12px;
+        /* margin-top: 40px; */
+        box-sizing: border-box;
+      }
+
+      .left-content {
+        width: 100%;
+        padding: 20px 0;
+        justify-content: center;
+      }
+
+      .airhandler-overlay {
+        width: 100%;
+        left: 50%;
+        top: -23%;
+        transform: translateX(-50%) scale(1.5);
+        /* ⬅️ scales up cleanly */
+        background-size: contain;
+        background-position: top center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        z-index: 5;
+      }
+
+      .right-image {
+        position: relative;
+        width: 100%;
+        height: 593px;
+        border-radius: 30px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .left-content {
+        width: 100%;
+        padding: 20px 0;
+        justify-content: flex-start;
+      }
+
+      .info-box {
+        text-align: left;
+        width: 100%;
+        max-width: none;
+        text-align: left;
+        /* padding: 0 12px; */
+        /* box-sizing: border-box; */
+      }
+
+      .info-text {
+        font-size: 15px;
+      }
+
+      /*video section */
+      .background-card {
+        padding: 24px;
+        padding-top: 300px;
+        padding-left: 24px;
+        text-align: center;
+      }
+
+      .text-content h2 {
+        font-size: 24px;
+      }
+
+      .text-content p {
+        font-size: 14px;
+      }
+
+      .foreground-card {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 30px;
+      }
+
+      .gradient-feature-container {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+
+      .feature-left h2 {
+        font-size: 28px;
+      }
+
+      .feature-left p {
+        font-size: 14px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Hide carousel on mobile and show grid instead */
+      .carousel-container {
+        display: none;
+      }
+
+      .mobile-product-grid {
+        display: flex;
+      }
+
+      .carousel-section-title {
+        font-size: 28px;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Logo for mobile view only -->
+  <img class="logo-img-mobile"
+    src="https://raw.githubusercontent.com/pavankommi/gen5images/refs/heads/main/MrCool-badgelogo-fixed.png"
+    alt="Placeholder Logo" />
+
+  <div class="gradient-box-wrapper">
+    <div class="gradient-box-container">
+      <!-- Logo for desktop view only -->
+      <img class="logo-img-desktop"
+        src="https://raw.githubusercontent.com/pavankommi/gen5images/refs/heads/main/MrCool-badgelogo-fixed.png"
+        alt="Placeholder Logo" />
+
+      <!-- Gradient box -->
+      <div class="gradient-box">
+        <div class="hero-content">
+          <div class="headline-section">
+            <h1 class="headline">America's New MrCool DIY Mini-Split</h1>
+            <div class="divider-horizontal"></div>
+          </div>
+          <div class="divider-vertical"></div>
+          <div class="subheadline-section">
+            <p class="subheadline">Air Conditioner and Heater<br>you can install yourself</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ IMAGE SECTION MATCHED -->
+  <div class="image-split-section">
+    <div class="left-content">
+      <div class="info-box">
+        <img
+          src="https://raw.githubusercontent.com/pavankommi/gen5images/refs/heads/main/mc-diy-wmah-02-1000px_qwmw9l.webp"
+          alt="Wall Unit" class="info-img" />
+        <p class="info-text">Not sure if ductless systems are right for you? Explore the benefits.</p>
+        <a href="#" class="info-button">Learn More</a>
+      </div>
+    </div>
+
+    <div class="right-image">
+      <div class="airhandler-overlay"></div>
+    </div>
+  </div>
+
+  <!-- ✅ Video SECTION  -->
+  <div class="overlap-wrapper">
+    <div class="background-card">
+      <div class="text-content">
+        <h2>A DIY solution<br>for every home.</h2>
+        <p>Innovative solutions for your family.</p>
+      </div>
+    </div>
+
+    <div class="foreground-card">
+      <!-- just a placeholder image or color block -->
+    </div>
+  </div>
+
+  <!-- ✅ Video SECTION  -->
+  <div class="gradient-feature-wrapper">
+    <div class="gradient-feature-container">
+      <div class="feature-left">
+        <h2>DIY Made Easy.</h2>
+        <p>
+          MRCOOL DIY is the only ductless mini split system designed for fast,
+          affordable installation—no HVAC pro required. The pre-charged, sealed line
+          sets come with all the refrigerant you need, so there's no need for special
+          tools, tanks, or extra service costs. Just connect, power up, and enjoy
+          comfort for thousands less than a traditional system.
+        </p>
+        <a href="#" class="info-button">Find Your Fit</a>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <img src="https://github.com/pavankommi/gen5images/blob/main/PreCharged-Linesets.png?raw=true"
+            alt="Pre-charged">
+          <div class="feature-label">Pre-charged<br />R-454B line sets</div>
+        </div>
+        <div class="feature-box">
+          <img src="https://github.com/pavankommi/gen5images/blob/main/NoVacuum-Required.png?raw=true" alt="No vacuum">
+          <div class="feature-label">No vacuum<br />required</div>
+        </div>
+        <div class="feature-box">
+          <img src="https://github.com/pavankommi/gen5images/blob/main/WifiControl.png?raw=true" alt="WiFi">
+          <div class="feature-label">WiFi control</div>
+        </div>
+        <div class="feature-box">
+          <img src="https://github.com/pavankommi/gen5images/blob/main/EnergyStar-CondenserPhoto.png?raw=true"
+            alt="Energy Star">
+          <div class="feature-label">Energy Star<br />certified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅Product card swipe  -->
+  <div class="carousel-section">
+    <h2 class="carousel-section-title">Find Your Perfect System</h2>
+    <p class="carousel-description">
+      Every space is a little different. Whether your space is big or small, we have the perfect MrCool DIY to fit your
+      specific heating and cooling needs. The unit comes standard with a 5 year parts and 7 year compressor warranty.
+      IWAE offers an additional 1 Year Extended Labor Warranty with purchase of the DIY 5th Gen System.
+    </p>
+    <!-- Desktop/Tablet Carousel -->
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Products will be generated by JavaScript -->
+        </div>
+
+        <button class="nav-arrow nav-prev" id="prevBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="32" viewBox="0 0 19 32" fill="none">
+            <g clip-path="url(#clip0_6325_312)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M0.79458 17.8851C-0.26531 16.8437 -0.26531 15.1555 0.79458 14.1141L14.3671 0.781534C15.427 -0.25986 17.1453 -0.25986 18.2061 0.781534C19.2659 1.82293 19.2659 3.51109 18.2061 4.55249L6.5534 16.0001L18.2052 27.4476C19.2651 28.489 19.2651 30.1772 18.2052 31.2194C17.1453 32.2608 15.4261 32.2608 14.3663 31.2194L0.79458 17.886V17.8851Z"
+                fill="url(#paint0_linear_6325_312)" />
+            </g>
+            <defs>
+              <linearGradient id="paint0_linear_6325_312" x1="14.5428" y1="20.5905" x2="2.96562" y2="32.5224"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00629C" />
+                <stop offset="1" stop-color="#1C8EFF" />
+              </linearGradient>
+              <clipPath id="clip0_6325_312">
+                <rect width="32" height="19" fill="white" transform="matrix(0 1 -1 0 19 0)" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+
+        <button class="nav-arrow nav-next" id="nextBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="32" viewBox="0 0 19 32" fill="none">
+            <g clip-path="url(#clip0_6325_315)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.2054 17.8851C19.2653 16.8437 19.2653 15.1555 18.2054 14.1141L4.63286 0.781534C3.57297 -0.25986 1.85471 -0.25986 0.793941 0.781534C-0.265949 1.82293 -0.265949 3.51109 0.793941 4.55249L12.4466 16.0001L0.794818 27.4476C-0.265073 28.489 -0.265073 30.1772 0.794818 31.2194C1.85471 32.2608 3.57385 32.2608 4.63374 31.2194L18.2054 17.886V17.8851Z"
+                fill="url(#paint0_linear_6325_315)" />
+            </g>
+            <defs>
+              <linearGradient id="paint0_linear_6325_315" x1="4.45722" y1="20.5905" x2="16.0344" y2="32.5224"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00629C" />
+                <stop offset="1" stop-color="#1C8EFF" />
+              </linearGradient>
+              <clipPath id="clip0_6325_315">
+                <rect width="32" height="19" fill="white" transform="matrix(0 1 1 0 0 0)" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+      </div>
+
+      <div class="nav-dots" id="navDots">
+        <!-- Dots will be added by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Mobile Product Grid (replaces carousel on small screens) -->
+    <div class="mobile-product-grid" id="mobileProductGrid">
+      <!-- Mobile products will be added by JavaScript -->
+    </div>
+  </div>
+
+  <div class="multi-zone-section">
+    <div class="container">
+      <h2 class="section-heading">Need an Option for Multiple Rooms?</h2>
+      <p class="carousel-description">Check out the NEW MrCool DIY Multi-Zone Systems</p>
+
+      <!-- Desktop/Tablet Carousel -->
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="multiZoneTrack">
+            <!-- Products will be generated by JavaScript -->
+          </div>
+
+          <button class="nav-arrow nav-prev" id="multiZonePrevBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="32" viewBox="0 0 19 32" fill="none">
+              <g clip-path="url(#clip0_6325_312)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0.79458 17.8851C-0.26531 16.8437 -0.26531 15.1555 0.79458 14.1141L14.3671 0.781534C15.427 -0.25986 17.1453 -0.25986 18.2061 0.781534C19.2659 1.82293 19.2659 3.51109 18.2061 4.55249L6.5534 16.0001L18.2052 27.4476C19.2651 28.489 19.2651 30.1772 18.2052 31.2194C17.1453 32.2608 15.4261 32.2608 14.3663 31.2194L0.79458 17.886V17.8851Z"
+                  fill="url(#paint0_linear_6325_312)" />
+              </g>
+              <defs>
+                <linearGradient id="paint0_linear_6325_312" x1="14.5428" y1="20.5905" x2="2.96562" y2="32.5224"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00629C" />
+                  <stop offset="1" stop-color="#1C8EFF" />
+                </linearGradient>
+                <clipPath id="clip0_6325_312">
+                  <rect width="32" height="19" fill="white" transform="matrix(0 1 -1 0 19 0)" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+
+          <button class="nav-arrow nav-next" id="multiZoneNextBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="32" viewBox="0 0 19 32" fill="none">
+              <g clip-path="url(#clip0_6325_315)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M18.2054 17.8851C19.2653 16.8437 19.2653 15.1555 18.2054 14.1141L4.63286 0.781534C3.57297 -0.25986 1.85471 -0.25986 0.793941 0.781534C-0.265949 1.82293 -0.265949 3.51109 0.793941 4.55249L12.4466 16.0001L0.794818 27.4476C-0.265073 28.489 -0.265073 30.1772 0.794818 31.2194C1.85471 32.2608 3.57385 32.2608 4.63374 31.2194L18.2054 17.886V17.8851Z"
+                  fill="url(#paint0_linear_6325_315)" />
+              </g>
+              <defs>
+                <linearGradient id="paint0_linear_6325_315" x1="4.45722" y1="20.5905" x2="16.0344" y2="32.5224"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00629C" />
+                  <stop offset="1" stop-color="#1C8EFF" />
+                </linearGradient>
+                <clipPath id="clip0_6325_315">
+                  <rect width="32" height="19" fill="white" transform="matrix(0 1 1 0 0 0)" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+        </div>
+
+        <div class="nav-dots" id="multiZoneNavDots">
+          <!-- Dots will be added by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Mobile Product Grid -->
+      <div class="mobile-product-grid" id="multiZoneMobileGrid">
+        <!-- Mobile products will be added by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Product data for standard products
+    const products = [
+      {
+        id: 0,
+        title: "36k BTU 18 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$3,299.00",
+        image: "https://github.com/pavankommi/gen5images/blob/main/24k-36k.jpg?raw=true" // Replace with actual image path
+      },
+      {
+        id: 1,
+        title: "9k BTU 23.6 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$2,329.00",
+        image: "https://github.com/pavankommi/gen5images/blob/main/24k-36k.jpg?raw=true" // Replace with actual image path
+      },
+      {
+        id: 2,
+        title: "12k BTU 23.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$2,359.00",
+        image: "https://github.com/pavankommi/gen5images/blob/main/24k-36k.jpg?raw=true" // Replace with actual image path
+      },
+      {
+        id: 3,
+        title: "18k BTU 22.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$2,499.00",
+        image: "https://github.com/pavankommi/gen5images/blob/main/24k-36k.jpg?raw=true" // Replace with actual image path
+      },
+      {
+        id: 4,
+        title: "24k BTU 21.0 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$2,699.00",
+        image: "https://github.com/pavankommi/gen5images/blob/main/24k-36k.jpg?raw=true" // Replace with actual image path
+      }
+    ];
+
+    // Product data for multi-zone systems
+    const multiZoneProducts = [
+      {
+        id: 0,
+        title: "2 Zone",
+        price: "As Low As $2,545",
+        image: "https://github.com/pavankommi/gen5images/blob/main/ha-ductless-split-system-dual-zone.png?raw=true" // Replace with actual image path
+      },
+      {
+        id: 1,
+        title: "3 Zone",
+        price: "As Low As $2,736",
+        image: "https://github.com/pavankommi/gen5images/blob/main/ha-ductless-split-system-triple-zone.png?raw=true" // Replace with actual image path
+      },
+      {
+        id: 2,
+        title: "4 Zone",
+        price: "As Low As $3,438",
+        image: "https://github.com/pavankommi/gen5images/blob/main/ha-ductless-split-system-quad-zone.png?raw=true" // Replace with actual image path
+      },
+      {
+        id: 3,
+        title: "5 Zone",
+        price: "As Low As $4,189",
+        image: "https://github.com/pavankommi/gen5images/blob/main/ha-ductless-split-system-five-zone.png?raw=true" // Replace with actual image path
+      }
+    ];
+
+    // Wait for DOM to be fully loaded before accessing elements
+    document.addEventListener('DOMContentLoaded', function () {
+      // Check if we're on mobile view
+      const isMobile = window.innerWidth <= 768;
+
+      // Initialize the original carousel
+      if (isMobile) {
+        // Create mobile product grid
+        initMobileProductGrid();
+      } else {
+        // Initialize carousel for desktop/tablet
+        initCarousel();
+      }
+
+      // Initialize the multi-zone carousel if it exists on the page
+      if (document.getElementById('multiZoneTrack')) {
+        if (isMobile) {
+          // Create mobile product grid for multi-zone
+          initMultiZoneMobileGrid();
+        } else {
+          // Initialize carousel for multi-zone
+          initMultiZoneCarousel();
+        }
+      }
+
+      // Handle window resize
+      window.addEventListener('resize', function () {
+        const currentMobile = window.innerWidth <= 768;
+        // Only reinitialize if we've crossed the mobile breakpoint
+        if (currentMobile !== isMobile) {
+          location.reload(); // Simple approach to handle the transition
+        }
+      });
+
+      // Function to initialize mobile product grid
+      function initMobileProductGrid() {
+        const mobileGrid = document.getElementById('mobileProductGrid');
+        mobileGrid.innerHTML = ''; // Clear any existing content
+
+        products.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'mobile-product-card';
+
+          card.innerHTML = `
+        <div class="product-image">
+          <img src="${product.image}" alt="${product.title}">
+        </div>
+        <h2 class="product-title">${product.title}</h2>
+        <div class="product-price">${product.price}</div>
+        <button class="shop-button">Shop Now</button>
+      `;
+
+          mobileGrid.appendChild(card);
+        });
+      }
+
+      // Function to initialize multi-zone mobile product grid
+      function initMultiZoneMobileGrid() {
+        const mobileGrid = document.getElementById('multiZoneMobileGrid');
+        mobileGrid.innerHTML = ''; // Clear any existing content
+
+        multiZoneProducts.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'mobile-product-card';
+
+          card.innerHTML = `
+        <div class="product-image">
+          <img src="${product.image}" alt="${product.title}">
+        </div>
+        <h2 class="product-title">${product.title}</h2>
+        <div class="product-price">${product.price}</div>
+        <button class="shop-button">Shop Now</button>
+      `;
+
+          mobileGrid.appendChild(card);
+        });
+      }
+
+      // Initialize the original carousel for desktop/tablet
+      function initCarousel() {
+        const carouselTrack = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('navDots');
+
+        let currentIndex = 0;
+        const totalProducts = products.length;
+        let isTransitioning = false;
+
+        // Determine how many active products to show based on screen size
+        const isMediumScreen = window.innerWidth <= 992 && window.innerWidth > 768;
+
+        // Create all product slides
+        function createProductSlides() {
+          // We need enough slides for infinite scrolling
+          const extendedProducts = [...products, ...products, ...products];
+
+          extendedProducts.forEach((product, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            slide.id = `slide-${index}`;
+            slide.dataset.originalIndex = index % totalProducts;
+
+            slide.innerHTML = `
+          <div class="product-card">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.title}">
+            </div>
+            <h2 class="product-title">${product.title}</h2>
+            <div class="product-price">${product.price}</div>
+            <button class="shop-button">Shop Now</button>
+          </div>
+        `;
+
+            carouselTrack.appendChild(slide);
+          });
+        }
+
+        // Create navigation dots
+        function createNavigationDots() {
+          dotsContainer.innerHTML = '';
+
+          products.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            if (index === currentIndex) {
+              dot.classList.add('active');
+            }
+
+            dot.addEventListener('click', () => {
+              goToSlide(index);
+            });
+
+            dotsContainer.appendChild(dot);
+          });
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+          // Using specific IDs to target only this carousel's navigation
+          prevBtn.addEventListener('click', prevSlide);
+          nextBtn.addEventListener('click', nextSlide);
+
+          carouselTrack.addEventListener('transitionend', function () {
+            isTransitioning = false;
+
+            // Handle infinite scrolling
+            if (currentIndex >= totalProducts) {
+              currentIndex = currentIndex % totalProducts;
+              updateCarousel(false);
+            } else if (currentIndex < 0) {
+              currentIndex = totalProducts + (currentIndex % totalProducts);
+              updateCarousel(false);
+            }
+          });
+        }
+
+        // Update carousel display
+        function updateCarousel(animate = true) {
+          // Only select slides in this specific carousel track
+          const slides = carouselTrack.querySelectorAll('.carousel-slide');
+          const dots = dotsContainer.querySelectorAll('.nav-dot');
+
+          // Skip animation if needed
+          carouselTrack.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+
+          // Calculate positions
+          const middle = totalProducts; // Start from middle set of products for infinite scrolling
+          const slideWidth = isMediumScreen ? 33.33 : 25; // Width per slide depends on screen size
+
+          // Calculate the transform position
+          let offset;
+
+          if (isMediumScreen) {
+            // For medium screens: center one active product
+            offset = -((currentIndex + middle) * slideWidth) + 33.33; // Center one product
+          } else {
+            // For large screens: center two active products
+            offset = -((currentIndex + middle) * slideWidth) + 25; // Center two products
+          }
+
+          carouselTrack.style.transform = `translateX(${offset}%)`;
+
+          // Reset transition after position update if animation was disabled
+          if (!animate) {
+            setTimeout(() => {
+              carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+            }, 10);
+          }
+
+          // Update all slides' states
+          slides.forEach(slide => {
+            const slideIndex = parseInt(slide.dataset.originalIndex);
+            const card = slide.querySelector('.product-card');
+
+            // Reset card state
+            card.className = 'product-card';
+
+            // Set card state based on position relative to current index
+            if (isMediumScreen) {
+              // Medium screens: only one active product
+              if (slideIndex === currentIndex) {
+                card.classList.add('active');
+              } else {
+                card.classList.add('inactive');
+              }
+            } else {
+              // Large screens: two active products
+              if (slideIndex === currentIndex || slideIndex === (currentIndex + 1) % totalProducts) {
+                card.classList.add('active');
+              } else {
+                card.classList.add('inactive');
+              }
+            }
+          });
+
+          // Update active dot
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        }
+
+        // Go to next slide
+        function nextSlide() {
+          if (isTransitioning) return;
+          isTransitioning = true;
+
+          currentIndex = (currentIndex + 1) % totalProducts;
+          updateCarousel(true);
+        }
+
+        // Go to previous slide
+        function prevSlide() {
+          if (isTransitioning) return;
+          isTransitioning = true;
+
+          currentIndex = (currentIndex - 1 + totalProducts) % totalProducts;
+          updateCarousel(true);
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+          if (isTransitioning || index === currentIndex) return;
+          isTransitioning = true;
+
+          currentIndex = index;
+          updateCarousel(true);
+        }
+
+        // Initialize carousel
+        createProductSlides();
+        createNavigationDots();
+        setupEventListeners();
+        updateCarousel(false);
+      }
+
+      // Initialize the multi-zone carousel
+      function initMultiZoneCarousel() {
+        const carouselTrack = document.getElementById('multiZoneTrack');
+        const prevBtn = document.getElementById('multiZonePrevBtn');
+        const nextBtn = document.getElementById('multiZoneNextBtn');
+        const dotsContainer = document.getElementById('multiZoneNavDots');
+
+        let currentIndex = 0;
+        const totalProducts = multiZoneProducts.length;
+        let isTransitioning = false;
+
+        // Determine how many active products to show based on screen size
+        const isMediumScreen = window.innerWidth <= 992 && window.innerWidth > 768;
+
+        // Create all product slides
+        function createProductSlides() {
+          // We need enough slides for infinite scrolling
+          const extendedProducts = [...multiZoneProducts, ...multiZoneProducts, ...multiZoneProducts];
+
+          extendedProducts.forEach((product, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            slide.id = `mz-slide-${index}`;
+            slide.dataset.originalIndex = index % totalProducts;
+
+            slide.innerHTML = `
+          <div class="product-card">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.title}">
+            </div>
+            <h2 class="product-title">${product.title}</h2>
+            <div class="product-price">${product.price}</div>
+            <button class="mz-shop-button">Shop Now</button>
+          </div>
+        `;
+
+            carouselTrack.appendChild(slide);
+          });
+        }
+
+        // Create navigation dots
+        function createNavigationDots() {
+          dotsContainer.innerHTML = '';
+
+          multiZoneProducts.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            if (index === currentIndex) {
+              dot.classList.add('active');
+            }
+
+            dot.addEventListener('click', () => {
+              goToSlide(index);
+            });
+
+            dotsContainer.appendChild(dot);
+          });
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+          // Using specific IDs to target only this carousel's navigation
+          prevBtn.addEventListener('click', prevSlide);
+          nextBtn.addEventListener('click', nextSlide);
+
+          carouselTrack.addEventListener('transitionend', function () {
+            isTransitioning = false;
+
+            // Handle infinite scrolling
+            if (currentIndex >= totalProducts) {
+              currentIndex = currentIndex % totalProducts;
+              updateCarousel(false);
+            } else if (currentIndex < 0) {
+              currentIndex = totalProducts + (currentIndex % totalProducts);
+              updateCarousel(false);
+            }
+          });
+        }
+
+        // Update carousel display
+        function updateCarousel(animate = true) {
+          // Only select slides in this specific carousel track
+          const slides = carouselTrack.querySelectorAll('.carousel-slide');
+          const dots = dotsContainer.querySelectorAll('.nav-dot');
+
+          // Skip animation if needed
+          carouselTrack.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+
+          // Calculate positions
+          const middle = totalProducts; // Start from middle set of products for infinite scrolling
+          const slideWidth = isMediumScreen ? 33.33 : 25; // Width per slide depends on screen size
+
+          // Calculate the transform position
+          let offset;
+
+          if (isMediumScreen) {
+            // For medium screens: center one active product
+            offset = -((currentIndex + middle) * slideWidth) + 33.33; // Center one product
+          } else {
+            // For large screens: center two active products
+            offset = -((currentIndex + middle) * slideWidth) + 25; // Center two products
+          }
+
+          carouselTrack.style.transform = `translateX(${offset}%)`;
+
+          // Reset transition after position update if animation was disabled
+          if (!animate) {
+            setTimeout(() => {
+              carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+            }, 10);
+          }
+
+          // Update all slides' states
+          slides.forEach(slide => {
+            const slideIndex = parseInt(slide.dataset.originalIndex);
+            const card = slide.querySelector('.product-card');
+
+            // Reset card state
+            card.className = 'product-card';
+
+            // Set card state based on position relative to current index
+            if (isMediumScreen) {
+              // Medium screens: only one active product
+              if (slideIndex === currentIndex) {
+                card.classList.add('active');
+              } else {
+                card.classList.add('inactive');
+              }
+            } else {
+              // Large screens: two active products
+              if (slideIndex === currentIndex || slideIndex === (currentIndex + 1) % totalProducts) {
+                card.classList.add('active');
+              } else {
+                card.classList.add('inactive');
+              }
+            }
+          });
+
+          // Update active dot
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        }
+
+        // Go to next slide
+        function nextSlide() {
+          if (isTransitioning) return;
+          isTransitioning = true;
+
+          currentIndex = (currentIndex + 1) % totalProducts;
+          updateCarousel(true);
+        }
+
+        // Go to previous slide
+        function prevSlide() {
+          if (isTransitioning) return;
+          isTransitioning = true;
+
+          currentIndex = (currentIndex - 1 + totalProducts) % totalProducts;
+          updateCarousel(true);
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+          if (isTransitioning || index === currentIndex) return;
+          isTransitioning = true;
+
+          currentIndex = index;
+          updateCarousel(true);
+        }
+
+        // Initialize carousel
+        createProductSlides();
+        createNavigationDots();
+        setupEventListeners();
+        updateCarousel(false);
+      }
+    });
+  </script>
+</body>
+
+</html>
