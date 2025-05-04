@@ -120,16 +120,11 @@
     .airhandler-overlay {
       position: absolute;
       top: -60%;
-      /* shift upward */
       left: -5%;
       width: 100%;
-      /* span full width of .right-image */
-      height: auto;
       aspect-ratio: 2 / 1;
-      /* maintains rectangular shape */
       background-image: url("./header-overlay-airhandler.png");
       background-size: 80% auto;
-      /* scales image to 80% width */
       background-repeat: no-repeat;
       background-position: top left;
       z-index: 10;
@@ -144,6 +139,42 @@
       border-radius: 30px;
       position: relative;
       overflow: visible;
+    }
+
+    .price-label {
+      position: absolute;
+      bottom: 24px;
+      left: 0;
+      background: linear-gradient(to bottom right, #0074d9, #00aaff);
+      border-radius: 0 20px 20px 0;
+      padding: 16px 20px;
+      text-align: center;
+      color: #fff;
+      z-index: 20;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      min-width: 180px;
+    }
+
+    .price-text {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .price-button {
+      display: inline-block;
+      background-color: #007bff;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    .price-button:hover {
+      background-color: #005fcc;
     }
 
     .left-content {
@@ -1152,6 +1183,11 @@
 
     <div class="right-image">
       <div class="airhandler-overlay"></div>
+      <div class="price-label">
+        <div class="price-text">From $2,329</div>
+        <a href="https://iwae.com/resources/articles/zoned-heating-cooling-right.html" class="price-button"
+          target="_blank" rel="noopener noreferrer">Shop Now</a>
+      </div>
     </div>
   </div>
 
