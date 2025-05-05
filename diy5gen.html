@@ -425,7 +425,7 @@
     .product-card {
       border-radius: 16px;
       background: #fff;
-      box-shadow: 0px 4px 60px 0px rgba(13, 89, 239, 0.08);
+      box-shadow: none;
       padding: 30px;
       height: 85%;
       display: flex;
@@ -437,7 +437,7 @@
     .product-card.active {
       background-color: white;
       border: 2px solid #00629c;
-      box-shadow: 0px 4px 60px 0px rgba(13, 89, 239, 0.12);
+      box-shadow: none;
       transform: scale(1);
     }
 
@@ -507,8 +507,9 @@
       cursor: pointer;
       display: block;
       width: 80%;
-      margin: 0 auto 0 auto;
-      margin-top: 24px;
+      margin: 24px auto 0 auto;
+      text-align: center;
+      text-decoration: none;
     }
 
     .mz-shop-button {
@@ -527,6 +528,7 @@
       margin: 0 auto;
       text-align: center;
       margin-top: 64px;
+      text-decoration: none;
     }
 
     /* Navigation controls - moved closer to active products */
