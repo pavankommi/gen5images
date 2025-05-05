@@ -243,12 +243,15 @@
       font-size: 16px;
       transition: background 0.3s;
       align-self: flex-start;
-      margin-left: 9%;
-
+      /* margin-left: 9%; */
     }
 
     .info-button:hover {
       background-color: #00629c;
+    }
+
+    .info-button-spacing {
+      margin: 10px 20px;
     }
 
     /*video section */
@@ -276,18 +279,22 @@
     }
 
     .text-content h2 {
+      font-family: 'Poppins', sans-serif;
       font-size: 45px;
       font-weight: 500;
       line-height: 1.2459;
       /* 124.59% */
+      color: #FFF;
       margin: 0 0 16px 0;
     }
 
     .text-content p {
+      font-family: 'Poppins', sans-serif;
       font-size: 22px;
       font-weight: 400;
       line-height: 30px;
-      /* or use: line-height: 1.36; */
+      /* or 1.36 */
+      color: #FFF;
       margin: 0;
     }
 
@@ -685,6 +692,17 @@
       margin: 20px;
     }
 
+    .mz-mobile-product-card {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      border: 2px solid #00629c;
+      padding: 30px;
+      margin: 0 10px 10px 10px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 60px rgba(13, 89, 239, 0.08);
+    }
+
     /* Multi-zone specific styles */
     .multi-zone-section {
       background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
@@ -704,17 +722,16 @@
     }
 
     .multi-zone-section .carousel-description {
-      overflow: hidden;
       color: #fff;
       text-align: center;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       font-family: Poppins, sans-serif;
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
       line-height: 27px;
-      /* 135% */
+      padding: 0 28px 40px;
+      max-width: 1478px;
+      margin: 0 auto;
     }
 
     /* Override product card style for this section only */
@@ -934,6 +951,12 @@
       height: 240px;
     }
 
+    @media (min-width: 993px) and (max-width: 1478px) {
+      .product-card {
+        height: 90%;
+      }
+    }
+
     /* Medium screens: One active product in center */
     @media (max-width: 992px) {
       .carousel-slide {
@@ -952,6 +975,10 @@
 
       .carousel-section-title {
         font-size: 36px;
+      }
+
+      .product-card {
+        height: 90%;
       }
     }
 
@@ -1100,10 +1127,6 @@
         line-height: 136.364%;
         padding-left: 10%;
         margin-left: auto;
-      }
-
-      .info-button {
-        margin-left: 10%;
       }
 
       /*video section */
@@ -1334,8 +1357,8 @@
           Not sure if ductless systems are right for you? Explore the
           benefits.
         </p>
-        <a href="https://iwae.com/resources/articles/zoned-heating-cooling-right.html" class="info-button"
-          target="_blank" rel="noopener noreferrer">Learn More</a>
+        <a href="https://iwae.com/resources/articles/zoned-heating-cooling-right.html"
+          class="info-button info-button-spacing" target="_blank" rel="noopener noreferrer">Learn More</a>
       </div>
     </div>
 
@@ -1807,7 +1830,7 @@
 
         multiZoneProducts.forEach((product) => {
           const card = document.createElement("div");
-          card.className = "multi-zone-section product-card";
+          card.className = "mz-mobile-product-card";
 
           card.innerHTML = `
         <div class="product-image">
