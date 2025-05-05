@@ -424,20 +424,22 @@
 
     .product-card {
       border-radius: 16px;
+      border: 2px solid #00629c;
       background: #fff;
-      box-shadow: none;
+      box-shadow: 0px 4px 60px rgba(13, 89, 239, 0.08);
       padding: 30px;
       height: 85%;
       display: flex;
       flex-direction: column;
       position: relative;
       transition: all 0.3s ease;
+      box-sizing: border-box;
     }
 
     .product-card.active {
-      background-color: white;
+      background: #fff;
       border: 2px solid #00629c;
-      box-shadow: none;
+      box-shadow: 0px 4px 60px rgba(13, 89, 239, 0.12);
       transform: scale(1);
     }
 
@@ -465,29 +467,32 @@
       height: 235px;
       aspect-ratio: 1 / 1;
       flex-shrink: 0;
+      margin: 0 auto 20px auto;
+      border-radius: 16px;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0 auto 20px auto;
-      /* center it */
-      border-radius: 16px;
-      /* optional, for rounded image box */
-      overflow: hidden;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
     .product-title {
-      font-size: 24px;
-      font-weight: 500;
-      text-align: center;
-      margin-bottom: 15px;
       color: #000;
+      text-align: center;
+      font-family: Poppins, sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
       line-height: 29px;
+      /* 120.833% */
+      margin-bottom: 12px;
     }
 
     .product-price {
@@ -498,43 +503,56 @@
     }
 
     .shop-button {
-      background-color: #1c8eff;
-      color: white;
+      width: 202.427px;
+      height: 55.544px;
+      flex-shrink: 0;
       border: none;
-      border-radius: 25px;
-      padding: 12px 30px;
-      font-size: 20px;
-      cursor: pointer;
-      display: block;
-      width: 80%;
-      margin: 24px auto 0 auto;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .mz-shop-button {
       border-radius: 100px;
-      background: #00629c;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-      color: white;
+      background: #1C8EFF;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.10);
+      color: #FFF;
+      text-align: center;
       font-family: Poppins, sans-serif;
       font-size: 20px;
+      font-style: normal;
       font-weight: 400;
-      border: none;
-      padding: 12px 30px;
-      cursor: pointer;
-      display: block;
-      width: 80%;
-      margin: 0 auto;
-      text-align: center;
-      margin-top: 64px;
+      line-height: normal;
       text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 18px auto 0 auto;
+    }
+
+
+    .mz-shop-button {
+      width: 202.427px;
+      height: 55.544px;
+      flex-shrink: 0;
+      border: none;
+      border-radius: 100px;
+      background: #00629C;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.10);
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins, sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 64px auto 0 auto;
     }
 
     /* Navigation controls - moved closer to active products */
     .nav-arrow {
       position: absolute;
-      top: 45%;
+      top: 40%;
       transform: translateY(-50%);
       z-index: 10;
       width: 68px;
@@ -657,9 +675,28 @@
       border: none;
     }
 
-    .multi-zone-section .product-title,
+    .multi-zone-section .product-title {
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins, sans-serif;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 29px;
+      /* 80.556% */
+      margin-bottom: 15px;
+      /* optional, keeps layout spacing */
+    }
+
     .multi-zone-section .product-price {
-      color: #fff;
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins, sans-serif;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 29px;
+      /* 111.538% */
     }
 
     .multi-zone-section .shop-button {
@@ -834,6 +871,10 @@
       background-image: url("https://raw.githubusercontent.com/pavankommi/gen5images/refs/heads/main/7-year-compressor-warranty_nnuicy.webp");
       background-size: cover;
       background-repeat: no-repeat;
+    }
+
+    .page-end-spacer {
+      height: 240px;
     }
 
     /* Medium screens: One active product in center */
@@ -1127,6 +1168,10 @@
         width: 40%;
         height: auto;
         margin: 10px;
+      }
+
+      .page-end-spacer {
+        height: 480px;
       }
 
       /* .carousel-section-title {
@@ -1508,6 +1553,8 @@
       </div>
     </div>
   </div>
+
+  <div class="page-end-spacer"></div>
 
   <script>
     // Product data for standard products
