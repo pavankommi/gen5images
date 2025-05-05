@@ -231,6 +231,10 @@
       max-width: 1478px;
       margin: 80px auto 0;
       padding: 0 11px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-shrink: 0;
     }
 
     .background-card {
@@ -240,7 +244,6 @@
       padding: 60px;
       padding-left: 35%;
       box-sizing: border-box;
-      color: #fff;
       width: 66%;
       margin-left: auto;
     }
@@ -267,13 +270,38 @@
       top: -40px;
       left: 0;
       width: 66%;
-      height: 552px;
+      height: 532px;
+      background-image: url("./video_screenshot.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      align-items: center;
       background-color: #ccc;
       border-radius: 30px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       z-index: 2;
     }
+    .foreground-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
 
+.polygon-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 131px;
+  height: 131px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 65.5px; /* full circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 6.08px 51.03px 0px rgba(0, 0, 0, 0.15);
+  padding: 0;
+}
     .gradient-feature-wrapper {
       max-width: 1478px;
       margin: 0 auto;
@@ -1034,29 +1062,56 @@
       }
 
       /*video section */
-      .background-card {
-        padding: 24px;
-        padding-top: 300px;
-        padding-left: 24px;
-        text-align: center;
-      }
+      .overlap-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding: 0px;
+        margin: 50px 0 0 0;
 
-      .text-content h2 {
-        font-size: 24px;
-      }
-
-      .text-content p {
-        font-size: 14px;
       }
 
       .foreground-card {
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        border-radius: 30px;
+        position: relative;
+        z-index: 2;
+        margin: 0%;
+        width: 95%;
+        height: 532px;
+        aspect-ratio: 8 / 9;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .background-card {
+        position: relative;
+        z-index: 1;
+        width: 90%;
+        min-height: auto;
+        margin-top: -250px;
+        padding: 150px 0px 50px 20px;
+        border-radius: 30px 0px 0px 30px;
+        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+      }
+
+      .text-content h2 {
+        font-size: 36px;
+        color: #FFF;
+        padding-top: 80px;
+        max-width: 351px;
+        ;
+      }
+
+      .text-content p {
+        font-size: 20px;
+        color: #FFF;
+        max-width: 272px;
+        ;
+
+      }
+
+      .gradient-feature-wrapper {
+        padding: 40px 10px 0;
       }
 
       .gradient-feature-container {
@@ -1097,6 +1152,7 @@
       .testimonial-cards {
         max-width: 100%;
         flex-direction: column;
+        gap: 4vw;
       }
 
       .testimonial-card {
@@ -1117,12 +1173,17 @@
 
       .warranty-section {
         max-width: 100%;
+        gap: 2%;
+
       }
 
       .image-card {
         width: 95%;
         margin: 0 10px 25px;
         min-height: 593px;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
       }
 
       .warranty-card {
@@ -1241,15 +1302,16 @@
 
   <!-- ✅ Video SECTION  -->
   <div class="overlap-wrapper">
+    <div class="foreground-card">
+      <div class="polygon-button">
+        <img src="Polygon 1.svg" alt="Play Icon" class="polygon-icon">
+      </div>
+        </div>
     <div class="background-card">
       <div class="text-content">
         <h2>A DIY solution<br />for every home.</h2>
         <p>Innovative solutions for your family.</p>
       </div>
-    </div>
-
-    <div class="foreground-card">
-      <!-- just a placeholder image or color block -->
     </div>
   </div>
 
