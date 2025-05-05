@@ -85,11 +85,15 @@
       width: 2px;
       height: 100px;
       background: white;
+      flex-shrink: 0;
     }
 
-    .headline-section,
+    .headline-section {
+      flex: 0 0 60%;
+    }
+
     .subheadline-section {
-      flex: 1;
+      flex: 0 0 40%;
     }
 
     /* ✅ IMAGE SECTION MATCHES GRADIENT BOX */
@@ -610,7 +614,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      margin: 64px auto 0 auto;
+      margin: 58px auto 0 auto;
     }
 
     /* Navigation controls - moved closer to active products */
@@ -681,23 +685,28 @@
     }
 
     .mobile-product-card {
-      background-color: white;
+      width: 375px;
+      height: 495px;
+      flex-shrink: 0;
       border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      padding: 30px;
+      border: 2px solid #00629c;
+      background: #fff;
+      box-shadow: 0px 4px 60px 0px rgba(13, 89, 239, 0.06);
       display: flex;
       flex-direction: column;
-      border: 2px solid #00629c;
-      box-shadow: 0px 4px 60px 0px rgba(13, 89, 239, 0.08);
-      margin: 20px;
+      padding: 30px;
+      margin: 20px auto;
     }
 
     .mz-mobile-product-card {
+      width: 341px;
+      height: 450px;
+      flex-shrink: 0;
       background: rgba(255, 255, 255, 0.3);
       border-radius: 16px;
       border: 2px solid #00629c;
       padding: 30px;
-      margin: 0 10px 10px 10px;
+      margin: 0 auto 10px auto;
       display: flex;
       flex-direction: column;
       box-shadow: 0 4px 60px rgba(13, 89, 239, 0.08);
@@ -957,6 +966,17 @@
       }
     }
 
+    @media (min-width: 769px) and (max-width: 1108px) {
+      .headline {
+        font-size: 38px;
+      }
+
+      .subheadline {
+        font-size: 20px;
+      }
+    }
+
+
     /* Medium screens: One active product in center */
     @media (max-width: 992px) {
       .carousel-slide {
@@ -1204,6 +1224,10 @@
         display: none;
       }
 
+      .mz-shop-button {
+        margin: 38px auto 0 auto;
+      }
+
       .mobile-product-grid {
         display: flex;
       }
@@ -1328,7 +1352,7 @@
       <div class="gradient-box">
         <div class="hero-content">
           <div class="headline-section">
-            <h1 class="headline">America's New MrCool DIY Mini-Split</h1>
+            <h1 class="headline">America's New<br> MrCool DIY Mini-Split</h1>
             <div class="divider-horizontal"></div>
           </div>
           <div class="divider-vertical"></div>
