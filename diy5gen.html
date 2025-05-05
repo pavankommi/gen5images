@@ -119,9 +119,9 @@
 
     .airhandler-overlay {
       position: absolute;
-      top: -60%;
-      left: -5%;
-      width: 100%;
+      top: 38%;
+      left: 29%;
+      width: 60%;
       aspect-ratio: 2 / 1;
       background-image: url("./header-overlay-airhandler.png");
       background-size: 80% auto;
@@ -268,7 +268,6 @@
     .foreground-card {
       position: absolute;
       top: -40px;
-      left: 0;
       width: 66%;
       height: 532px;
       background-image: url("./video_screenshot.png");
@@ -280,28 +279,31 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       z-index: 2;
     }
-    .foreground-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 30px;
-}
 
-.polygon-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 131px;
-  height: 131px;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 65.5px; /* full circle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 6.08px 51.03px 0px rgba(0, 0, 0, 0.15);
-  padding: 0;
-}
+    .foreground-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+
+    .polygon-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 131px;
+      height: 131px;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border-radius: 65.5px;
+      /* full circle */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 6.08px 51.03px 0px rgba(0, 0, 0, 0.15);
+      padding: 0;
+    }
+
     .gradient-feature-wrapper {
       max-width: 1478px;
       margin: 0 auto;
@@ -1021,16 +1023,16 @@
       }
 
       .airhandler-overlay {
-        width: 100%;
+        width: 61%;
         left: 50%;
-        top: -23%;
+        top: 91%;
         transform: translateX(-50%) scale(1.5);
-        /* ⬅️ scales up cleanly */
         background-size: contain;
         background-position: top center;
         background-repeat: no-repeat;
         overflow: hidden;
         z-index: 5;
+        height: 128%;
       }
 
       .right-image {
@@ -1290,8 +1292,9 @@
       </div>
     </div>
 
+    <div class="airhandler-overlay"></div>
+
     <div class="right-image">
-      <div class="airhandler-overlay"></div>
       <div class="price-label">
         <div class="price-text">From $2,329</div>
         <a href="https://iwae.com/searchanise/result?q=diy&page=1&rb_manufacturer=MrCool&rb_series=DIY&rb_refrigerant=R-454b"
@@ -1306,7 +1309,7 @@
       <div class="polygon-button">
         <img src="Polygon 1.svg" alt="Play Icon" class="polygon-icon">
       </div>
-        </div>
+    </div>
     <div class="background-card">
       <div class="text-content">
         <h2>A DIY solution<br />for every home.</h2>
