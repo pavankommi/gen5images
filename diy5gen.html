@@ -117,24 +117,30 @@
       /* border-radius: 30px 0 0 30px; */
     }
 
+    .airhandler-wrapper {
+      position: relative;
+      height: 0;
+    }
+
     .airhandler-overlay {
       position: absolute;
-      top: 38%;
-      left: 29%;
-      width: 60%;
-      aspect-ratio: 2 / 1;
-      background-image: url("./header-overlay-airhandler.png");
-      background-size: 80% auto;
+      top: -18vw;
+      left: 30%;
+      width: 100%;
+      min-width: 950px;
+      aspect-ratio: 938.93 / 369.00;
+      background-image: url(./header-overlay-airhandler.png);
+      background-size: contain;
       background-repeat: no-repeat;
       background-position: top left;
-      z-index: 10;
+      z-index: 1;
     }
 
     .right-image {
       width: 66.66%;
       background-image: url("./remotecontrol.jpg");
       background-size: cover;
-      background-position: center;
+      background-repeat: no-repeat;
       aspect-ratio: 1478 / 952;
       border-radius: 30px;
       position: relative;
@@ -156,7 +162,7 @@
     }
 
     .price-text {
-      font-size: 16px;
+      font-size: 24.8px;
       font-weight: 500;
       margin-bottom: 8px;
     }
@@ -169,7 +175,7 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      font-size: 14px;
+      font-size: 16px;
       transition: background 0.3s ease;
     }
 
@@ -181,30 +187,49 @@
       width: 33.33%;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
+      align-items: end;
       box-sizing: border-box;
-      padding: 40px;
+      padding: 40px 30px;
+      margin-top: 10%;
+      flex-direction: column;
     }
 
     .info-box {
-      max-width: 280px;
+      width: 80%;
+      max-width: 300px;
       text-align: left;
+      align-content: center;
+      justify-content: end;
+      display: flex;
+      flex-direction: column;
     }
 
     .info-img {
       width: 100%;
+      max-width: 300px;
+      max-height: 200px;
       border: 2px solid #00629c;
+      aspect-ratio: 5 / 4;
       border-radius: 30px;
       padding: 8px;
+      align-content: center;
       box-sizing: border-box;
       margin-bottom: 16px;
+      background: url("./mc-diy-wmah-02-1000px_qwmw9l.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     .info-text {
-      font-size: 16px;
-      line-height: 1.5;
+      width: 100%;
+      max-width: 230px;
+      font-size: 22px;
       color: #333;
       margin-bottom: 16px;
+      padding-right: 10%;
+      padding-left: 10%;
+
     }
 
     .info-button {
@@ -215,9 +240,11 @@
       padding: 10px 20px;
       border-radius: 999px;
       font-weight: 500;
-      font-size: 14px;
+      font-size: 16px;
       transition: background 0.3s;
       align-self: flex-start;
+      margin-left: 9%;
+
     }
 
     .info-button:hover {
@@ -1012,27 +1039,9 @@
         flex-direction: column-reverse;
         max-width: 100%;
         padding: 0 12px;
+        margin-top: 0;
         /* margin-top: 40px; */
         box-sizing: border-box;
-      }
-
-      .left-content {
-        width: 100%;
-        padding: 20px 0;
-        justify-content: center;
-      }
-
-      .airhandler-overlay {
-        width: 61%;
-        left: 50%;
-        top: 91%;
-        transform: translateX(-50%) scale(1.5);
-        background-size: contain;
-        background-position: top center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        z-index: 5;
-        height: 128%;
       }
 
       .right-image {
@@ -1044,23 +1053,57 @@
         background-position: center;
       }
 
+      .airhandler-overlay {
+        width: 100%;
+        bottom: -20%;
+        left: 50%;
+        transform: translateX(-50%) scale(1.5);
+        background-position: center;
+        overflow: hidden;
+        z-index: 5;
+        aspect-ratio: 440.20/173.00;
+      }
+
       .left-content {
         width: 100%;
-        padding: 20px 0;
-        justify-content: flex-start;
+        max-width: 100%;
+        padding: 0;
+        justify-content: unset;
+        align-items: unset;
+        margin-top: 10%;
+        margin-bottom: 10%;
+
       }
 
       .info-box {
-        text-align: left;
         width: 100%;
-        max-width: none;
+        max-width: 100%;
+        height: 100%;
+        min-height: 244px;
+        box-sizing: border-box;
         text-align: left;
-        /* padding: 0 12px; */
-        /* box-sizing: border-box; */
+      }
+
+      .info-img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        min-height: 244px;
+        padding: 25%;
       }
 
       .info-text {
-        font-size: 15px;
+        font-size: 22px;
+        width: 100%;
+        max-width: 80%;
+        font-weight: 400;
+        line-height: 136.364%;
+        padding-left: 10%;
+        margin-left: auto;
+      }
+
+      .info-button {
+        margin-left: 10%;
       }
 
       /*video section */
@@ -1275,14 +1318,18 @@
       </div>
     </div>
   </div>
+  <div class="airhandler-wrapper">
+    <div class="airhandler-overlay"></div>
+  </div>
 
   <!-- ✅ IMAGE SECTION MATCHED -->
   <div class="image-split-section">
     <div class="left-content">
       <div class="info-box">
-        <img
+        <div class="info-img"></div>
+        <!-- <img
           src="https://raw.githubusercontent.com/pavankommi/gen5images/refs/heads/main/mc-diy-wmah-02-1000px_qwmw9l.webp"
-          alt="Wall Unit" class="info-img" />
+          alt="Wall Unit" class="info-img" /> -->
         <p class="info-text">
           Not sure if ductless systems are right for you? Explore the
           benefits.
@@ -1292,7 +1339,6 @@
       </div>
     </div>
 
-    <div class="airhandler-overlay"></div>
 
     <div class="right-image">
       <div class="price-label">
