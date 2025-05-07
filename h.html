@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>MrCool Hero Section</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        /* Reset Slick Specific Styles */
+        .slick-slider {
+            position: relative;
+            display: block;
+            padding: 60px 0;
+            overflow: hidden;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .slick-list {
+            position: relative;
+            display: block;
+            overflow: visible;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slick-track {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-shrink: 0;
+            padding: 30px 0;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .slick-slide {
+            float: none;
+            height: auto !important;
+            min-height: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Navigation Controls */
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 68px;
+            height: 68px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.8;
+        }
+
+        .carousel-nav-btn:hover {
+            opacity: 1;
+        }
+
+        .prev-btn {
+            left: 5%;
+        }
+
+        .next-btn {
+            right: 5%;
+        }
+
+        /* Header Styles */
+        .carousel-section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 500;
+            color: #0d1c37;
+            margin: 0 auto;
+        }
+
+        .carousel-description,
+        .mz-carousel-description {
+            text-align: center;
+            max-width: 68%;
+            margin: 0 auto;
+            padding: 10px 28px 40px 28px;
+            font-family: Poppins, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 27px;
+        }
+
+        .carousel-description {
+            color: #0d1c37;
+        }
+
+        .mz-carousel-description {
+            color: #fff;
+        }
+
+        /* MrCool DIY Heat Pump Section */
+        .hp-section {
+            background-color: #FFF;
+            padding: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            max-width: 1478px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0;
+        }
+
+        /* Heat Pump Cards */
+        .hp-card {
+            border-radius: 16px;
+            background: rgba(28, 142, 255, 0.52);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            padding: 5%;
+            margin: 0 2%;
+            height: 500px; /* Fixed height */
+        }
+
+        .hp-card-inner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+            height: 100%;
+        }
+
+        .hp-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 142, 255, 0.25);
+            z-index: 2;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .hp-card-image {
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+            aspect-ratio: 1/1;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: 10px auto 20px;
+        }
+
+        .hp-card-title {
+            color: #000;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            width: 80%;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .hp-card-price {
+            color: #1C8EFF;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .hp-card-link {
+            width: 160px;
+            height: 45px;
+            flex-shrink: 0;
+            border-radius: 100px;
+            background: #1C8EFF;
+            box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+            color: #FFF;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .hp-card-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Active Heat Pump Card Styles */
+        #heat-pump-carousel .slick-slide.slick-center .hp-card {
+            border-radius: 16px;
+            border: 2px solid #00629C;
+            background: #FFF;
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0px 4px 60px 0px rgba(13, 89, 239, 0.09);
+        }
+
+        #heat-pump-carousel .slick-slide.slick-center .hp-card-overlay {
+            opacity: 0;
+        }
+
+        #heat-pump-carousel .slick-slide.slick-center .hp-card-inner {
+            transform: scale(1.05);
+        }
+
+        #heat-pump-carousel .slick-slide.slick-center .hp-card-image {
+            width: 235px;
+            height: 235px;
+        }
+
+        #heat-pump-carousel .slick-slide.slick-center .hp-card-title {
+            color: #000;
+            font-size: 20px;
+            font-weight: 500;
+            width: 80%;
+            line-height: 29px;
+        }
+
+        #heat-pump-carousel .slick-slide.slick-center .hp-card-price {
+            color: #1C8EFF;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        #heat-pump-carousel .slick-slide.slick-center .hp-card-link {
+            width: 202px;
+            height: 55px;
+            background: #1C8EFF;
+        }
+
+        /* Multi Zone Section */
+        .mz-section {
+            background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+            padding: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .mz-section-heading {
+            color: #fff;
+            text-align: center;
+            font-family: Poppins, sans-serif;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 600;
+            margin: 0 auto;
+        }
+
+        /* Multi Zone Cards */
+        .mz-card {
+            border-radius: 16px;
+            background: rgba(28, 142, 255, 0.25);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            padding: 5%;
+            margin: 0 2%;
+        }
+
+        .mz-card-inner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mz-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 142, 255, 0.25);
+            z-index: 2;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .mz-card-image {
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+            aspect-ratio: 1/1;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: 10px auto 20px;
+        }
+
+        .mz-card-title {
+            color: #FFF;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.3;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .mz-card-price {
+            color: #FFF;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 29px;
+            margin-bottom: 10px;
+        }
+
+        .mz-card-link {
+            width: 160px;
+            height: 45px;
+            flex-shrink: 0;
+            border-radius: 100px;
+            background: #00629C;
+            box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+            color: #FFF;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .mz-card-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Active Multi Zone Card Styles */
+        #multi-zone-carousel .slick-slide.slick-center .mz-card {
+            /*max-width: 416px;*/
+            border-radius: 16px;
+            border: 2px solid #00629C;
+            background: rgba(255, 255, 255, 0.30);
+            transform: scale(1.1);
+        }
+
+        #multi-zone-carousel .slick-slide.slick-center .mz-card-overlay {
+            opacity: 0;
+        }
+
+        #multi-zone-carousel .slick-slide.slick-center .mz-card-inner {
+            transform: scale(1.05);
+        }
+
+        #multi-zone-carousel .slick-slide.slick-center .mz-card-image {
+            width: 235px;
+            height: 235px;
+        }
+
+        #multi-zone-carousel .slick-slide.slick-center .mz-card-title {
+            color: #FFF;
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        #multi-zone-carousel .slick-slide.slick-center .mz-card-price {
+            color: #FFF;
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+        #multi-zone-carousel .slick-slide.slick-center .mz-card-link {
+            width: 202px;
+            height: 55px;
+            background: #00629C;
+        }
+
+        /* Slick Dots Styling */
+        .slick-dots {
+            position: absolute;
+            bottom: -40px;
+            display: flex !important;
+            justify-content: center;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .slick-dots li {
+            position: relative;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .slick-dots li button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 12px;
+            height: 12px;
+            padding: 5px;
+            cursor: pointer;
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: rgba(28, 142, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        .slick-dots li.slick-active button {
+            background: #1C8EFF;
+        }
+
+        /* For MZ section, change dot colors */
+        .mz-section .slick-dots li button {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .mz-section .slick-dots li.slick-active button {
+            background: white;
+        }
+
+  </style>
+</head>
+<body>
+<!-- ✅Product card swipe  -->
+<div class="hp-section">
+    <h2 class="carousel-section-title">Pick the Perfect MrCool DIY for Your Space</h2>
+    <p class="carousel-description">
+        Every space is a little different. Whether your space is big or small,
+        we have the perfect MrCool DIY to fit your specific heating and cooling
+        needs. The unit comes standard with a 5 year parts and 7 year compressor
+        warranty. IWAE offers an additional 1 Year Extended Labor Warranty with
+        purchase of the DIY 5th Gen System.
+    </p>
+    <!-- Desktop/Tablet Carousel -->
+    <div class="carousel-container">
+        <div id="heat-pump-carousel" class="slick-slider">
+            <div class="slick-track">
+                <ul class="slick-list" id="heat-pump-list"></ul>
+            </div>
+            <button id="hp-prevBtn" class="carousel-nav-btn prev-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none">
+                    <circle cx="34" cy="34" r="33" fill="white" stroke="url(#paint0_linear_6325_305)"
+                            stroke-width="2"/>
+                    <path d="M37 22 L27 34 L37 46" stroke="#00629C" stroke-width="2" fill="none"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="paint0_linear_6325_305" x1="43.7537" y1="15.9545" x2="80.7115"
+                                        y2="37.2473" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#00629C"/>
+                            <stop offset="1" stop-color="#1C8EFF"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </button>
+            <button id="hp-nextBtn" class="carousel-nav-btn next-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none">
+                    <circle cx="34" cy="34" r="33" fill="white" stroke="url(#paint0_linear_6325_309)"
+                            stroke-width="2"/>
+                    <path d="M31 22 L41 34 L31 46" stroke="#00629C" stroke-width="2" fill="none"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="paint0_linear_6325_309" x1="43.7537" y1="15.9545" x2="80.7115"
+                                        y2="37.2473" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#00629C"/>
+                            <stop offset="1" stop-color="#1C8EFF"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="mz-section">
+    <div class="container">
+        <h2 class="mz-section-heading">Need an Option for Multiple Rooms?</h2>
+        <p class="mz-carousel-description">
+            Check out the NEW MrCool DIY Multi-Zone Systems
+        </p>
+
+        <!-- Desktop/Tablet Carousel -->
+        <div class="carousel-container">
+            <div id="multi-zone-carousel" class="slick-slider">
+                <div class="slick-track">
+                    <ul class="slick-list" id="multi-zone-list"></ul>
+                </div>
+                <button id="mz-prevBtn" class="carousel-nav-btn prev-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68"
+                         fill="none">
+                        <circle cx="34" cy="34" r="33" fill="white" stroke="url(#paint0_linear_6325_305)"
+                                stroke-width="2"/>
+                        <path d="M37 22 L27 34 L37 46" stroke="#00629C" stroke-width="2" fill="none"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="paint0_linear_6325_305" x1="43.7537" y1="15.9545" x2="80.7115"
+                                            y2="37.2473" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#00629C"/>
+                                <stop offset="1" stop-color="#1C8EFF"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </button>
+
+                <button id="mz-nextBtn" class="carousel-nav-btn next-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68"
+                         fill="none">
+                        <circle cx="34" cy="34" r="33" fill="white" stroke="url(#paint0_linear_6325_309)"
+                                stroke-width="2"/>
+                        <path d="M31 22 L41 34 L31 46" stroke="#00629C" stroke-width="2" fill="none"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="paint0_linear_6325_309" x1="43.7537" y1="15.9545" x2="80.7115"
+                                            y2="37.2473" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#00629C"/>
+                                <stop offset="1" stop-color="#1C8EFF"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Product Grid -->
+    <div class="mobile-product-grid" id="multiZoneMobileGrid">
+        <!-- Mobile products will be added by JavaScript -->
+    </div>
+</div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+//     // Product data for standard products
+//     const heatPumpProducts = [
+//         {
+//             id: 0,
+//             title:
+//                 "9k BTU 23.6 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+//             price: "$2,329.00",
+//             image: "./9k-12k-18k.jpg", // Replace with actual image path
+//             link: "https://iwae.com/shop/9k-btu-23-6-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26231.html"
+//         },
+//         {
+//             id: 1,
+//             title:
+//                 "12k BTU 23.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+//             price: "$2,359.00",
+//             image: "{{media url=&quot;wysiwyg/9k-12k-18k.jpg&quot;}}", // Replace with actual image path
+//             link: "https://iwae.com/shop/12k-btu-23-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26232.html"
+//         },
+//         {
+//             id: 2,
+//             title:
+//                 "18k BTU 22.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+//             price: "$2,499.00",
+//             image: "{{media url=&quot;wysiwyg/9k-12k-18k.jpg&quot;}}", // Replace with actual image path
+//             link: "https://iwae.com/shop/18k-btu-22-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26233.html"
+//         },
+//         {
+//             id: 3,
+//             title:
+//                 "24k BTU 21.0 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+//             price: "$2,699.00",
+//             image: "{{media url=&quot;wysiwyg/24k-36k.jpg&quot;}}", // Replace with actual image path
+//             link: "https://iwae.com/shop/24k-btu-22-7-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26234.html"
+//         },
+//         {
+//             id: 4,
+//             title:
+//                 "36k BTU 18 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+//             price: "$3,299.00",
+//             image: "{{media url=&quot;wysiwyg/24k-36k.jpg&quot;}}", // Replace with actual image path
+//             link: "https://iwae.com/shop/36k-btu-18-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26235.html"
+//         },
+//     ];
+//
+//
+//     // Product data for multi-zone systems
+//     const multiZoneProducts = [
+//         {
+//             id: 0,
+//             title: "2 Zone",
+//             price: "As Low As $2,545",
+//             image: "{{media url=&quot;wysiwyg/ha-ductless-split-system-dual-zone.png&quot;}}", // Replace with actual image path
+//             link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/dual-zone/?series=518"
+//         },
+//         {
+//             id: 1,
+//             title: "3 Zone",
+//             price: "As Low As $2,736",
+//             image: "{{media url=&quot;wysiwyg/ha-ductless-split-system-triple-zone.png&quot;}}", // Replace with actual image path
+//             link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/triple-zone/?series=518"
+//         },
+//         {
+//             id: 2,
+//             title: "4 Zone",
+//             price: "As Low As $3,438",
+//             image: "{{media url=&quot;wysiwyg/ha-ductless-split-system-quad-zone.png&quot;}}", // Replace with actual image path
+//             link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/quad-zone/?series=518"
+//         },
+//         {
+//             id: 3,
+//             title: "5 Zone",
+//             price: "As Low As $4,189",
+//             image: "{{media url=&quot;wysiwyg/ha-ductless-split-system-five-zone.png&quot;}}", // Replace with actual image path
+//             link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/five-zone/?series=518"
+//         },
+//     ];
+//
+//     // Function to check if we're on mobile
+//     function isMobileView() {
+//         return window.innerWidth <= 768;
+//
+// // Function to create mobile grid layout
+//         function createMobileGrid(productArray, containerId, cardPrefix) {
+//             const container = document.getElementById(containerId);
+//             if (!container) {
+//                 console.error(`Container with ID ${containerId} not found`);
+//                 return;
+//             }
+//             console.log("cardPrefix", cardPrefix)
+// // Get the parent element that contains the Splide container
+//             const parentSection = container.closest(`.${cardPrefix}-section`);
+//
+// // Create and append the grid container directly to the section
+//             const gridContainer = document.createElement('div');
+//             gridContainer.className = 'mobile-grid';
+//             parentSection.appendChild(gridContainer);
+//
+// // Add products to the grid
+//             productArray.forEach(product => {
+//                 const cardDiv = document.createElement('div');
+//                 cardDiv.className = `${cardPrefix}-card`;
+//                 cardDiv.innerHTML = `
+// <div class="${cardPrefix}-card-inner">
+//     <div class="${cardPrefix}-card-image" style="background-image: url('${product.image}')"></div>
+//     <div class="${cardPrefix}-card-title">${product.title}</div>
+//     <div class="${cardPrefix}-card-price">${product.price}</div>
+//     <a href="${product.link}" class="${cardPrefix}-card-link" target="_blank">Shop Now</a>
+// </div>
+// `;
+//                 gridContainer.appendChild(cardDiv);
+//             });
+//         }
+//
+//     }
+//     // Initialize carousels
+//     function initCarousels() {
+//         if (typeof jQuery === 'undefined' || typeof jQuery.fn.slick === 'undefined') {
+//             console.error('jQuery or Slick not loaded properly');
+//             return;
+//         }
+//
+//         // require(['jquery', 'slick'], function ($) {
+//         if (isMobileView()) {
+//             console.log("Mobile view detected - initializing grid layout");
+//             // Create mobile grid layouts
+//             $('.slick-slider').hide(); // Hide the carousel containers
+//
+//             // Clear any previous mobile grids
+//             $('.mobile-grid').remove();
+//
+//             createMobileGrid(heatPumpProducts, 'heat-pump-carousel', 'hp');
+//             createMobileGrid(multiZoneProducts, 'multi-zone-carousel', 'mz');
+//         } else {
+//             console.log("Desktop view detected - initializing carousels with Slick");
+//             // Hide any mobile grids
+//             $('.mobile-grid').hide();
+//             $('.slick-slider').show();
+//             // Populate the heat pump carousel
+//             const heatPumpList = $('#heat-pump-list');
+//             heatPumpList.html(''); // Clear first
+//
+//             heatPumpProducts.forEach(product => {
+//                 heatPumpList.append(`
+//                     <li class="slick-slide">
+//                         <div class="hp-card">
+//                             <div class="hp-card-overlay"></div>
+//                             <div class="hp-card-inner">
+//                                 <div class="hp-card-image" style="background-image: url('${product.image}')"></div>
+//                                 <div class="hp-card-title">${product.title}</div>
+//                                 <div class="hp-card-price">${product.price}</div>
+//                                 <a href="${product.link}" class="hp-card-link" target="_blank">Shop Now</a>
+//                             </div>
+//                         </div>
+//                     </li>
+//                 `);
+//             });
+//
+//             // Populate the multi-zone carousel
+//             const multiZoneList = $('#multi-zone-list');
+//             multiZoneList.html(''); // Clear first
+//
+//             multiZoneProducts.forEach(product => {
+//                 multiZoneList.append(`
+//                     <li class="slick-slide">
+//                         <div class="mz-card">
+//                             <div class="mz-card-overlay"></div>
+//                             <div class="mz-card-inner">
+//                                 <div class="mz-card-image" style="background-image: url('${product.image}')"></div>
+//                                 <div class="mz-card-title">${product.title}</div>
+//                                 <div class="mz-card-price">${product.price}</div>
+//                                 <a href="${product.link}" class="mz-card-link" target="_blank">Shop Now</a>
+//                             </div>
+//                         </div>
+//                     </li>
+//                 `);
+//             });
+// // Destroy any existing slick instances first
+//             if (heatPumpList.hasClass('slick-initialized')) {
+//                 heatPumpList.slick('unslick');
+//             }
+//
+//             if (multiZoneList.hasClass('slick-initialized')) {
+//                 multiZoneList.slick('unslick');
+//             }
+//             // Initialize heat pump carousel with Slick
+//             $('#heat-pump-list').slick({
+//                 infinite: true,
+//                 slidesToShow: 3,
+//                 slidesToScroll: 1,
+//                 centerMode: true,
+//                 focusOnSelect: false,
+//                 dots: true,
+//                 arrows: true,
+//                 prevArrow: $('#hp-prevBtn'),
+//                 nextArrow: $('#hp-nextBtn'),
+//                 responsive: [
+//                     {
+//                         breakpoint: 1300,
+//                         settings: {
+//                             slidesToShow: 3,
+//                         }
+//                     },
+//                     {
+//                         breakpoint: 1082,
+//                         settings: {
+//                             slidesToShow: 3,
+//                         }
+//                     },
+//                     {
+//                         breakpoint: 991,
+//                         settings: {
+//                             slidesToShow: 3,
+//                         }
+//                     }
+//                 ]
+//             }).on('setPosition', function (event, slick) {
+//                 const $slideElements = slick.$slideTrack.find('.slick-slide');
+//                 $slideElements.height('auto');
+//                 const elementHeights = $slideElements.map(function() {
+//                     return $(this).height();
+//                 }).get();
+//                 const maxHeight = Math.max.apply(null, elementHeights);
+//                 $slideElements.height(maxHeight);
+//             });
+//
+//             // Initialize multi-zone carousel with Slick
+//             $('#multi-zone-list').slick({
+//                 infinite: true,
+//                 slidesToShow: 3,
+//                 slidesToScroll: 1,
+//                 centerMode: true,
+//                 focusOnSelect: true,
+//                 dots: true,
+//                 arrows: true,
+//                 prevArrow: $('#mz-prevBtn'),
+//                 nextArrow: $('#mz-nextBtn'),
+//                 responsive: [
+//                     {
+//                         breakpoint: 1300,
+//                         settings: {
+//                             slidesToShow: 2.5
+//                         }
+//                     },
+//                     {
+//                         breakpoint: 1082,
+//                         settings: {
+//                             slidesToShow: 2
+//                         }
+//                     },
+//                     {
+//                         breakpoint: 991,
+//                         settings: {
+//                             slidesToShow: 1.5
+//                         }
+//                     }
+//                 ]
+//             });
+//         }
+//         // });
+//     }
+//
+//
+//     let player;
+//     let playButton;
+//
+//     function onYouTubeIframeAPIReady() {
+//         player = new YT.Player('ytPlayer', {
+//             events: {
+//                 'onReady': onPlayerReady,
+//                 'onStateChange': onPlayerStateChange
+//             }
+//         });
+//     }
+//
+//     function onPlayerReady(event) {
+//         playButton = document.getElementById('playButton');
+//
+//         if (playButton) {
+//             playButton.addEventListener('click', function () {
+//                 event.target.playVideo();
+//                 playButton.style.display = 'none';
+//             });
+//         }
+//     }
+//
+//     function onPlayerStateChange(event) {
+//         if (!playButton) return;
+//
+//         // Show button when paused
+//         if (event.data === YT.PlayerState.PAUSED) {
+//             playButton.style.display = 'flex';
+//         }
+//         // Hide button when playing
+//         else if (event.data === YT.PlayerState.PLAYING) {
+//             playButton.style.display = 'none';
+//         }
+//     }
+//
+//     // Initialize everything when DOM is ready
+//     document.addEventListener('DOMContentLoaded', function() {
+//         // Wait a moment to ensure libraries are loaded
+//         setTimeout(function() {
+//             initCarousels();
+//
+//             // Set up play button reference for video
+//             if (window.YT && YT.loaded) {
+//                 onYouTubeIframeAPIReady();
+//             }
+//
+//             // Handle window resize with debounce
+//             let resizeTimer;
+//             window.addEventListener('resize', function() {
+//                 clearTimeout(resizeTimer);
+//                 resizeTimer = setTimeout(initCarousels, 250);
+//             });
+//         }, 500); // 500ms delay to ensure everything is loaded
+//     });
+
+
+// Product data for standard products
+const heatPumpProducts = [
+    {
+        id: 0,
+        title: "9k BTU 23.6 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$2,329.00",
+        image: "./9k-12k-18k.jpg", // Update with actual image path
+        link: "https://iwae.com/shop/9k-btu-23-6-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26231.html"
+    },
+    {
+        id: 1,
+        title: "12k BTU 23.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$2,359.00",
+        image: "./9k-12k-18k.jpg", // Update with actual image path
+        link: "https://iwae.com/shop/12k-btu-23-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26232.html"
+    },
+    {
+        id: 2,
+        title: "18k BTU 22.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$2,499.00",
+        image: "./9k-12k-18k.jpg", // Update with actual image path
+        link: "https://iwae.com/shop/18k-btu-22-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26233.html"
+    },
+    {
+        id: 3,
+        title: "24k BTU 21.0 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$2,699.00",
+        image: "./24k-36k.jpg", // Update with actual image path
+        link: "https://iwae.com/shop/24k-btu-22-7-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26234.html"
+    },
+    {
+        id: 4,
+        title: "36k BTU 18 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+        price: "$3,299.00",
+        image: "./24k-36k.jpg", // Update with actual image path
+        link: "https://iwae.com/shop/36k-btu-18-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26235.html"
+    },
+];
+
+// Product data for multi-zone systems
+const multiZoneProducts = [
+    {
+        id: 0,
+        title: "2 Zone",
+        price: "As Low As $2,545",
+        image: "./ha-ductless-split-system-dual-zone.png", // Update with actual image path
+        link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/dual-zone/?series=518"
+    },
+    {
+        id: 1,
+        title: "3 Zone",
+        price: "As Low As $2,736",
+        image: "./ha-ductless-split-system-triple-zone.png", // Update with actual image path
+        link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/triple-zone/?series=518"
+    },
+    {
+        id: 2,
+        title: "4 Zone",
+        price: "As Low As $3,438",
+        image: "./ha-ductless-split-system-quad-zone.png", // Update with actual image path
+        link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/quad-zone/?series=518"
+    },
+    {
+        id: 3,
+        title: "5 Zone",
+        price: "As Low As $4,189",
+        image: "./ha-ductless-split-system-five-zone.png", // Update with actual image path
+        link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/five-zone/?series=518"
+    },
+];
+
+// Function to check if we're on mobile
+function isMobileView() {
+    return window.innerWidth <= 768;
+}
+
+// Function to create mobile grid layout
+function createMobileGrid(productArray, containerId, cardPrefix) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Container with ID ${containerId} not found`);
+        return;
+    }
+
+    // Get the parent element that contains the Slick container
+    const parentSection = container.closest(`.${cardPrefix}-section`);
+
+    // Find or create mobile grid container
+    let gridContainer = parentSection.querySelector('.mobile-product-grid');
+    if (!gridContainer) {
+        gridContainer = document.createElement('div');
+        gridContainer.className = 'mobile-product-grid';
+        gridContainer.id = `${cardPrefix}MobileGrid`;
+        parentSection.appendChild(gridContainer);
+    }
+
+    // Clear existing content
+    gridContainer.innerHTML = '';
+
+    // Add products to the grid
+    productArray.forEach(product => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = `${cardPrefix}-card`;
+        cardDiv.innerHTML = `
+            <div class="${cardPrefix}-card-inner">
+                <div class="${cardPrefix}-card-image" style="background-image: url('${product.image}')"></div>
+                <div class="${cardPrefix}-card-title">${product.title}</div>
+                <div class="${cardPrefix}-card-price">${product.price}</div>
+                <a href="${product.link}" class="${cardPrefix}-card-link" target="_blank">Shop Now</a>
+            </div>
+        `;
+        gridContainer.appendChild(cardDiv);
+    });
+
+    gridContainer.style.display = 'flex';
+}
+
+// Initialize carousels
+function initCarousels() {
+    if (typeof jQuery === 'undefined' || typeof jQuery.fn.slick === 'undefined') {
+        console.error('jQuery or Slick not loaded properly');
+        return;
+    }
+
+    const $ = jQuery;
+
+    if (isMobileView()) {
+        console.log("Mobile view detected - initializing grid layout");
+        // Hide slick containers and show mobile grid
+        $('.slick-slider').hide();
+
+        // Create mobile grid layouts
+        createMobileGrid(heatPumpProducts, 'heat-pump-carousel', 'hp');
+        createMobileGrid(multiZoneProducts, 'multi-zone-carousel', 'mz');
+    } else {
+        console.log("Desktop view detected - initializing carousels with Slick");
+        // Hide mobile grids and show slick containers
+        $('.mobile-product-grid').hide();
+        $('.slick-slider').show();
+
+        // Populate the heat pump carousel
+        const heatPumpList = $('#heat-pump-list');
+        heatPumpList.html(''); // Clear first
+
+        heatPumpProducts.forEach(product => {
+            heatPumpList.append(`
+                <li class="slick-slide">
+                    <div class="hp-card">
+                        <div class="hp-card-overlay"></div>
+                        <div class="hp-card-inner">
+                            <div class="hp-card-image" style="background-image: url('${product.image}')"></div>
+                            <div class="hp-card-title">${product.title}</div>
+                            <div class="hp-card-price">${product.price}</div>
+                            <a href="${product.link}" class="hp-card-link" target="_blank">Shop Now</a>
+                        </div>
+                    </div>
+                </li>
+            `);
+        });
+
+        // Populate the multi-zone carousel
+        const multiZoneList = $('#multi-zone-list');
+        multiZoneList.html(''); // Clear first
+
+        multiZoneProducts.forEach(product => {
+            multiZoneList.append(`
+                <li class="slick-slide">
+                    <div class="mz-card">
+                        <div class="mz-card-overlay"></div>
+                        <div class="mz-card-inner">
+                            <div class="mz-card-image" style="background-image: url('${product.image}')"></div>
+                            <div class="mz-card-title">${product.title}</div>
+                            <div class="mz-card-price">${product.price}</div>
+                            <a href="${product.link}" class="mz-card-link" target="_blank">Shop Now</a>
+                        </div>
+                    </div>
+                </li>
+            `);
+        });
+
+        // Destroy any existing slick instances first
+        if (heatPumpList.hasClass('slick-initialized')) {
+            heatPumpList.slick('unslick');
+        }
+
+        if (multiZoneList.hasClass('slick-initialized')) {
+            multiZoneList.slick('unslick');
+        }
+
+        // Initialize heat pump carousel with Slick
+        $('#heat-pump-list').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            focusOnSelect: false,
+            dots: true,
+            arrows: true,
+            prevArrow: $('#hp-prevBtn'),
+            nextArrow: $('#hp-nextBtn'),
+            responsive: [
+                {
+                    breakpoint: 1300,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 1082,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+
+        // Initialize multi-zone carousel with Slick
+        $('#multi-zone-list').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            focusOnSelect: true,
+            dots: true,
+            arrows: true,
+            prevArrow: $('#mz-prevBtn'),
+            nextArrow: $('#mz-nextBtn'),
+            responsive: [
+                {
+                    breakpoint: 1300,
+                    settings: {
+                        slidesToShow: 2.5
+                    }
+                },
+                {
+                    breakpoint: 1082,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: 1.5
+                    }
+                }
+            ]
+        });
+    }
+}
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a moment to ensure libraries are loaded
+    setTimeout(function() {
+        initCarousels();
+
+        // Handle window resize with debounce
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(initCarousels, 250);
+        });
+    }, 500); // 500ms delay to ensure everything is loaded
+});
+</script>
+
+<!--console.log('jQuery:', typeof jQuery);-->
+<!--console.log('Slick:', typeof $.fn.slick);-->
+
+
+<!--<script>-->
+<!--    // Product data for standard products-->
+<!--    const heatPumpProducts = [-->
+<!--        {-->
+<!--            id: 0,-->
+<!--            title:-->
+<!--                "9k BTU 23.6 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",-->
+<!--            price: "$2,329.00",-->
+<!--            image: "{{media url=&quot;wysiwyg/9k-12k-18k.jpg&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/9k-btu-23-6-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26231.html"-->
+<!--        },-->
+<!--        {-->
+<!--            id: 1,-->
+<!--            title:-->
+<!--                "12k BTU 23.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",-->
+<!--            price: "$2,359.00",-->
+<!--            image: "{{media url=&quot;wysiwyg/9k-12k-18k.jpg&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/12k-btu-23-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26232.html"-->
+<!--        },-->
+<!--        {-->
+<!--            id: 2,-->
+<!--            title:-->
+<!--                "18k BTU 22.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",-->
+<!--            price: "$2,499.00",-->
+<!--            image: "{{media url=&quot;wysiwyg/9k-12k-18k.jpg&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/18k-btu-22-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26233.html"-->
+<!--        },-->
+<!--        {-->
+<!--            id: 3,-->
+<!--            title:-->
+<!--                "24k BTU 21.0 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",-->
+<!--            price: "$2,699.00",-->
+<!--            image: "{{media url=&quot;wysiwyg/24k-36k.jpg&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/24k-btu-22-7-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26234.html"-->
+<!--        },-->
+<!--        {-->
+<!--            id: 4,-->
+<!--            title:-->
+<!--                "36k BTU 18 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",-->
+<!--            price: "$3,299.00",-->
+<!--            image: "{{media url=&quot;wysiwyg/24k-36k.jpg&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/36k-btu-18-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26235.html"-->
+<!--        },-->
+<!--    ];-->
+
+
+<!--    // Product data for multi-zone systems-->
+<!--    const multiZoneProducts = [-->
+<!--        {-->
+<!--            id: 0,-->
+<!--            title: "2 Zone",-->
+<!--            price: "As Low As $2,545",-->
+<!--            image: "{{media url=&quot;wysiwyg/ha-ductless-split-system-dual-zone.png&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/dual-zone/?series=518"-->
+<!--        },-->
+<!--        {-->
+<!--            id: 1,-->
+<!--            title: "3 Zone",-->
+<!--            price: "As Low As $2,736",-->
+<!--            image: "{{media url=&quot;wysiwyg/ha-ductless-split-system-triple-zone.png&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/triple-zone/?series=518"-->
+<!--        },-->
+<!--        {-->
+<!--            id: 2,-->
+<!--            title: "4 Zone",-->
+<!--            price: "As Low As $3,438",-->
+<!--            image: "{{media url=&quot;wysiwyg/ha-ductless-split-system-quad-zone.png&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/quad-zone/?series=518"-->
+<!--        },-->
+<!--        {-->
+<!--            id: 3,-->
+<!--            title: "5 Zone",-->
+<!--            price: "As Low As $4,189",-->
+<!--            image: "{{media url=&quot;wysiwyg/ha-ductless-split-system-five-zone.png&quot;}}", // Replace with actual image path-->
+<!--            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/five-zone/?series=518"-->
+<!--        },-->
+<!--    ];-->
+
+<!--    // Function to check if we're on mobile-->
+<!--    function isMobileView() {-->
+<!--        return window.innerWidth <= 768;-->
+
+<!--// Function to create mobile grid layout-->
+<!--        function createMobileGrid(productArray, containerId, cardPrefix) {-->
+<!--            const container = document.getElementById(containerId);-->
+<!--            if (!container) {-->
+<!--                console.error(`Container with ID ${containerId} not found`);-->
+<!--                return;-->
+<!--            }-->
+<!--            console.log("cardPrefix", cardPrefix)-->
+<!--// Get the parent element that contains the Splide container-->
+<!--            const parentSection = container.closest(`.${cardPrefix}-section`);-->
+
+<!--// Create and append the grid container directly to the section-->
+<!--            const gridContainer = document.createElement('div');-->
+<!--            gridContainer.className = 'mobile-grid';-->
+<!--            parentSection.appendChild(gridContainer);-->
+
+<!--// Add products to the grid-->
+<!--            productArray.forEach(product => {-->
+<!--                const cardDiv = document.createElement('div');-->
+<!--                cardDiv.className = `${cardPrefix}-card`;-->
+<!--                cardDiv.innerHTML = `-->
+<!--<div class="${cardPrefix}-card-inner">-->
+<!--    <div class="${cardPrefix}-card-image" style="background-image: url('${product.image}')"></div>-->
+<!--    <div class="${cardPrefix}-card-title">${product.title}</div>-->
+<!--    <div class="${cardPrefix}-card-price">${product.price}</div>-->
+<!--    <a href="${product.link}" class="${cardPrefix}-card-link" target="_blank">Shop Now</a>-->
+<!--</div>-->
+<!--`;-->
+<!--                gridContainer.appendChild(cardDiv);-->
+<!--            });-->
+<!--        }-->
+
+<!--    }-->
+<!--    // Initialize carousels-->
+<!--    function initCarousels() {-->
+<!--        require(['jquery', 'slick'], function ($) {-->
+<!--            if (isMobileView()) {-->
+<!--                console.log("Mobile view detected - initializing grid layout");-->
+<!--                // Create mobile grid layouts-->
+<!--                $('.slick-slider').hide(); // Hide the carousel containers-->
+
+<!--                createMobileGrid(heatPumpProducts, 'heat-pump-carousel', 'hp');-->
+<!--                createMobileGrid(multiZoneProducts, 'multi-zone-carousel', 'mz');-->
+<!--            } else {-->
+<!--                console.log("Desktop view detected - initializing carousels with Slick");-->
+
+<!--                // Populate the heat pump carousel-->
+<!--                const heatPumpList = $('#heat-pump-list');-->
+<!--                heatPumpList.html(''); // Clear first-->
+
+<!--                heatPumpProducts.forEach(product => {-->
+<!--                    heatPumpList.append(`-->
+<!--                    <li class="slick-slide">-->
+<!--                        <div class="hp-card">-->
+<!--                            <div class="hp-card-overlay"></div>-->
+<!--                            <div class="hp-card-inner">-->
+<!--                                <div class="hp-card-image" style="background-image: url('${product.image}')"></div>-->
+<!--                                <div class="hp-card-title">${product.title}</div>-->
+<!--                                <div class="hp-card-price">${product.price}</div>-->
+<!--                                <a href="${product.link}" class="hp-card-link" target="_blank">Shop Now</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                `);-->
+<!--                });-->
+
+<!--                // Populate the multi-zone carousel-->
+<!--                const multiZoneList = $('#multi-zone-list');-->
+<!--                multiZoneList.html(''); // Clear first-->
+
+<!--                multiZoneProducts.forEach(product => {-->
+<!--                    multiZoneList.append(`-->
+<!--                    <li class="slick-slide">-->
+<!--                        <div class="mz-card">-->
+<!--                            <div class="mz-card-overlay"></div>-->
+<!--                            <div class="mz-card-inner">-->
+<!--                                <div class="mz-card-image" style="background-image: url('${product.image}')"></div>-->
+<!--                                <div class="mz-card-title">${product.title}</div>-->
+<!--                                <div class="mz-card-price">${product.price}</div>-->
+<!--                                <a href="${product.link}" class="mz-card-link" target="_blank">Shop Now</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                `);-->
+<!--                });-->
+
+<!--                // Initialize heat pump carousel with Slick-->
+<!--                $('#heat-pump-list').slick({-->
+<!--                    infinite: true,-->
+<!--                    slidesToShow: 3,-->
+<!--                    slidesToScroll: 1,-->
+<!--                    centerMode: true,-->
+<!--                    centerPadding: '0px',-->
+<!--                    focusOnSelect: false,-->
+<!--                    dots: true,-->
+<!--                    arrows: true,-->
+<!--                    prevArrow: $('#hp-prevBtn'),-->
+<!--                    nextArrow: $('#hp-nextBtn'),-->
+<!--                    responsive: [-->
+<!--                        {-->
+<!--                            breakpoint: 1300,-->
+<!--                            settings: {-->
+<!--                                slidesToShow: 3,-->
+<!--                                centerPadding: '0px'-->
+<!--                            }-->
+<!--                        },-->
+<!--                        {-->
+<!--                            breakpoint: 1082,-->
+<!--                            settings: {-->
+<!--                                slidesToShow: 3,-->
+<!--                                centerPadding: '0px'-->
+<!--                            }-->
+<!--                        },-->
+<!--                        {-->
+<!--                            breakpoint: 991,-->
+<!--                            settings: {-->
+<!--                                slidesToShow: 3,-->
+<!--                                centerPadding: '0px'-->
+<!--                            }-->
+<!--                        },-->
+<!--                        {-->
+<!--                            breakpoint: 768,-->
+<!--                            settings: {-->
+<!--                                slidesToShow: 1,-->
+<!--                                centerPadding: '100px',-->
+<!--                                arrows: false-->
+<!--                            }-->
+<!--                        }-->
+<!--                    ]-->
+<!--                });-->
+
+<!--                // Initialize multi-zone carousel with Slick-->
+<!--                $('#multi-zone-list').slick({-->
+<!--                    infinite: true,-->
+<!--                    slidesToShow: 3,-->
+<!--                    slidesToScroll: 1,-->
+<!--                    centerMode: true,-->
+<!--                    focusOnSelect: true,-->
+<!--                    dots: true,-->
+<!--                    arrows: true,-->
+<!--                    prevArrow: $('#mz-prevBtn'),-->
+<!--                    nextArrow: $('#mz-nextBtn'),-->
+<!--                    responsive: [-->
+<!--                        {-->
+<!--                            breakpoint: 1300,-->
+<!--                            settings: {-->
+<!--                                slidesToShow: 2.5-->
+<!--                            }-->
+<!--                        },-->
+<!--                        {-->
+<!--                            breakpoint: 1082,-->
+<!--                            settings: {-->
+<!--                                slidesToShow: 2-->
+<!--                            }-->
+<!--                        },-->
+<!--                        {-->
+<!--                            breakpoint: 991,-->
+<!--                            settings: {-->
+<!--                                slidesToShow: 1.5-->
+<!--                            }-->
+<!--                        },-->
+<!--                        {-->
+<!--                            breakpoint: 768,-->
+<!--                            settings: {-->
+<!--                                slidesToShow: 1.2,-->
+<!--                                arrows: false-->
+<!--                            }-->
+<!--                        }-->
+<!--                    ]-->
+<!--                });-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+
+
+<!--    let player;-->
+<!--    let playButton;-->
+
+<!--    function onYouTubeIframeAPIReady() {-->
+<!--        player = new YT.Player('ytPlayer', {-->
+<!--            events: {-->
+<!--                'onReady': onPlayerReady,-->
+<!--                'onStateChange': onPlayerStateChange-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+
+<!--    function onPlayerReady(event) {-->
+<!--        playButton = document.getElementById('playButton');-->
+
+<!--        if (playButton) {-->
+<!--            playButton.addEventListener('click', function () {-->
+<!--                event.target.playVideo();-->
+<!--                playButton.style.display = 'none';-->
+<!--            });-->
+<!--        }-->
+<!--    }-->
+
+<!--    function onPlayerStateChange(event) {-->
+<!--        if (!playButton) return;-->
+
+<!--        // Show button when paused-->
+<!--        if (event.data === YT.PlayerState.PAUSED) {-->
+<!--            playButton.style.display = 'flex';-->
+<!--        }-->
+<!--        // Hide button when playing-->
+<!--        else if (event.data === YT.PlayerState.PLAYING) {-->
+<!--            playButton.style.display = 'none';-->
+<!--        }-->
+<!--    }-->
+
+<!--    document.addEventListener('DOMContentLoaded', function () {-->
+<!--        initCarousels();-->
+
+<!--        // If API loaded before our code-->
+<!--        if (window.YT && YT.loaded) {-->
+<!--            onYouTubeIframeAPIReady();-->
+<!--        }-->
+
+<!--        // Set up play button reference-->
+<!--        playButton = document.getElementById('playButton');-->
+<!--        // Handle window resize with debounce-->
+<!--        let resizeTimer;-->
+<!--        window.addEventListener('resize', function () {-->
+<!--            clearTimeout(resizeTimer);-->
+<!--            resizeTimer = setTimeout(initCarousels, 250);-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
