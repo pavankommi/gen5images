@@ -440,6 +440,7 @@
             font-size: 40px;
             font-weight: 500;
             color: #0d1c37;
+            padding: 0 20%;
             margin: 0 auto;
         }
 
@@ -454,10 +455,13 @@
             color: #0d1c37;
         }
 
+        .carousel-wrapper {
+            transform: translateX(-46px);
+        }
+
         .diy-ductless-hp-carousel {
             display: flex;
             transition: transform 0.5s ease;
-
         }
 
         .diy-ductless-hp-card {
@@ -533,7 +537,7 @@
         .diy-ductless-hp-card h2 {
             font-size: 18px;
             color: #000;
-            height:auto;
+            height: auto;
             padding: 0 25px;
             line-height: 1.3;
             font-weight: 500;
@@ -567,7 +571,7 @@
 
         .diy-ductless-hp-nav-button {
             position: absolute;
-            top: 55%;
+            top: 40%;
             width: 40px;
             height: 40px;
             background-color: white;
@@ -653,6 +657,7 @@
         .mz-systems-title {
             text-align: center;
             font-size: 40px;
+            padding: 0 20%;
             font-weight: 500;
             color: #fff;
             margin: 0 auto;
@@ -669,6 +674,7 @@
             color: #fff
         }
 
+
         .mz-systems-carousel {
             display: flex;
             transition: transform 0.5s ease;
@@ -676,11 +682,11 @@
 
         .mz-systems-card {
             flex: 0 0 calc(25% - 20px);
-            height: 380px;
+            height: 440px;
             margin: 10px;
             background: rgba(255, 255, 255, 0.30);
             backdrop-filter: blur(5px);
-            border-radius: 10px;
+            border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
@@ -693,7 +699,7 @@
             transform: scale(0.9);
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 10px;
+            padding: 20px 10px 10px;
 
         }
 
@@ -716,6 +722,8 @@
             width: 100%;
             height: 100%;
             max-height: 380px;
+            max-width: 450px;
+            margin-top: 15%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -740,15 +748,15 @@
         }
 
         .mz-systems-card-image img {
-            max-width: 160px;
-            max-height: 160px;
+            max-width: 240px;
+            max-height: 240px;
             object-fit: contain;
         }
 
         .mz-systems-card h2 {
             font-size: 24px;
             color: #fff;
-            height:auto;
+            height: auto;
             line-height: 1.3;
             font-weight: 600;
             overflow: hidden;
@@ -762,7 +770,7 @@
         }
 
         .mz-systems-shop-now-btn {
-            background-color: #1C8EFF;
+            background: #00629C;
             color: white;
             border: none;
             border-radius: 100px;
@@ -776,12 +784,12 @@
         }
 
         .mz-systems-shop-now-btn:hover {
-            background-color: #2460D8;
+            background: #00629C;
         }
 
         .mz-systems-nav-button {
             position: absolute;
-            top: 55%;
+            top: 40%;
             width: 40px;
             height: 40px;
             background-color: white;
@@ -809,7 +817,7 @@
         }
 
         .mz-systems-next {
-            right: calc(20% - 5px);
+            right: calc(20% - 20px);
         }
 
         .mz-systems-nav-button svg {
@@ -1014,15 +1022,12 @@
         }
 
         @media (min-width: 993px) and (max-width: 1478px) {
-            .product-card {
-                height: 90%;
-            }
-
             .airhandler-wrapper {
                 width: 70%;
                 transform: translate(25%, -50%);
 
             }
+
         }
 
         @media (min-width: 769px) and (max-width: 1108px) {
@@ -1047,28 +1052,30 @@
                 flex: 0 0 calc(33.333% - 20px);
             }
 
+
             .diy-ductless-hp-prev {
-                top: calc(55% + 25px);
+                top: 45%;
                 left: calc(25% + 20px);
             }
 
             .diy-ductless-hp-next {
-                top: calc(55% + 25px);
+                top: 45%;
                 right: calc(20% - 20px);
             }
+
 
             .mz-systems-card {
                 flex: 0 0 calc(33.333% - 20px);
             }
 
             .mz-systems-prev {
-                top: calc(50% + 25px);
+                top: 45%;
                 left: calc(25% + 20px);
 
             }
 
             .mz-systems-next {
-                top: calc(50% + 25px);
+                top: 45%;
                 right: calc(20% - 20px);
             }
         }
@@ -1294,38 +1301,53 @@
 
             .diy-ductless-hp-card {
                 flex: 0 0 calc(50% - 20px);
-                height: 350px;
             }
 
             .diy-ductless-hp-carousel-container {
                 padding: 30px 0;
             }
 
+            .diy-ductless-hp-carousel {
+                width: 95%;
+
+            }
+
+            .carousel-wrapper {
+                transform: translateX(-7px);
+            }
+
             .diy-ductless-hp-prev {
-                top: calc(60% + 25px);
-                left: 10px;
+                top: 40%;
+                left: 0;
             }
 
             .diy-ductless-hp-next {
-                top: calc(60% + 25px);
-                right: 10px;
+                top: 40%;
+                right: -3%;
             }
 
             .mz-systems-card {
                 flex: 0 0 calc(50% - 20px);
-                height: 350px;
             }
+
+            .mz-systems-carousel {
+                width: 95%;
+
+            }
+
 
             .mz-systems-carousel-container {
                 padding: 30px 0;
             }
 
             .mz-systems-prev {
-                left: 10px;
+                top: 40%;
+                left: 0;
             }
 
             .mz-systems-next {
-                right: 10px;
+                top: 40%;
+                right: -3%;
             }
 
             .testimonial-section {
@@ -1430,16 +1452,20 @@
                 padding: 20px 0;
             }
 
+
+
             .diy-ductless-hp-carousel {
                 flex-direction: column;
                 transition: none;
                 transform: none !important;
             }
-
+            .carousel-wrapper {
+                transform: translateX(15px);
+            }
             .diy-ductless-hp-card {
                 flex: 0 0 auto;
                 width: 80%;
-                max-width: 320px;
+                max-width: 470px;
                 margin: 10px auto;
                 height: 350px;
                 opacity: 1;
@@ -1464,7 +1490,7 @@
             .mz-systems-card {
                 flex: 0 0 auto;
                 width: 80%;
-                max-width: 320px;
+                max-width: 470px;
                 margin: 10px auto;
                 height: 350px;
                 opacity: 1;
@@ -1623,18 +1649,20 @@
             warranty. IWAE offers an additional 1 Year Extended Labor Warranty with
             purchase of the DIY 5th Gen System.
         </p>
+        <div class="carousel-wrapper">
+            <div class="diy-ductless-hp-carousel" id="heatPumpCarousel"></div>
+            <div class="diy-ductless-hp-nav-button diy-ductless-hp-prev" id="heatPumpPrev">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+            </div>
+            <div class="diy-ductless-hp-nav-button diy-ductless-hp-next" id="heatPumpNext">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+            </div>
+        </div>
 
-        <div class="diy-ductless-hp-carousel" id="heatPumpCarousel"></div>
-        <div class="diy-ductless-hp-nav-button diy-ductless-hp-prev" id="heatPumpPrev">
-            <svg viewBox="0 0 24 24">
-                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-            </svg>
-        </div>
-        <div class="diy-ductless-hp-nav-button diy-ductless-hp-next" id="heatPumpNext">
-            <svg viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-            </svg>
-        </div>
         <div class="diy-ductless-hp-nav-dots" id="heatPumpDots"></div>
     </div>
 
@@ -1644,19 +1672,23 @@
         <p class="mz-systems-description">
             Check out the NEW MrCool DIY Multi-Zone Systems
         </p>
-        <div class="mz-systems-carousel" id="multiZoneCarousel"></div>
-        <div class="mz-systems-nav-button mz-systems-prev" id="multiZonePrev">
-            <svg viewBox="0 0 24 24">
-                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-            </svg>
-        </div>
-        <div class="mz-systems-nav-button mz-systems-next" id="multiZoneNext">
-            <svg viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-            </svg>
+
+        <div class="carousel-wrapper">
+            <div class="mz-systems-carousel" id="multiZoneCarousel"></div>
+            <div class="mz-systems-nav-button mz-systems-prev" id="multiZonePrev">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+            </div>
+            <div class="mz-systems-nav-button mz-systems-next" id="multiZoneNext">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+            </div>
         </div>
         <div class="mz-systems-nav-dots" id="multiZoneDots"></div>
     </div>
+
 
     <!-- Testimonial Section -->
     <div class="testimonial-section">
