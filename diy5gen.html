@@ -69,7 +69,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 40px;
+            gap: 5%;
             width: 100%;
         }
 
@@ -96,13 +96,13 @@
             flex-shrink: 0;
         }
 
-        .headline-section {
-            flex: 0 0 60%;
-        }
+        /*.headline-section {*/
+        /*    flex: 0 0 60%;*/
+        /*}*/
 
-        .subheadline-section {
-            flex: 0 0 40%;
-        }
+        /*.subheadline-section {*/
+        /*    flex: 0 0 40%;*/
+        /*}*/
 
         .airhandler-section-container {
             position: relative;
@@ -151,7 +151,7 @@
             position: absolute;
             bottom: 24px;
             left: 0;
-            background: linear-gradient(to bottom right, #0074d9, #00aaff);
+            background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
             border-radius: 0 20px 20px 0;
             padding: 16px 20px;
             text-align: center;
@@ -440,15 +440,15 @@
             font-size: 40px;
             font-weight: 500;
             color: #0d1c37;
-            padding: 0 20%;
-            margin: 0 auto;
+            padding: 10px;
+            margin: auto;
         }
 
         .diy-ductless-hp-description {
             text-align: center;
-            max-width: 68%;
-            margin: 0 auto;
-            padding: 10px 28px 10px 28px;
+            max-width: 80%;
+            margin: auto;
+            padding: 10px 28px;
             font-size: 16px;
             font-weight: 400;
             line-height: 27px;
@@ -657,17 +657,17 @@
         .mz-systems-title {
             text-align: center;
             font-size: 40px;
-            padding: 0 20%;
+            padding: 10px;
             font-weight: 500;
             color: #fff;
-            margin: 0 auto;
+            margin: auto;
         }
 
         .mz-systems-description {
             text-align: center;
-            max-width: 68%;
-            margin: 0 auto;
-            padding: 10px 28px 10px 28px;
+            max-width: 80%;
+            margin: auto;
+            padding: 10px 28px;
             font-size: 16px;
             font-weight: 400;
             line-height: 27px;
@@ -682,7 +682,7 @@
 
         .mz-systems-card {
             flex: 0 0 calc(25% - 20px);
-            height: 440px;
+            /*height: 440px;*/
             margin: 10px;
             background: rgba(255, 255, 255, 0.30);
             backdrop-filter: blur(5px);
@@ -699,7 +699,7 @@
             transform: scale(0.9);
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 20px 10px 10px;
+            padding: 20px 10px;
 
         }
 
@@ -712,9 +712,9 @@
 
         .mz-systems-card-content {
             text-align: center;
-            display: flex;
+            /*display: flex;*/
             flex-direction: column;
-            height: 100%;
+            /*height: 100%;*/
             width: 100%;
         }
 
@@ -723,7 +723,7 @@
             height: 100%;
             max-height: 380px;
             max-width: 450px;
-            margin-top: 15%;
+            /*margin-top: 15%;*/
             display: flex;
             justify-content: center;
             align-items: center;
@@ -933,58 +933,66 @@
         .warranty-section {
             position: relative;
             max-width: 1478px;
-            /*margin: 80px 20px 80px 20px;*/
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-shrink: 0;
-            margin: 40px auto 0;
-            padding: 0 11px;
-        }
-
-        .image-card {
-            width: 69%;
-            border-radius: 30px;
-            height: 530px;
-            flex-shrink: 0;
-            aspect-ratio: 1063/709;
-            background-image: url("{{media url=wysiwyg/MrCoolWarranty-LifestyleImage_1.jpg}}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            align-items: center;
-        }
-
-        .warranty-card {
-            top: 25%;
-            left: 30%;
-            width: 71%;
-            min-height: 530px;
-            position: absolute;
-            padding: 50px 50px 50px 80px;
-            display: flex;
-            border-radius: 30px 0px 0px 30px;
-            background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            flex-direction: row;
+            margin: 0 auto 20%;
+            padding: 0 15px;
             box-sizing: border-box;
         }
 
-        .warranty-text h2 {
-            width: auto;
-            color: #fff;
-            font-size: 40px;
-            font-weight: 500;
-            line-height: normal;
+        .image-card {
+            width: 70%;
+            min-height: 530px;
+            border-radius: 30px;
+            background-image: url("{{media url=wysiwyg/MrCoolWarranty-LifestyleImage_1.jpg}}");
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            position: relative;
         }
 
+        .warranty-card {
+            width: 65%;
+            position: absolute;
+            border-radius: 30px;
+            top: 25%;
+            right: 0;
+            /*border-radius: 30px 0 0 30px;*/
+            background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            box-sizing: border-box;
+            z-index:5;
+        }
+
+        .warranty-heading {
+            width: 70%;
+            margin-bottom: 20px;
+        }
+        .warranty-heading h2 {
+            color: #FFF;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin: 0;
+        }
+
+        .warranty-content {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .warranty-text {
+            width: 60%;
+            padding-right: 20px;
+        }
         .warranty-text p {
-            width: 83%;
-            flex-shrink: 0;
-            overflow: hidden;
             color: #fff;
-            text-overflow: ellipsis;
             font-size: 16px;
             font-weight: 300;
-            line-height: 25px;
+            line-height: 1.5;
+            margin-bottom: 15px;
         }
 
         .warranty-text span {
@@ -993,33 +1001,35 @@
         }
 
         .warranty-badges {
+            width: 35%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            transform: translateY(-20%);
+            gap: 5%;
         }
 
         .badge1 {
             width: 180px;
             height: 180px;
-            aspect-ratio: 1/1;
             background-image: url("{{media url=wysiwyg/5-year-parts-warranty_pxrxbz.png}}");
-            background-size: cover;
+            background-size: contain;
+            background-position: center;
             background-repeat: no-repeat;
         }
 
         .badge2 {
             width: 180px;
             height: 180px;
-            aspect-ratio: 1/1;
             background-image: url("{{media url=wysiwyg/7-year-compressor-warranty_nnuicy.png}}");
-            background-size: cover;
+            /*background-size: cover;*/
+            background-size: contain;
+            background-position: center;
             background-repeat: no-repeat;
         }
 
-        .page-end-spacer {
-            height: 240px;
-        }
+
 
         @media (min-width: 993px) and (max-width: 1478px) {
             .airhandler-wrapper {
@@ -1027,24 +1037,6 @@
                 transform: translate(25%, -50%);
 
             }
-
-        }
-
-        @media (min-width: 769px) and (max-width: 1108px) {
-            .headline {
-                font-size: 38px;
-            }
-
-            .subheadline {
-                font-size: 20px;
-            }
-
-            .airhandler-wrapper {
-                width: 70%;
-                transform: translate(25%, -50%);
-
-            }
-
         }
 
         @media (max-width: 1170px) {
@@ -1080,6 +1072,64 @@
             }
         }
 
+        @media (min-width: 769px) and (max-width: 1108px) {
+            .headline {
+                font-size: 32px;
+            }
+
+            .hero-content {
+                margin-bottom: 40px;
+            }
+
+            .subheadline {
+                font-size: 20px;
+            }
+
+            .airhandler-wrapper {
+                width: 70%;
+                transform: translate(25%, -50%);
+
+            }
+
+        }
+
+        @media (min-width: 896px) and (max-width: 1200px) {
+            .warranty-card {
+                width: 70%;
+                top: 15%;
+                padding: 35px;
+            }
+
+            .badge1, .badge2 {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 895px) {
+
+            .image-card {
+                width: 80%;
+                min-height: 480px;
+            }
+
+            .warranty-card {
+                width: 80%;
+                top: 15%;
+                right: 0;
+                padding: 25px;
+            }
+
+            .warranty-heading h2 {
+                font-size: 32px;
+            }
+
+            .badge1, .badge2 {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
         /* Mobile screens */
         @media (max-width: 768px) {
 
@@ -1088,6 +1138,7 @@
             html {
                 overflow-x: hidden;
             }
+
 
             .gradient-box-wrapper {
                 padding: 0 0 10px 0;
@@ -1263,6 +1314,7 @@
             .text-content h2 {
                 font-size: 36px;
                 color: #FFF;
+                font-weight: 400;
                 padding-top: 80px;
                 max-width: 351px;;
             }
@@ -1289,10 +1341,13 @@
 
             .feature-left h2 {
                 font-size: 28px;
+                font-weight: 400;
+
             }
 
             .feature-left p {
                 font-size: 14px;
+                font-weight: 300;
             }
 
             .feature-grid {
@@ -1326,6 +1381,18 @@
                 right: -3%;
             }
 
+            .diy-ductless-hp-title {
+                font-weight: 400;
+            }
+
+            .diy-ductless-hp-description {
+                max-width: 100%;
+            }
+
+            .diy-ductless-hp-shop-now-btn {
+                font-weight: 400;
+            }
+
             .mz-systems-card {
                 flex: 0 0 calc(50% - 20px);
             }
@@ -1334,7 +1401,6 @@
                 width: 95%;
 
             }
-
 
             .mz-systems-carousel-container {
                 padding: 30px 0;
@@ -1348,6 +1414,22 @@
             .mz-systems-next {
                 top: 40%;
                 right: -3%;
+            }
+
+            .mz-systems-title {
+                font-weight: 400;
+            }
+
+            .mz-systems-description {
+                max-width: 100%;
+            }
+
+            .mz-systems-card h2 {
+                font-weight: 400;
+            }
+
+            .mz-systems-shop-now-btn {
+                font-weight: 400;
             }
 
             .testimonial-section {
@@ -1380,88 +1462,59 @@
             .testimonial-author-line {
                 font-size: 16px;
             }
-
             .warranty-section {
-                max-width: 100%;
-                gap: 2%;
-
+                /*margin-bottom: 50px;*/
+                padding: 0;
             }
 
             .image-card {
-                width: 95%;
-                margin: 0 10px 25px;
-                min-height: 593px;
-                background-size: cover;
-                background-position: center;
-                overflow: hidden;
+                width: 90%;
+                min-height: 400px;
             }
 
             .warranty-card {
+                width: 90%;
+                position: relative;
+                top: -120px;
+                left: 5%;
+                padding: 30px 20px;
+            }
+
+            .warranty-content {
                 flex-direction: column;
-                left: 10%;
-                top: 50%;
-                /* right: 5%; */
-                width: 85%;
-                padding: 20px;
-                min-height: 728px;
-                box-sizing: border-box;
-                border-radius: 30px;
             }
 
             .warranty-text {
                 width: 100%;
-            }
-
-            .warranty-text h2 {
-                font-size: 36px;
-                line-height: 134.527%;
-                width: auto;
-            }
-
-            .warranty-text p {
-                width: 100%;
-                font-size: 16px;
-                line-height: 156.25%;
+                padding-right: 0;
+                margin-bottom: 30px;
             }
 
             .warranty-badges {
-                align-items: center;
+                width: 100%;
                 flex-direction: row;
-                justify-content: space-around;
+                justify-content: center;
+                gap: 30px;
             }
 
-            .badge1 {
-                width: 40%;
-                height: auto;
-                margin: 10px;
-            }
-
-            .badge2 {
-                width: 40%;
-                height: auto;
-                margin: 10px;
-            }
-
-            .page-end-spacer {
-                height: 480px;
+            .badge1, .badge2 {
+                width: 120px;
+                height: 120px;
             }
         }
 
         @media (max-width: 576px) {
-            .diy-ductless-hp-carousel-container {
-                padding: 20px 0;
-            }
-
-
 
             .diy-ductless-hp-carousel {
                 flex-direction: column;
                 transition: none;
                 transform: none !important;
             }
+
             .carousel-wrapper {
                 transform: translateX(15px);
             }
+
             .diy-ductless-hp-card {
                 flex: 0 0 auto;
                 width: 80%;
@@ -1495,11 +1548,62 @@
                 height: 350px;
                 opacity: 1;
                 transform: scale(1);
+                /*padding: 10px;*/
             }
 
             .mz-systems-nav-button,
             .mz-systems-nav-dots {
                 display: none;
+            }
+            .warranty-section {
+                /*margin-bottom: 30px;*/
+            }
+
+            .image-card {
+                width: 100%;
+                min-height: 320px;
+            }
+
+            .warranty-card {
+                width: 95%;
+                position: relative;
+                top: -100px;
+                left: 5%;
+                padding: 20px;
+            }
+
+            .warranty-heading {
+                width: 100%;
+            }
+
+            .warranty-heading h2 {
+                font-size: 28px;
+            }
+
+            .warranty-content {
+                flex-direction: column;
+            }
+
+            .warranty-text {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .warranty-text p {
+                font-size: 14px;
+            }
+
+            .warranty-badges {
+                width: 95%;
+                flex-direction: row;
+                justify-content: space-around;
+                gap: 10px;
+            }
+
+            .badge1, .badge2 {
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -1797,30 +1901,35 @@
             <!-- just a placeholder image or color block -->
         </div>
         <div class="warranty-card">
-            <div class="warranty-text">
+            <div class="warranty-heading">
                 <h2>MrCool Warranty Programs</h2>
-                <p>
-                    Each unit comes backed with a standard
-                    <span>
+            </div>
+            <div class="warranty-content">
+
+                <div class="warranty-text">
+                    <p>
+                        Each unit comes backed with a standard
+                        <span>
                             5-year warranty on replacement parts and a 7-year warranty on the
                             compressor</span>. For even greater protection, upgrade to the MrCool Care Kit
-                    Program and enjoy an extended limited lifetime replacement
-                    warranty—because long-term comfort shouldn’t come with surprises.
-                </p>
-                <p>
-                    And when you purchase through IWAE, you get an
-                    <span> additional 1-year extended labor warranty </span> included at
-                    no extra cost, giving you even more value and coverage from day one.
-                </p>
-            </div>
-            <div class="warranty-badges">
-                <div class="badge1"></div>
-                <div class="badge2"></div>
+                        Program and enjoy an extended limited lifetime replacement
+                        warranty—because long-term comfort shouldn’t come with surprises.
+                    </p>
+                    <p>
+                        And when you purchase through IWAE, you get an
+                        <span> additional 1-year extended labor warranty </span> included at
+                        no extra cost, giving you even more value and coverage from day one.
+                    </p>
+                </div>
+
+                <div class="warranty-badges">
+                    <div class="badge1"></div>
+                    <div class="badge2"></div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="page-end-spacer"></div>
 
 </div>
 
@@ -1932,6 +2041,7 @@
 
             // Check if we're in mobile vertical layout
             const isMobile = window.innerWidth <= 576;
+            const isMedium = window.innerWidth > 576 && window.innerWidth <= 768;
 
             if (isMobile) {
                 // For mobile: display all cards in a vertical grid
@@ -1952,18 +2062,15 @@
                     </div>
                 </div>`;
                 });
-            } else {
-                for (let i = 0; i < totalCards + 4; i++) {
-                    const dataIndex = (currentIndex - 2 + i + totalCards) % totalCards;
+            } else if (isMedium){
+                for (let i = 1; i < totalCards + 4; i++) {
+                    const dataIndex = (currentIndex - 1 + i + totalCards ) % totalCards;
                     const item = data[dataIndex];
                     const isActive = i === 1 || i === 2;
-                    const hasBlue = (window.innerWidth <= 768 && (i === 0 || i === 3)) ||
-                        (window.innerWidth > 768 && (i === 0 || i === 3));
 
                     carousel.innerHTML += `
                 <div class="${prefix}-card ${isActive ? prefix + '-active' : ''}">
                     <div class="${prefix}-card-container">
-                        ${hasBlue ? `<div class="${prefix}-blue-background"></div>` : ''}
                         <div class="${prefix}-card-image">
                             <img src="${item.image}" alt="${item.title}">
                         </div>
@@ -1975,7 +2082,32 @@
                             </a>
                         </div>
                     </div>
-                </div>`;
+                </div>`
+                    ;
+                }
+
+            } else {
+                for (let i = 0; i < totalCards + 4; i++) {
+                    const dataIndex = (currentIndex - 1 + i + totalCards ) % totalCards;
+                    const item = data[dataIndex];
+                    const isActive = i === 1 || i === 2;
+
+                    carousel.innerHTML += `
+                <div class="${prefix}-card ${isActive ? prefix + '-active' : ''}">
+                    <div class="${prefix}-card-container">
+                        <div class="${prefix}-card-image">
+                            <img src="${item.image}" alt="${item.title}">
+                        </div>
+                        <div class="${prefix}-card-content">
+                            <h2>${item.title}</h2>
+                            <div class="${prefix}-price">${item.price}</div>
+                            <a href="${item.link}" target="_blank">
+                                <button class="${prefix}-shop-now-btn">Shop Now</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>`
+                    ;
                 }
             }
             adjustActiveCards();
