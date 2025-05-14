@@ -9,13 +9,6 @@
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
-        .mrcool-landing-wrapper {
-            margin: 0;
-            padding: 0;
-            background: #fff;
-            font-family: "Poppins", sans-serif;
-        }
-
         body {
             margin: 0;
             padding: 0;
@@ -42,7 +35,7 @@
         }
 
         .gradient-box-wrapper {
-            padding: 70px 11px 0;
+            padding: 70px 0 0;
         }
 
         .gradient-box-container {
@@ -54,6 +47,7 @@
 
         .gradient-box {
             width: 100%;
+            max-height: 600px;
             aspect-ratio: 1478 / 600;
             border-radius: 30px;
             background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
@@ -96,13 +90,6 @@
             flex-shrink: 0;
         }
 
-        /*.headline-section {*/
-        /*    flex: 0 0 60%;*/
-        /*}*/
-
-        /*.subheadline-section {*/
-        /*    flex: 0 0 40%;*/
-        /*}*/
 
         .airhandler-section-container {
             position: relative;
@@ -111,8 +98,7 @@
         .airhandler-wrapper {
             position: absolute;
             width: 100%;
-            padding: 20px;
-            transform: translate(0%, -50%);
+            transform: translateY(-50%);
             z-index: 5;
             display: flex;
             justify-content: center;
@@ -120,7 +106,7 @@
 
         .airhandler-overlay-img {
             width: 100%;
-            max-width: 740px;
+            max-width: 640px;
         }
 
         /* ✅ IMAGE SECTION MATCHES GRADIENT BOX */
@@ -130,41 +116,43 @@
             width: 100%;
             max-width: 1478px;
             margin: 0 auto;
-            padding: 10px 11px 0;
+            padding: 10px 0 0;
             box-sizing: border-box;
             z-index: 1;
+            aspect-ratio: 1478 / 600;
         }
 
-
         .right-image {
-            width: 66.66%;
+            width: 100%;
+            align-content: center;
+            height: 100%;
+            aspect-ratio: 1478 / 600;
             background-image: url("{{media url=wysiwyg/remotecontrol.jpg}}");
             background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
-            aspect-ratio: 1478 / 952;
             border-radius: 30px;
-            position: relative;
-            overflow: visible;
+            overflow: hidden;
         }
 
         .price-label {
             position: absolute;
-            bottom: 24px;
-            left: 0;
+            bottom: 25px;
             background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
             border-radius: 0 20px 20px 0;
-            padding: 16px 20px;
+            padding: 18px;
             text-align: center;
+            align-items: center;
             color: #fff;
-            z-index: 20;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            min-width: 180px;
+            max-width: 193px;
+            width: 25%;
         }
 
         .price-text {
-            font-size: 24.8px;
+            font-size: 24px;
             font-weight: 500;
-            margin-bottom: 8px;
+            margin-bottom: 5%;
         }
 
         .price-button {
@@ -172,7 +160,7 @@
             background-color: #007bff;
             padding: 8px 20px;
             border-radius: 9999px;
-            color: white;
+            color: #FFFFFF;
             text-decoration: none;
             font-weight: 500;
             font-size: 16px;
@@ -182,133 +170,89 @@
         .price-button:hover {
             background-color: #005fcc;
         }
-
-        .left-content {
-            width: 33.33%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: end;
-            box-sizing: border-box;
-            padding: 40px 30px;
-            margin-top: 10%;
-            flex-direction: column;
-        }
-
-        .info-box {
-            width: 80%;
-            max-width: 300px;
-            text-align: left;
-            align-content: center;
-            justify-content: end;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .info-img {
-            width: 100%;
-            max-width: 300px;
-            max-height: 200px;
-            border: 2px solid #00629c;
-            aspect-ratio: 5 / 4;
-            border-radius: 30px;
-            padding: 8px;
-            align-content: center;
-            box-sizing: border-box;
-            margin-bottom: 16px;
-            background: url("{{media url=wysiwyg/mc-diy-wmah-02-1000px_qwmw9l.png}}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .info-text {
-            width: 100%;
-            max-width: 230px;
-            font-size: 22px;
-            color: #333;
-            margin-bottom: 16px;
-            padding-right: 10%;
-            padding-left: 10%;
-
-        }
-
-        .info-button {
-            display: inline-block;
-            background-color: #1c8eff;
+        .price-button:visited{
             color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 999px;
-            font-weight: 500;
-            font-size: 16px;
-            transition: background 0.3s;
-            align-self: flex-start;
-            /* margin-left: 9%; */
         }
 
-        .info-button:hover {
-            background-color: #00629c;
-        }
-
-        .info-button-spacing {
-            margin: 10px 20px;
-        }
 
         /*video section */
 
         .overlap-wrapper {
             position: relative;
             max-width: 1478px;
-            margin: 70px auto 0;
-            padding: 0 11px;
+            margin: 20px auto;
+            padding: 0;
+            box-sizing: border-box;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-shrink: 0;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
         }
 
         .background-card {
             background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
             border-radius: 30px;
-            min-height: 502px;
-            padding: inherit;
-            padding-left: 35%;
+            width: 60%;
+            margin-left: 40%;
+            margin-top: -35%;
+            align-content: center;
             box-sizing: border-box;
-            width: 66%;
-            margin-left: auto;
+            z-index: 1;
+            padding: 7% 5% 13% 25%;
+        }
+
+        .text-content {
             align-content: center;
         }
 
         .text-content h2 {
-            font-family: 'Poppins', sans-serif;
             font-size: 40px;
             font-weight: 500;
             line-height: 1.2459;
-            /* 124.59% */
             color: #FFF;
-            margin: 0 0 16px 0;
         }
 
         .text-content p {
-            font-family: 'Poppins', sans-serif;
             font-size: 22px;
             font-weight: 400;
-            line-height: 30px;
-            /* or 1.36 */
+            font-style: normal;
+            line-height: 1.36;
             color: #FFF;
-            margin: 0;
         }
 
         /* Top div on left */
         .foreground-card {
-            position: absolute;
-            top: -40px;
-            width: 66%;
-            height: 502px;
+            position: relative;
+            width: 60%;
+            min-height: 450px;
             border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            z-index: 2;
+            z-index: 5;
+        }
+
+
+        .video-thumbnail {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            border-radius: 30px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url("{{media url=&quot;wysiwyg/video-thumbnail.png&quot;}}");
+        }
+
+        #ytPlayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
         }
 
         .polygon-button {
@@ -324,12 +268,14 @@
             justify-content: center;
             box-shadow: 0px 6.08px 51.03px 0px rgba(0, 0, 0, 0.15);
             cursor: pointer;
+            z-index: 15;
         }
+
 
         .gradient-feature-wrapper {
             max-width: 1478px;
-            margin: 0 auto;
-            padding: 80px 11px 0;
+            margin: 20px auto;
+            padding: 0;
             box-sizing: border-box;
         }
 
@@ -425,14 +371,37 @@
         }
 
 
+        .info-button {
+            display: inline-block;
+            background-color: #1c8eff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: background 0.3s;
+            align-self: flex-start;
+        }
+
+        .info-button:hover {
+            background-color: #00629c;
+        }
+
+        .info-button:visited{
+            color: #fff;
+        }
+        .info-button-spacing {
+            margin: 10px 20px;
+        }
+
         /*Heat Pump carousel section */
 
         .diy-ductless-hp-carousel-container {
             position: relative;
             max-width: 1478px;
-            margin: 0 auto;
+            margin: 20px auto;
             overflow: hidden;
-            padding: 40px 0;
         }
 
         .diy-ductless-hp-title {
@@ -648,9 +617,8 @@
         .mz-systems-carousel-container {
             position: relative;
             max-width: 1478px;
-            margin: 0 auto;
+            margin: 20px auto;
             overflow: hidden;
-            padding: 40px 0;
             background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
         }
 
@@ -867,7 +835,6 @@
             max-width: 1478px;
             min-height: 386px;
             margin: 20px auto;
-            padding: 20px;
         }
 
         .testimonial-section-title {
@@ -882,8 +849,8 @@
             display: flex;
             grid-template-columns: repeat(3, 1fr);
             gap: 2%;
-            max-width: 90%;
-            margin: 30px auto;
+            /*max-width: 90%;*/
+            margin: 30px 10%;
             justify-content: center;
             align-content: center;
         }
@@ -893,7 +860,7 @@
             border-radius: 16px;
             border: 2px solid #00629c;
             box-shadow: 0 3.166px 31.663px 0 rgba(13, 89, 239, 0.04);
-            padding: 42px;
+            padding: 35px;
             position: relative;
         }
 
@@ -933,41 +900,47 @@
         .warranty-section {
             position: relative;
             max-width: 1478px;
-            margin: 0 auto 20%;
-            padding: 0 15px;
+            margin: 20px auto;
+            padding: 0;
             box-sizing: border-box;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+
         }
 
         .image-card {
-            width: 70%;
-            min-height: 530px;
-            border-radius: 30px;
             background-image: url("{{media url=wysiwyg/MrCoolWarranty-LifestyleImage_1.jpg}}");
+            border-radius: 30px;
+            width: 70%;
             background-size: cover;
             background-position: top;
             background-repeat: no-repeat;
-            position: relative;
+            z-index: 1;
+            min-height: 593px;
         }
 
+
         .warranty-card {
-            width: 65%;
-            position: absolute;
-            border-radius: 30px;
-            top: 25%;
-            right: 0;
-            /*border-radius: 30px 0 0 30px;*/
             background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            display: flex;
-            flex-direction: column;
-            padding: 40px;
+            width: 65%;
+            margin-left: 35%;
+            margin-top: -40%;
+            /*border-radius: 30px 0 0 30px;*/
             box-sizing: border-box;
-            z-index:5;
+            border-radius: 30px;
+            padding: 40px;
+            z-index: 2;
+            position: relative;
+
         }
 
         .warranty-heading {
             width: 70%;
-            margin-bottom: 20px;
         }
+
         .warranty-heading h2 {
             color: #FFF;
             font-size: 40px;
@@ -983,10 +956,12 @@
             width: 100%;
             box-sizing: border-box;
         }
+
         .warranty-text {
             width: 60%;
             padding-right: 20px;
         }
+
         .warranty-text p {
             color: #fff;
             font-size: 16px;
@@ -1029,15 +1004,35 @@
             background-repeat: no-repeat;
         }
 
-
-
-        @media (min-width: 993px) and (max-width: 1478px) {
-            .airhandler-wrapper {
-                width: 70%;
-                transform: translate(25%, -50%);
-
-            }
+        .gradient-footer-wrapper {
+            margin: 20px auto;
+            max-width: 1478px;
+            padding: 0;
         }
+
+        .gradient-footer {
+            max-width: 1478px;
+            border-radius: 30px;
+            background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+            align-items: center;
+            padding: 5%;
+            color: #fff;
+        }
+
+        .gradient-footer .hero-content .subheadline-section .subheadline {
+            margin-top: 12%;
+        }
+
+        .gradient-footer .hero-content .divider-vertical {
+            height: 150px;
+        }
+
+        .hero-content .info-button {
+            background: #00629C;
+            margin: 20px 20px 20px 30%;
+            color: #fff;
+        }
+
 
         @media (max-width: 1170px) {
             .diy-ductless-hp-card {
@@ -1077,58 +1072,33 @@
                 font-size: 32px;
             }
 
-            .hero-content {
-                margin-bottom: 40px;
-            }
-
             .subheadline {
                 font-size: 20px;
             }
 
             .airhandler-wrapper {
                 width: 70%;
-                transform: translate(25%, -50%);
-
-            }
-
-        }
-
-        @media (min-width: 896px) and (max-width: 1200px) {
-            .warranty-card {
-                width: 70%;
-                top: 15%;
-                padding: 35px;
-            }
-
-            .badge1, .badge2 {
-                width: 160px;
-                height: 160px;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 895px) {
-
-            .image-card {
-                width: 80%;
-                min-height: 480px;
+                margin-left: 15%;
             }
 
             .warranty-card {
-                width: 80%;
-                top: 15%;
-                right: 0;
-                padding: 25px;
+                width: 85%;
+                margin-left: 20%;
+                margin-top: -48%;
             }
 
-            .warranty-heading h2 {
-                font-size: 32px;
+            .background-card {
+                margin-left: 40%;
+                margin-top: -45%;
+                padding: 7% 5% 7% 30%;
             }
 
-            .badge1, .badge2 {
-                width: 140px;
-                height: 140px;
+            .foreground-card {
+                width: 65%;
             }
+
         }
+
 
         /* Mobile screens */
         @media (max-width: 768px) {
@@ -1230,6 +1200,18 @@
                 background-position: center;
             }
 
+            .price-label {
+                padding: 20px;
+                width: 50%;
+            }
+
+            .price-text {
+                font-size: 22px;
+                font-weight: 400;
+            }
+            .price-button {
+                font-weight: 400;
+            }
             .airhandler-overlay-img {
                 width: 100%;
             }
@@ -1237,92 +1219,45 @@
             .airhandler-wrapper {
                 transform: translate(0%, -50%);
                 width: 90%;
-
+                padding: 5%;
             }
 
-            .left-content {
-                width: 100%;
-                max-width: 100%;
-                padding: 0;
-                justify-content: unset;
-                align-items: unset;
-                margin-top: 10%;
-                margin-bottom: 10%;
-
-            }
-
-            .info-box {
-                width: 100%;
-                max-width: 100%;
-                height: 100%;
-                min-height: 244px;
-                box-sizing: border-box;
-                text-align: left;
-            }
-
-            .info-img {
-                width: 100%;
-                max-width: 100%;
-                height: 100%;
-                min-height: 244px;
-                padding: 25%;
-            }
-
-            .info-text {
-                font-size: 22px;
-                width: 100%;
-                max-width: 80%;
-                font-weight: 400;
-                line-height: 136.364%;
-                padding-left: 10%;
-                margin-left: auto;
-            }
 
             /*video section */
             .overlap-wrapper {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                position: relative;
-                padding: 0px;
-                margin: 50px 0 0 0;
 
             }
 
             .foreground-card {
-                position: relative;
+                width: 100%;
+                aspect-ratio: 8/9;
                 z-index: 2;
-                margin: 0%;
-                width: 95%;
-                height: 532px;
-                aspect-ratio: 8 / 9;
-                background-size: cover;
-                background-position: center;
             }
 
             .background-card {
-                position: relative;
-                z-index: 1;
+                left: 5%;
                 width: 90%;
+                position: relative;
                 min-height: auto;
-                margin-top: -250px;
-                padding: 150px 0px 50px 20px;
-                border-radius: 30px 0px 0px 30px;
-                background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+                padding: 50px 20px 20px;
+                margin: -10% 0 0;
+            }
+
+            .text-content {
+                padding-left: 0;
             }
 
             .text-content h2 {
                 font-size: 36px;
                 color: #FFF;
                 font-weight: 400;
-                padding-top: 80px;
-                max-width: 351px;;
             }
 
             .text-content p {
                 font-size: 20px;
                 color: #FFF;
-                max-width: 272px;;
 
             }
 
@@ -1462,22 +1397,19 @@
             .testimonial-author-line {
                 font-size: 16px;
             }
+
             .warranty-section {
-                /*margin-bottom: 50px;*/
-                padding: 0;
+
             }
 
             .image-card {
-                width: 90%;
-                min-height: 400px;
+                width: 100%;
             }
 
             .warranty-card {
-                width: 90%;
-                position: relative;
-                top: -120px;
-                left: 5%;
-                padding: 30px 20px;
+                width: 100%;
+                margin-top: -30%;
+                margin-left: 2%;
             }
 
             .warranty-content {
@@ -1500,6 +1432,19 @@
             .badge1, .badge2 {
                 width: 120px;
                 height: 120px;
+            }
+
+            .gradient-footer {
+                padding: 25% 8%;
+            }
+
+            .gradient-footer .hero-content .subheadline-section .subheadline {
+                margin-top: 0;
+            }
+
+            .hero-content .info-button {
+                background: #1C8EFF;
+                margin: 20px;
             }
         }
 
@@ -1555,55 +1500,13 @@
             .mz-systems-nav-dots {
                 display: none;
             }
-            .warranty-section {
-                /*margin-bottom: 30px;*/
-            }
-
-            .image-card {
-                width: 100%;
-                min-height: 320px;
-            }
 
             .warranty-card {
-                width: 95%;
-                position: relative;
-                top: -100px;
-                left: 5%;
-                padding: 20px;
+                margin-top: -65%;
             }
 
-            .warranty-heading {
-                width: 100%;
-            }
-
-            .warranty-heading h2 {
-                font-size: 28px;
-            }
-
-            .warranty-content {
-                flex-direction: column;
-            }
-
-            .warranty-text {
-                width: 100%;
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-
-            .warranty-text p {
-                font-size: 14px;
-            }
-
-            .warranty-badges {
-                width: 95%;
-                flex-direction: row;
-                justify-content: space-around;
-                gap: 10px;
-            }
-
-            .badge1, .badge2 {
-                width: 100px;
-                height: 100px;
+            .background-card {
+                margin: -15% 0 0;
             }
         }
 
@@ -1612,7 +1515,6 @@
 </head>
 
 <body>
-<div class="mrcool-landing-wrapper">
     <!-- Logo for mobile view only -->
     <img class="logo-img-mobile" src="{{media url=wysiwyg/MrCool-badgelogo-fixed.png}}" alt="Placeholder Logo"/>
 
@@ -1634,7 +1536,7 @@
                         <div class="divider-vertical"></div>
                         <div class="subheadline-section">
                             <p class="subheadline">
-                                Air Conditioner and Heater<br/>you can install yourself
+                                Air Conditioner and Heater<br>you can install yourself
                             </p>
                         </div>
                     </div>
@@ -1650,24 +1552,13 @@
 
         <!-- ✅ IMAGE SECTION MATCHED -->
         <div class="image-split-section">
-            <div class="left-content">
-                <div class="info-box">
-                    <div class="info-img"></div>
-                    <p class="info-text">
-                        Not sure if ductless systems are right for you? Explore the
-                        benefits.
-                    </p>
-                    <a href="https://iwae.com/resources/articles/zoned-heating-cooling-right.html"
-                       class="info-button info-button-spacing" target="_blank" rel="noopener noreferrer">Learn
-                        More</a>
-                </div>
-            </div>
-
             <div class="right-image">
                 <div class="price-label">
                     <div class="price-text">From $2,329</div>
-                    <a href="https://iwae.com/searchanise/result?q=diy&page=1&rb_manufacturer=MrCool&rb_series=DIY&rb_refrigerant=R-454b"
-                       class="price-button" target="_blank" rel="noopener noreferrer">Shop Now</a>
+<!--                    <a href="https://iwae.com/searchanise/result?q=diy&page=1&rb_manufacturer=MrCool&rb_series=DIY&rb_refrigerant=R-454b"-->
+<!--                       class="price-button" target="_blank" rel="noopener noreferrer">Shop Now</a>-->
+                    <a href="#heatPump" class="price-button">Shop Now</a>
+
                 </div>
             </div>
         </div>
@@ -1676,12 +1567,16 @@
 
     <!-- ✅ Video SECTION  -->
     <div class="overlap-wrapper">
+
         <div class="foreground-card">
+            <div class="video-thumbnail" id="videoThumbnail"></div>
+
             <iframe id="ytPlayer" width="100%" height="100%"
                     src="https://www.youtube.com/embed/IstvsasKlYA?enablejsapi=1"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
             </iframe>
+
             <div class="polygon-button" id="playButton">
                 <svg width="23" height="39" viewBox="0 0 23 39" fill="none" xmlns="http://www.w3.org/2000/svg"
                      class="polygon-icon">
@@ -1700,8 +1595,8 @@
         </div>
         <div class="background-card">
             <div class="text-content">
-                <h2>A DIY solution<br/>for every home.</h2>
-                <p>Innovative solutions for your family.</p>
+                <h2>A DIY solution<br>for every home.</h2>
+                <p>Innovative solutions for <br>your family.</p>
             </div>
         </div>
     </div>
@@ -1725,11 +1620,11 @@
             <div class="feature-grid">
                 <div class="feature-box">
                     <img src="{{media url=wysiwyg/PreCharged-Linesets.png}}" alt="Pre-charged"/>
-                    <div class="feature-label">Pre-charged<br/>R-454B line sets</div>
+                    <div class="feature-label">Pre-charged<br>R-454B line sets</div>
                 </div>
                 <div class="feature-box">
                     <img src="{{media url=wysiwyg/NoVacuum-Required.png}}" alt="No vacuum"/>
-                    <div class="feature-label">No vacuum<br/>required</div>
+                    <div class="feature-label">No vacuum<br>required</div>
                 </div>
                 <div class="feature-box">
                     <img src="{{media url=wysiwyg/WifiControl.png}}" alt="WiFi"/>
@@ -1737,10 +1632,12 @@
                 </div>
                 <div class="feature-box">
                     <img src="{{media url=wysiwyg/EnergyStar-CondenserPhoto.png}}" alt="Energy Star"/>
-                    <div class="feature-label">Energy Star<br/>certified</div>
+                    <div class="feature-label">Energy Star<br>certified</div>
                 </div>
             </div>
         </div>
+        <div id="heatPump" style="position: relative; top: -80px; visibility: hidden; height: 0;"></div>
+
     </div>
 
     <!-- Heat Pump Carousel -->
@@ -1772,7 +1669,7 @@
 
     <!-- Multi-Zone Carousel -->
     <div class="mz-systems-carousel-container" id="multiZoneCarouselContainer">
-        <h2 class="mz-systems-title">Need an Option for Multiple Rooms?</h2>
+        <h2 class="mz-systems-title" >Need an Option for Multiple Rooms?</h2>
         <p class="mz-systems-description">
             Check out the NEW MrCool DIY Multi-Zone Systems
         </p>
@@ -1928,10 +1825,30 @@
                 </div>
             </div>
         </div>
+
     </div>
 
+    <!-- Footer SECTION  -->
+    <div class="gradient-footer-wrapper">
+        <div class="gradient-footer">
+            <div class="hero-content">
+                <div class="headline-section">
+                    <h2 class="headline">Shop the All New <br>MrCool DIY 5th Gen</h2>
+                    <div class="divider-horizontal"></div>
+                </div>
+                <div class="divider-vertical"></div>
+                <div class="subheadline-section">
+                    <p class="subheadline">
+                        Transform your space with <br>effortless comfort
+                    </p>
+                    <a href="https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/single-zone/?refrigerant=1045&series=518"
+                       class="info-button" target="_blank">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</div>
+</body>
 
 <script>
 
@@ -2062,9 +1979,9 @@
                     </div>
                 </div>`;
                 });
-            } else if (isMedium){
+            } else if (isMedium) {
                 for (let i = 1; i < totalCards + 4; i++) {
-                    const dataIndex = (currentIndex - 1 + i + totalCards ) % totalCards;
+                    const dataIndex = (currentIndex - 1 + i + totalCards) % totalCards;
                     const item = data[dataIndex];
                     const isActive = i === 1 || i === 2;
 
@@ -2088,7 +2005,7 @@
 
             } else {
                 for (let i = 0; i < totalCards + 4; i++) {
-                    const dataIndex = (currentIndex - 1 + i + totalCards ) % totalCards;
+                    const dataIndex = (currentIndex - 1 + i + totalCards) % totalCards;
                     const item = data[dataIndex];
                     const isActive = i === 1 || i === 2;
 
@@ -2262,6 +2179,7 @@
 
     let player;
     let playButton;
+    let videoThumbnail;
 
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('ytPlayer', {
@@ -2279,20 +2197,23 @@
             playButton.addEventListener('click', function () {
                 event.target.playVideo();
                 playButton.style.display = 'none';
+                videoThumbnail.style.display = 'none';
             });
         }
     }
 
     function onPlayerStateChange(event) {
-        if (!playButton) return;
+        if (!playButton || !videoThumbnail) return;
 
         // Show button when paused
         if (event.data === YT.PlayerState.PAUSED) {
             playButton.style.display = 'flex';
+            videoThumbnail.style.display = 'block';
         }
         // Hide button when playing
         else if (event.data === YT.PlayerState.PLAYING) {
             playButton.style.display = 'none';
+            videoThumbnail.style.display = 'none';
         }
     }
 
@@ -2304,12 +2225,13 @@
         }
         // Set up play button reference
         playButton = document.getElementById('playButton');
+        videoThumbnail = document.getElementById('videoThumbnail');
+
     });
 
 
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 
-</body>
 
 </html>
