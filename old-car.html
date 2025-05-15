@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZ Systems Carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .mz-systems-carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+            padding: 40px 0;
+            border-radius: 30px;
+            background: var(--maingradient, linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%));
+        }
+
+        .mz-systems-carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .mz-systems-card {
+            flex: 0 0 calc(25% - 20px);
+            height: 380px;
+            margin: 0 10px;
+            background: rgba(255, 255, 255, 0.30);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            transform-origin: center;
+            opacity: 0.6;
+            transform: scale(0.9);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mz-systems-card.mz-systems-active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2;
+            border: 2px solid var(--maingradient, #00629C);
+        }
+
+        .mz-systems-card-content {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        .mz-systems-card-image {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: transparent;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+
+        .mz-systems-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 142, 255, 0.52);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .mz-systems-card.mz-systems-active::before {
+            background-color: transparent;
+        }
+
+        .mz-systems-card-image img {
+            max-width: 160px;
+            max-height: 160px;
+            object-fit: contain;
+        }
+
+        .mz-systems-card h2 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+            line-height: 1.3;
+            font-weight: 600;
+            overflow: hidden;
+        }
+
+        .mz-systems-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .mz-systems-card .mz-systems-price {
+            font-size: 20px;
+            color: white;
+            font-weight: 500;
+            font-family: Arial, sans-serif;
+            margin: 20px 0;
+        }
+
+        .mz-systems-shop-now-btn {
+            background-color: #1C8EFF;
+            color: white;
+            border: none;
+            border-radius: 100px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            width: 120px;
+            font-family: Arial, sans-serif;
+            align-self: center;
+        }
+
+        .mz-systems-shop-now-btn:hover {
+            background-color: #2460D8;
+        }
+
+        .mz-systems-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .mz-systems-card.mz-systems-semi-active {
+            opacity: 0.8;
+            transform: scale(0.95);
+        }
+
+        .mz-systems-nav-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .mz-systems-prev {
+            left: calc(25% + 10px);
+        }
+
+        .mz-systems-next {
+            right: calc(25% + 10px);
+        }
+
+        .mz-systems-nav-button svg {
+            width: 20px;
+            height: 20px;
+            fill: #333;
+        }
+
+        /* Navigation dots */
+        .mz-systems-nav-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .mz-systems-nav-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mz-systems-nav-dot.mz-systems-active {
+            background-color: #3478F6;
+            transform: scale(1.2);
+        }
+
+        .mz-systems-card-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+        }
+
+        .mz-systems-blue-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(52, 120, 246, 0.1);
+            z-index: -1;
+        }
+
+        @media (max-width: 1170px) {
+            .mz-systems-card {
+                flex: 0 0 calc(33.333% - 20px);
+            }
+
+            .mz-systems-prev {
+                left: 10px;
+            }
+
+            .mz-systems-next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mz-systems-card {
+                flex: 0 0 calc(50% - 20px);
+                height: 350px;
+            }
+
+            .mz-systems-carousel-container {
+                padding: 30px 0;
+            }
+
+            .mz-systems-prev {
+                left: 10px;
+            }
+
+            .mz-systems-next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mz-systems-carousel-container {
+                padding: 20px 0;
+            }
+
+            .mz-systems-carousel {
+                flex-direction: column;
+                transition: none;
+                transform: none !important;
+            }
+
+            .mz-systems-card {
+                flex: 0 0 auto;
+                width: 80%;
+                max-width: 320px;
+                margin: 10px auto;
+                height: 350px;
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .mz-systems-nav-button,
+            .mz-systems-nav-dots {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="mz-systems-carousel-container">
+    <div class="mz-systems-carousel">
+        <!-- Cards will be dynamically added here -->
+    </div>
+
+    <div class="mz-systems-nav-button mz-systems-prev">
+        <svg viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+    </div>
+
+    <div class="mz-systems-nav-button mz-systems-next">
+        <svg viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+        </svg>
+    </div>
+
+    <!-- Navigation dots will be added here -->
+    <div class="mz-systems-nav-dots">
+        <!-- Dots will be dynamically added here -->
+    </div>
+</div>
+
+<script>
+    // Product card data
+    const cardData = [
+        {
+            title: '5 Zone',
+            price: 'As Low As $5,189',
+            image: '/api/placeholder/160/160'
+        },
+        {
+            title: '2 Zone',
+            price: 'As Low As $2,545',
+            image: '/api/placeholder/160/160'
+        },
+        {
+            title: '3 Zone',
+            price: 'As Low As $2,736',
+            image: '/api/placeholder/160/160'
+        },
+        {
+            title: '4 Zone',
+            price: 'As Low As $3,438',
+            image: '/api/placeholder/160/160'
+        }
+    ];
+
+    const carousel = document.querySelector('.mz-systems-carousel');
+    const navDots = document.querySelector('.mz-systems-nav-dots');
+    let currentIndex = 0;
+    const totalCards = cardData.length;
+
+    // Function to generate carousel items
+    function generateCarousel() {
+        carousel.innerHTML = '';
+
+        // Check if we're in mobile vertical layout
+        const isMobile = window.innerWidth <= 576;
+
+        if (isMobile) {
+            // For mobile: display all cards in a vertical grid
+            for (let i = 0; i < totalCards; i++) {
+                const card = document.createElement('div');
+                card.className = 'mz-systems-card mz-systems-active';
+
+                card.innerHTML = `
+                        <div class="mz-systems-card-container">
+                            <div class="mz-systems-card-image">
+                                <img src="${cardData[i].image}" alt="${cardData[i].title}">
+                            </div>
+                            <div class="mz-systems-card-content">
+                                <h2>${cardData[i].title}</h2>
+                                <div class="mz-systems-price">${cardData[i].price}</div>
+                                <button class="mz-systems-shop-now-btn">Shop Now</button>
+                            </div>
+                        </div>
+                    `;
+
+                carousel.appendChild(card);
+            }
+        } else {
+            // For desktop/tablet: use carousel layout
+            for (let i = 0; i < totalCards + 4; i++) {
+                // Calculate the actual index, accounting for looping
+                const dataIndex = (currentIndex - 2 + i + totalCards) % totalCards;
+
+                const card = document.createElement('div');
+                card.className = 'mz-systems-card';
+
+                // Set active class for the center cards (index 2 and 3)
+                if (i === 1 || i === 2) {
+                    card.classList.add('mz-systems-active');
+                }
+
+                // Add blue background to the first and last visible cards
+                const hasBlueBackground = (window.innerWidth <= 768 && (i === 0 || i === 3)) ||
+                    (window.innerWidth > 768 && (i === 0 || i === 3));
+
+                card.innerHTML = `
+                        <div class="mz-systems-card-container">
+                            ${hasBlueBackground ? '<div class="mz-systems-blue-background"></div>' : ''}
+                            <div class="mz-systems-card-image">
+                                <img src="${cardData[dataIndex].image}" alt="${cardData[dataIndex].title}">
+                            </div>
+                            <div class="mz-systems-card-content">
+                                <h2>${cardData[dataIndex].title}</h2>
+                                <div class="mz-systems-price">${cardData[dataIndex].price}</div>
+                                <button class="mz-systems-shop-now-btn">Shop Now</button>
+                            </div>
+                        </div>
+                    `;
+
+                carousel.appendChild(card);
+            }
+        }
+
+        // Apply responsive adjustments for different screen widths
+        adjustActiveCards();
+
+        // Update navigation dots
+        updateNavDots();
+    }
+
+    // Function to generate navigation dots
+    function generateNavDots() {
+        navDots.innerHTML = '';
+        for (let i = 0; i < totalCards; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'mz-systems-nav-dot';
+            if (i === currentIndex) {
+                dot.classList.add('mz-systems-active');
+            }
+
+            // Add click event to navigate to that card
+            dot.addEventListener('click', () => {
+                navigateToCard(i);
+            });
+
+            navDots.appendChild(dot);
+        }
+    }
+
+    // Function to update navigation dots active state
+    function updateNavDots() {
+        // Only update dots if we're not in mobile view
+        if (window.innerWidth > 576) {
+            const dots = document.querySelectorAll('.mz-systems-nav-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('mz-systems-active');
+                } else {
+                    dot.classList.remove('mz-systems-active');
+                }
+            });
+        }
+    }
+
+    // Function to navigate to a specific card by index
+    function navigateToCard(index) {
+        if (index === currentIndex) return;
+
+        // Determine direction (next or prev)
+        const direction = index > currentIndex ? 'next' : 'prev';
+        const cardWidth = document.querySelector('.mz-systems-card').offsetWidth + 20; // 20 for margins
+
+        // Animate in the correct direction
+        carousel.style.transition = 'transform 0.5s ease';
+        carousel.style.transform = direction === 'next' ?
+            `translateX(-${cardWidth}px)` :
+            `translateX(${cardWidth}px)`;
+
+        // After animation completes, update the index and reset
+        setTimeout(() => {
+            currentIndex = index;
+            generateCarousel();
+            carousel.style.transition = 'none';
+            carousel.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                carousel.style.transition = 'transform 0.5s ease';
+            }, 50);
+        }, 500);
+    }
+
+    // Function to adjust active cards based on screen width
+    function adjustActiveCards() {
+        const cards = document.querySelectorAll('.mz-systems-card');
+        const isNarrow = window.innerWidth < 1170;
+        const isMedium = window.innerWidth > 576 && window.innerWidth <= 768;
+        const isMobile = window.innerWidth <= 576;
+
+        if (isMobile) {
+            // On mobile, show all cards in vertical grid
+            cards.forEach(card => {
+                card.classList.remove('mz-systems-semi-active');
+                card.classList.add('mz-systems-active');
+            });
+            return;
+        }
+
+        if (isMedium) {
+            // Between 576px and 768px - make ALL cards active
+            cards.forEach(card => {
+                // Remove any semi-active class
+                card.classList.remove('mz-systems-semi-active');
+                // Add active class to all cards, not just the ones that already have it
+                card.classList.add('mz-systems-active');
+            });
+            return;
+        }
+
+        if (isNarrow && !isMedium) {
+            // On narrower screens (but not medium), only the first "active" card stays fully active
+            let foundActive = false;
+            cards.forEach(card => {
+                if (card.classList.contains('mz-systems-active')) {
+                    if (foundActive) {
+                        // This is the second active card - make it inactive
+                        card.classList.remove('mz-systems-active');
+                        card.classList.add('mz-systems-semi-active');
+                    } else {
+                        // This is the first active card
+                        foundActive = true;
+                    }
+                }
+            });
+        } else {
+            // On wider screens, restore both active cards
+            cards.forEach(card => {
+                if (card.classList.contains('mz-systems-semi-active')) {
+                    card.classList.remove('mz-systems-semi-active');
+                    card.classList.add('mz-systems-active');
+                }
+            });
+        }
+    }
+
+    // Initialize carousel and navigation dots
+    generateCarousel();
+    generateNavDots();
+
+    // Event listeners for navigation
+    const prevButton = document.querySelector('.mz-systems-prev');
+    const nextButton = document.querySelector('.mz-systems-next');
+
+    // Previous button
+    prevButton.addEventListener('click', () => {
+        // Move the carousel right (showing cards sliding in from left)
+        const cardWidth = document.querySelector('.mz-systems-card').offsetWidth + 20; // 20 for margins
+        carousel.style.transition = 'transform 0.5s ease';
+        carousel.style.transform = `translateX(${cardWidth}px)`;
+
+        // After animation completes, reset the carousel and update the index
+        setTimeout(() => {
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            generateCarousel();
+            carousel.style.transition = 'none';
+            carousel.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                carousel.style.transition = 'transform 0.5s ease';
+            }, 50);
+        }, 500);
+    });
+
+    // Next button
+    nextButton.addEventListener('click', () => {
+        // Move the carousel left (showing cards sliding in from right)
+        const cardWidth = document.querySelector('.mz-systems-card').offsetWidth + 20; // 20 for margins
+        carousel.style.transition = 'transform 0.5s ease';
+        carousel.style.transform = `translateX(-${cardWidth}px)`;
+
+        // After animation completes, reset the carousel and update the index
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % totalCards;
+            generateCarousel();
+            carousel.style.transition = 'none';
+            carousel.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                carousel.style.transition = 'transform 0.5s ease';
+            }, 50);
+        }, 500);
+    });
+
+    // Handle touch events for mobile
+    let touchStartX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            // Move the carousel left/right by calculating the card width
+            const cardWidth = document.querySelector('.mz-systems-card').offsetWidth + 20; // 20 for margins
+            const direction = diff > 0 ? -1 : 1; // -1 for next, 1 for prev
+            carousel.style.transform = `translateX(${direction * cardWidth}px)`;
+
+            // After animation completes, reset the carousel and update the index
+            setTimeout(() => {
+                if (diff > 0) {
+                    // Swipe left - go next
+                    currentIndex = (currentIndex + 1) % totalCards;
+                } else {
+                    // Swipe right - go prev
+                    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                }
+                generateCarousel();
+                carousel.style.transition = 'none';
+                carousel.style.transform = 'translateX(0)';
+                setTimeout(() => {
+                    carousel.style.transition = 'transform 0.5s ease';
+                }, 50);
+            }, 500);
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        generateCarousel();
+        generateNavDots(); // Regenerate dots when resizing
+        adjustActiveCards();
+    });
+</script>
+</body>
+
+</html>

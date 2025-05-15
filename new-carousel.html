@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .diy-ductless-hp-carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+
+        .diy-ductless-hp-carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .diy-ductless-hp-card {
+            flex: 0 0 calc(25% - 20px);
+            height: 380px;
+            margin: 0 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            transform-origin: center;
+            opacity: 0.6;
+            transform: scale(0.9);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        .diy-ductless-hp-card.diy-ductless-hp-active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2;
+            border: 2px solid #00629C;
+        }
+
+        .diy-ductless-hp-card-content {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        .diy-ductless-hp-card-image {
+            width: 100%;
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+
+        .diy-ductless-hp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 142, 255, 0.52);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .diy-ductless-hp-card.diy-ductless-hp-active::before {
+            background-color: transparent;
+        }
+
+        .diy-ductless-hp-card-image img {
+            max-width: 160px;
+            max-height: 160px;
+            object-fit: contain;
+        }
+
+        .diy-ductless-hp-card h2 {
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-weight: 500;
+            height: 42px;
+            overflow: hidden;
+        }
+
+        .diy-ductless-hp-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .diy-ductless-hp-card .diy-ductless-hp-price {
+            font-size: 18px;
+            color: #3478F6;
+            font-weight: 500;
+            margin: 20px 0;
+        }
+
+        .diy-ductless-hp-shop-now-btn {
+            background-color: #1C8EFF;
+            color: white;
+            border: none;
+            border-radius: 100px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            width: 120px;
+            align-self: center;
+        }
+
+        .diy-ductless-hp-shop-now-btn:hover {
+            background-color: #2460D8;
+        }
+
+        .diy-ductless-hp-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .diy-ductless-hp-card.diy-ductless-hp-semi-active {
+            opacity: 0.8;
+            transform: scale(0.95);
+        }
+
+        .diy-ductless-hp-nav-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .diy-ductless-hp-prev {
+            left: calc(25% + 10px);
+        }
+
+        .diy-ductless-hp-next {
+            right: calc(25% + 10px);
+        }
+
+        .diy-ductless-hp-nav-button svg {
+            width: 20px;
+            height: 20px;
+            fill: #333;
+        }
+
+        /* Navigation dots */
+        .diy-ductless-hp-nav-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .diy-ductless-hp-nav-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .diy-ductless-hp-nav-dot.diy-ductless-hp-active {
+            background-color: #3478F6;
+            transform: scale(1.2);
+        }
+
+        .diy-ductless-hp-card-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .diy-ductless-hp-blue-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(52, 120, 246, 0.1);
+            z-index: -1;
+        }
+
+        .mz-systems-carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+            border-radius: 30px;
+            background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+        }
+
+        .mz-systems-carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .mz-systems-card {
+            flex: 0 0 calc(25% - 20px);
+            height: 380px;
+            margin: 0 10px;
+            background: rgba(255, 255, 255, 0.30);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            transform-origin: center;
+            opacity: 0.6;
+            transform: scale(0.9);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mz-systems-card.mz-systems-active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2;
+            border: 2px solid  #00629C;
+        }
+
+        .mz-systems-card-content {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        .mz-systems-card-image {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: transparent;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+
+        .mz-systems-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 142, 255, 0.52);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .mz-systems-card.mz-systems-active::before {
+            background-color: transparent;
+        }
+
+        .mz-systems-card-image img {
+            max-width: 160px;
+            max-height: 160px;
+            object-fit: contain;
+        }
+
+        .mz-systems-card h2 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+            line-height: 1.3;
+            font-weight: 600;
+            overflow: hidden;
+        }
+
+        .mz-systems-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .mz-systems-card .mz-systems-price {
+            font-size: 20px;
+            color: white;
+            font-weight: 500;
+            font-family: Arial, sans-serif;
+            margin: 20px 0;
+        }
+
+        .mz-systems-shop-now-btn {
+            background-color: #1C8EFF;
+            color: white;
+            border: none;
+            border-radius: 100px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            width: 120px;
+            font-family: Arial, sans-serif;
+            align-self: center;
+        }
+
+        .mz-systems-shop-now-btn:hover {
+            background-color: #2460D8;
+        }
+
+        .mz-systems-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .mz-systems-card.mz-systems-semi-active {
+            opacity: 0.8;
+            transform: scale(0.95);
+        }
+
+        .mz-systems-nav-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .mz-systems-prev {
+            left: calc(25% + 10px);
+        }
+
+        .mz-systems-next {
+            right: calc(25% + 10px);
+        }
+
+        .mz-systems-nav-button svg {
+            width: 20px;
+            height: 20px;
+            fill: #333;
+        }
+
+        /* Navigation dots */
+        .mz-systems-nav-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .mz-systems-nav-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mz-systems-nav-dot.mz-systems-active {
+            background-color: #3478F6;
+            transform: scale(1.2);
+        }
+
+        .mz-systems-card-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+        }
+
+        .mz-systems-blue-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(52, 120, 246, 0.1);
+            z-index: -1;
+        }
+
+        @media (max-width: 1170px) {
+            .diy-ductless-hp-card {
+                flex: 0 0 calc(33.333% - 20px);
+            }
+
+            .diy-ductless-hp-prev {
+                left: 10px;
+            }
+
+            .diy-ductless-hp-next {
+                right: 10px;
+            }
+
+            .mz-systems-card {
+                flex: 0 0 calc(33.333% - 20px);
+            }
+
+            .mz-systems-prev {
+                left: 10px;
+            }
+
+            .mz-systems-next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .diy-ductless-hp-card {
+                flex: 0 0 calc(50% - 20px);
+                height: 350px;
+            }
+
+            .diy-ductless-hp-carousel-container {
+                padding: 30px 0;
+            }
+
+            .diy-ductless-hp-prev {
+                left: 10px;
+            }
+
+            .diy-ductless-hp-next {
+                right: 10px;
+            }
+
+            .mz-systems-card {
+                flex: 0 0 calc(50% - 20px);
+                height: 350px;
+            }
+
+            .mz-systems-carousel-container {
+                padding: 30px 0;
+            }
+
+            .mz-systems-prev {
+                left: 10px;
+            }
+
+            .mz-systems-next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .diy-ductless-hp-carousel-container {
+                padding: 20px 0;
+            }
+
+            .diy-ductless-hp-carousel {
+                flex-direction: column;
+                transition: none;
+                transform: none !important;
+            }
+
+            .diy-ductless-hp-card {
+                flex: 0 0 auto;
+                width: 80%;
+                max-width: 320px;
+                margin: 10px auto;
+                height: 350px;
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .diy-ductless-hp-nav-button,
+            .diy-ductless-hp-nav-dots {
+                display: none;
+            }
+
+            .mz-systems-carousel-container {
+                padding: 20px 0;
+            }
+
+            .mz-systems-carousel {
+                flex-direction: column;
+                transition: none;
+                transform: none !important;
+            }
+
+            .mz-systems-card {
+                flex: 0 0 auto;
+                width: 80%;
+                max-width: 320px;
+                margin: 10px auto;
+                height: 350px;
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .mz-systems-nav-button,
+            .mz-systems-nav-dots {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- Heat Pump Carousel -->
+<div class="diy-ductless-hp-carousel-container" id="heatPumpCarouselContainer">
+    <div class="diy-ductless-hp-carousel" id="heatPumpCarousel"></div>
+    <div class="diy-ductless-hp-nav-button diy-ductless-hp-prev" id="heatPumpPrev">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg>
+    </div>
+    <div class="diy-ductless-hp-nav-button diy-ductless-hp-next" id="heatPumpNext">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" /></svg>
+    </div>
+    <div class="diy-ductless-hp-nav-dots" id="heatPumpDots"></div>
+</div>
+
+<!-- Multi-Zone Carousel -->
+<div class="mz-systems-carousel-container" id="multiZoneCarouselContainer">
+    <div class="mz-systems-carousel" id="multiZoneCarousel"></div>
+    <div class="mz-systems-nav-button mz-systems-prev" id="multiZonePrev">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg>
+    </div>
+    <div class="mz-systems-nav-button mz-systems-next" id="multiZoneNext">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" /></svg>
+    </div>
+    <div class="mz-systems-nav-dots" id="multiZoneDots"></div>
+</div>
+
+</body>
+
+<script>
+
+    // Product data for standard products
+    const heatPumpProducts = [
+        {
+            id: 0,
+            title:
+                "9k BTU 23.6 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+            price: "$2,329.00",
+            image: "{{media url=wysiwyg/9k-12k-18k.jpg}}", // Replace with actual image path
+            link: "https://iwae.com/shop/9k-btu-23-6-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26231.html"
+        },
+        {
+            id: 1,
+            title:
+                "12k BTU 23.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+            price: "$2,359.00",
+            image: "{{media url=wysiwyg/9k-12k-18k.jpg}}", // Replace with actual image path
+            link: "https://iwae.com/shop/12k-btu-23-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26232.html"
+        },
+        {
+            id: 2,
+            title:
+                "18k BTU 22.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+            price: "$2,499.00",
+            image: "{{media url=wysiwyg/9k-12k-18k.jpg}}", // Replace with actual image path
+            link: "https://iwae.com/shop/18k-btu-22-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26233.html"
+        },
+        {
+            id: 3,
+            title:
+                "24k BTU 21.0 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+            price: "$2,699.00",
+            image: "{{media url=wysiwyg/24k-36k.jpg}}", // Replace with actual image path
+            link: "https://iwae.com/shop/24k-btu-22-7-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26234.html"
+        },
+        {
+            id: 4,
+            title:
+                "36k BTU 18 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+            price: "$3,299.00",
+            image: "{{media url=wysiwyg/24k-36k.jpg}}", // Replace with actual image path
+            link: "https://iwae.com/shop/36k-btu-18-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26235.html"
+        },
+    ];
+
+
+    // Product data for multi-zone systems
+    const multiZoneProducts = [
+        {
+            id: 0,
+            title: "2 Zone",
+            price: "As Low As $2,545",
+            image: "{{media url=wysiwyg/ha-ductless-split-system-dual-zone.png}}", // Replace with actual image path
+            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/dual-zone/?series=518"
+        },
+        {
+            id: 1,
+            title: "3 Zone",
+            price: "As Low As $2,736",
+            image: "{{media url=wysiwyg/ha-ductless-split-system-triple-zone.png}}", // Replace with actual image path
+            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/triple-zone/?series=518"
+        },
+        {
+            id: 2,
+            title: "4 Zone",
+            price: "As Low As $3,438",
+            image: "{{media url=wysiwyg/ha-ductless-split-system-quad-zone.png}}", // Replace with actual image path
+            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/quad-zone/?series=518"
+        },
+        {
+            id: 3,
+            title: "5 Zone",
+            price: "As Low As $4,189",
+            image: "{{media url=wysiwyg/ha-ductless-split-system-five-zone.png}}", // Replace with actual image path
+            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/five-zone/?series=518"
+        },
+    ];
+
+    initCarousel({
+        data: heatPumpProducts,
+        carouselId: 'heatPumpCarousel',
+        prefix:'diy-ductless-hp',
+        prevBtnId: 'heatPumpPrev',
+        nextBtnId: 'heatPumpNext',
+        dotsContainerId: 'heatPumpDots'
+    });
+
+    initCarousel({
+        data: multiZoneProducts,
+        carouselId: 'multiZoneCarousel',
+        prefix:'mz-systems',
+        prevBtnId: 'multiZonePrev',
+        nextBtnId: 'multiZoneNext',
+        dotsContainerId: 'multiZoneDots'
+    });
+    function initCarousel({ data, carouselId, prefix, prevBtnId, nextBtnId, dotsContainerId }) {
+        const carousel = document.getElementById(carouselId);
+        const dotsContainer = document.getElementById(dotsContainerId);
+        let currentIndex = 0;
+
+        function generateCarousel() {
+            carousel.innerHTML = '';
+            const isMobile = window.innerWidth <= 576;
+            const totalCards = data.length;
+
+            if (isMobile) {
+                data.forEach(item => {
+                    carousel.innerHTML += `
+                    <div class="diy-ductless-hp-card diy-ductless-hp-active">
+                        <div class="diy-ductless-hp-card-container">
+                            <div class="diy-ductless-hp-card-image">
+                                <img src="${item.image}" alt="${item.title}">
+                            </div>
+                            <div class="diy-ductless-hp-card-content">
+                                <h2>${item.title}</h2>
+                                <div class="diy-ductless-hp-price">${item.price}</div>
+                                <a href="${item.link}" target="_blank">
+                                    <button class="diy-ductless-hp-shop-now-btn">Shop Now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>`;
+                });
+            } else {
+                for (let i = 0; i < totalCards + 4; i++) {
+                    const dataIndex = (currentIndex - 2 + i + totalCards) % totalCards;
+                    const item = data[dataIndex];
+                    const isActive = i === 1 || i === 2;
+                    const hasBlue = i === 0 || i === 3;
+
+                    carousel.innerHTML += `
+                    <div class="${prefix}-card ${isActive ?  prefix + '-active' : ''}">
+                        <div class="${prefix}-card-container">
+                            ${hasBlue ? `<div class="${prefix}-blue-background"></div>` : ''}
+                            <div class="${prefix}-card-image">
+                                <img src="${item.image}" alt="${item.title}">
+                            </div>
+                            <div class="${prefix}-card-content">
+                                <h2>${item.title}</h2>
+                                <div class="${prefix}-price">${item.price}</div>
+                                <a href="${item.link}" target="_blank">
+                                    <button class="${prefix}-shop-now-btn">Shop Now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>`;
+                }
+            }
+            updateDots();
+            adjustActiveCards(prefix);
+
+        }
+
+        function updateDots() {
+            if (window.innerWidth > 576) {
+                dotsContainer.innerHTML = '';
+                data.forEach((_, i) => {
+                    dotsContainer.innerHTML += `<div class="diy-ductless-hp-nav-dot ${i === currentIndex ? 'diy-ductless-hp-active' : ''}"></div>`;
+                });
+
+                [...dotsContainer.children].forEach((dot, i) => {
+                    dot.onclick = () => {
+                        if (i !== currentIndex) {
+                            currentIndex = i;
+                            generateCarousel();
+                        }
+                    };
+                });
+            }
+        }
+        function adjustActiveCards(prefix) {
+                const cards = carousel.querySelectorAll(`.${prefix}-card`);
+            const isNarrow = window.innerWidth < 1170;
+            const isMedium = window.innerWidth > 576 && window.innerWidth <= 768;
+            const isMobile = window.innerWidth <= 576;
+
+            if (isMobile) {
+                cards.forEach(card => {
+                    card.classList.remove(`${prefix}-semi-active`);
+                    card.classList.add(`${prefix}-active`);
+                });
+                return;
+            }
+
+            if (isMedium) {
+                cards.forEach(card => {
+                    card.classList.remove(`${prefix}-semi-active`);
+                    card.classList.add(`${prefix}-active`);
+                });
+                return;
+            }
+
+            if (isNarrow && !isMedium) {
+                let foundActive = false;
+                cards.forEach(card => {
+                    if (card.classList.contains(`${prefix}-active`)) {
+                        if (foundActive) {
+                            card.classList.remove(`${prefix}-active`);
+                            card.classList.add(`${prefix}-semi-active`);
+                        } else {
+                            foundActive = true;
+                        }
+                    }
+                });
+            } else {
+                cards.forEach(card => {
+                    if (card.classList.contains(`${prefix}-semi-active`)) {
+                        card.classList.remove(`${prefix}-semi-active`);
+                        card.classList.add(`${prefix}-active`);
+                    }
+                });
+            }
+        }
+
+        // Navigation
+        document.getElementById(prevBtnId).onclick = () => {
+            currentIndex = (currentIndex - 1 + data.length) % data.length;
+            generateCarousel();
+        };
+        document.getElementById(nextBtnId).onclick = () => {
+            currentIndex = (currentIndex + 1) % data.length;
+            generateCarousel();
+        };
+
+        // Re-initialize on resize
+        window.addEventListener('resize', generateCarousel);
+
+        generateCarousel();
+
+    }
+
+</script>
+
+</html>
