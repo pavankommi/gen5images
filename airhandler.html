@@ -34,53 +34,58 @@
             display: none;
         }
 
+        .airhandler-section-container {
+            position: relative;
+            width: 100%;
+            /*padding-top: 40px;*/
+            z-index: 2;
+        }
+
         .gradient-box-wrapper {
             padding: 70px 0 0;
         }
 
         .gradient-box-container {
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
-            width: 100%;
-            max-width: 1478px;
-            margin: auto;
         }
 
         .gradient-box {
             width: 100%;
-            max-height: 600px;
-            aspect-ratio: 1478 / 600;
             border-radius: 30px;
             background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 40px;
-            color: #fff;
+            padding: 100px 40px;
             box-sizing: border-box;
+            position: relative;
+            color: #fff;
+            overflow: hidden;
         }
 
         .hero-content {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 5%;
-            width: 100%;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .headline-section, .subheadline-section {
+            flex: 1 1 45%;
+            text-align: center;
         }
 
         .headline {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 500;
             line-height: 1.25;
-            margin: 0;
-            text-align: center;
+            margin: 0 0 10px;
         }
 
         .subheadline {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 400;
             line-height: 1.3;
             margin: 0;
-            text-align: center;
         }
 
         .divider-vertical {
@@ -90,49 +95,46 @@
             flex-shrink: 0;
         }
 
-
-        .airhandler-section-container {
+        .airhandler-floating-wrapper {
             position: relative;
+            z-index: 3;
+            width: 100%;
+            height: 0; /* no height, image is positioned absolutely */
         }
 
-        .airhandler-wrapper {
+        .airhandler-floating-img {
             position: absolute;
-            width: 100%;
-            transform: translateY(-50%);
-            z-index: 5;
-            display: flex;
-            justify-content: center;
+            top: -170px; /* lifts it into gradient box */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            max-width: 100%;
+            z-index: 3;
+            pointer-events: none;
         }
 
-        .airhandler-overlay-img {
-            width: 100%;
-            max-width: 640px;
-        }
-
-        /* ✅ IMAGE SECTION MATCHES GRADIENT BOX */
+        /* IMAGE SECTION MATCHES GRADIENT BOX */
         .image-split-section {
             position: relative;
-            display: flex;
             width: 100%;
-            max-width: 1478px;
-            margin: 0 auto;
-            padding: 10px 0 0;
-            box-sizing: border-box;
-            z-index: 1;
+            max-width: 1200px;
+            margin: 15px auto 0;
+            /* enough top margin to clear overlay */
             aspect-ratio: 1478 / 600;
+            border-radius: 30px;
+            overflow: hidden;
+            z-index: 1;
         }
 
         .right-image {
             width: 100%;
-            align-content: center;
             height: 100%;
-            aspect-ratio: 1478 / 600;
-            background-image: url("{{media url=wysiwyg/remotecontrol.jpg}}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 30px;
-            overflow: hidden;
+            position: relative;
+            background-image: url("{{media url=wysiwyg/remotecontrol.jpg}}");
         }
 
         .price-label {
@@ -140,17 +142,14 @@
             bottom: 25px;
             background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
             border-radius: 0 20px 20px 0;
-            padding: 18px;
-            text-align: center;
-            align-items: center;
+            padding: 18px 45px;
             color: #fff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            max-width: 193px;
-            width: 25%;
+            max-width: 200px;
         }
 
         .price-text {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 500;
             margin-bottom: 5%;
         }
@@ -163,14 +162,15 @@
             color: #FFFFFF;
             text-decoration: none;
             font-weight: 500;
-            font-size: 16px;
-            transition: background 0.3s ease;
+            font-size: 14px;
+            /*transition: background 0.3s ease;*/
         }
 
         .price-button:hover {
             background-color: #005fcc;
         }
-        .price-button:visited{
+
+        .price-button:visited {
             color: #fff;
         }
 
@@ -179,7 +179,7 @@
 
         .overlap-wrapper {
             position: relative;
-            max-width: 1478px;
+            max-width: 1200px;;
             margin: 20px auto;
             padding: 0;
             box-sizing: border-box;
@@ -207,14 +207,14 @@
         }
 
         .text-content h2 {
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 500;
             line-height: 1.2459;
             color: #FFF;
         }
 
         .text-content p {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 400;
             font-style: normal;
             line-height: 1.36;
@@ -273,7 +273,7 @@
 
 
         .gradient-feature-wrapper {
-            max-width: 1478px;
+            max-width: 1200px;;
             margin: 20px auto;
             padding: 0;
             box-sizing: border-box;
@@ -283,11 +283,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1478px;
+            max-width: 1200px;;
             margin: auto;
             background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
             border-radius: 30px;
-            padding: 100px;
+            padding: 50px 100px;
             color: #fff;
             /*gap: 40px;*/
             flex-wrap: wrap;
@@ -299,26 +299,23 @@
             display: flex;
             flex-direction: column;
             margin-top: auto;
-            /* ✅ push from top */
             margin-bottom: auto;
-            /* ✅ push from bottom */
             height: auto;
 
 
         }
 
         .feature-left h2 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 500;
-            line-height: 1.25;
-            margin: 0 0 16px;
+            line-height:normal;
         }
 
         .feature-left p {
-            width: 80%;
+            width: 75%;
             font-size: 16px;
             font-weight: 300;
-            /*line-height: 30px;*/
+            line-height: 135%;
             margin: 0 0 20px;
             opacity: 0.95;
 
@@ -353,11 +350,9 @@
             position: absolute;
             bottom: 16px;
             left: -8px;
-            /* ⬅️ increased negative value to protrude more */
             background: #00629c;
             border-radius: 0 10px 10px 0;
             padding: 10px 16px 10px 24px;
-            /* ⬅️ more left padding for spacing inside */
             font-size: 18px;
             font-weight: 500;
             line-height: 1.11;
@@ -365,7 +360,6 @@
             min-height: 48px;
             display: flex;
             align-items: center;
-            /* ⬅️ vertically center the text */
             width: 70%;
             height: 15%;
         }
@@ -388,9 +382,10 @@
             background-color: #00629c;
         }
 
-        .info-button:visited{
+        .info-button:visited {
             color: #fff;
         }
+
         .info-button-spacing {
             margin: 10px 20px;
         }
@@ -399,14 +394,14 @@
 
         .diy-ductless-hp-carousel-container {
             position: relative;
-            max-width: 1478px;
+            max-width: 1200px;
             margin: 20px auto;
             overflow: hidden;
         }
 
         .diy-ductless-hp-title {
             text-align: center;
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 500;
             color: #0d1c37;
             padding: 10px;
@@ -514,7 +509,7 @@
         }
 
         .diy-ductless-hp-card .diy-ductless-hp-price {
-            font-size: 18px;
+            font-size: 16px;
             color: #3478F6;
             font-weight: 500;
             margin-bottom: 20px;
@@ -616,15 +611,16 @@
 
         .mz-systems-carousel-container {
             position: relative;
-            max-width: 1478px;
+            max-width: 1200px;;
             margin: 20px auto;
+            padding: 20px 0;
             overflow: hidden;
             background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
         }
 
         .mz-systems-title {
             text-align: center;
-            font-size: 40px;
+            font-size: 32px;
             padding: 10px;
             font-weight: 500;
             color: #fff;
@@ -722,7 +718,7 @@
         }
 
         .mz-systems-card h2 {
-            font-size: 24px;
+            font-size: 22px;
             color: #fff;
             height: auto;
             line-height: 1.3;
@@ -832,7 +828,7 @@
         /*testimonial section */
 
         .testimonial-section {
-            max-width: 1478px;
+            max-width: 1200px;;
             min-height: 386px;
             margin: 20px auto;
         }
@@ -840,7 +836,7 @@
         .testimonial-section-title {
             color: #0d1c37;
             text-align: center;
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 500;
         }
 
@@ -860,13 +856,13 @@
             border-radius: 16px;
             border: 2px solid #00629c;
             box-shadow: 0 3.166px 31.663px 0 rgba(13, 89, 239, 0.04);
-            padding: 35px;
+            padding: 30px;
             position: relative;
         }
 
         .testimonial-card p {
             color: #282828;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 300;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -875,13 +871,13 @@
 
         .testimonial-author {
             color: #000;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 500;
         }
 
         .testimonial-author-line {
             color: #777575;
-            font-size: 16px;
+            font-size: 14px;
             font-style: italic;
             font-weight: 300;
         }
@@ -899,7 +895,7 @@
 
         .warranty-section {
             position: relative;
-            max-width: 1478px;
+            max-width: 1200px;;
             margin: 20px auto;
             padding: 0;
             box-sizing: border-box;
@@ -919,7 +915,7 @@
             background-position: top;
             background-repeat: no-repeat;
             z-index: 1;
-            min-height: 593px;
+            min-height: 450px;
         }
 
 
@@ -927,11 +923,11 @@
             background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
             width: 65%;
             margin-left: 35%;
-            margin-top: -40%;
+            margin-top: -30%;
             /*border-radius: 30px 0 0 30px;*/
             box-sizing: border-box;
             border-radius: 30px;
-            padding: 40px;
+            padding: 40px 40px 0 40px;
             z-index: 2;
             position: relative;
 
@@ -943,7 +939,7 @@
 
         .warranty-heading h2 {
             color: #FFF;
-            font-size: 40px;
+            font-size: 30px;
             font-style: normal;
             font-weight: 500;
             line-height: normal;
@@ -964,7 +960,7 @@
 
         .warranty-text p {
             color: #fff;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 300;
             line-height: 1.5;
             margin-bottom: 15px;
@@ -1006,22 +1002,20 @@
         }
 
         .gradient-footer-wrapper {
-            margin: 20px auto;
-            max-width: 1478px;
-            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
         }
 
         .gradient-footer {
-            max-width: 1478px;
+            width: 100%;
             border-radius: 30px;
             background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            align-items: center;
             padding: 5%;
+            box-sizing: border-box;
+            position: relative;
             color: #fff;
-        }
-
-        .gradient-footer .hero-content .subheadline-section .subheadline {
-            margin-top: 12%;
+            overflow: hidden;
         }
 
         .gradient-footer .hero-content .divider-vertical {
@@ -1030,7 +1024,7 @@
 
         .hero-content .info-button {
             background: #00629C;
-            margin: 20px 20px 20px 30%;
+            margin: 20px;
             color: #fff;
         }
 
@@ -1069,23 +1063,21 @@
         }
 
         @media (min-width: 769px) and (max-width: 1108px) {
+
             .headline {
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .subheadline {
                 font-size: 20px;
             }
 
-            .airhandler-wrapper {
-                width: 70%;
-                margin-left: 15%;
-            }
-
             .warranty-card {
-                width: 85%;
-                margin-left: 20%;
-                margin-top: -48%;
+                /*width: 85%;*/
+                /*margin-left: 20%;*/
+                margin-top: -40%;
+                padding: 40px;
+
             }
 
             .background-card {
@@ -1104,71 +1096,9 @@
         /* Mobile screens */
         @media (max-width: 768px) {
 
-
             body,
             html {
                 overflow-x: hidden;
-            }
-
-
-            .gradient-box-wrapper {
-                padding: 0 0 10px 0;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .gradient-box-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                padding: 0 12px;
-                box-sizing: border-box;
-            }
-
-            .gradient-box {
-                width: 100%;
-                height: 638px;
-                padding: 30px;
-                border-radius: 30px;
-                background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                color: #fff;
-                box-sizing: border-box;
-            }
-
-            .hero-content {
-                flex-direction: column;
-                gap: 24px;
-                text-align: center;
-            }
-
-            .divider-vertical {
-                display: none;
-            }
-
-            .divider-horizontal {
-                height: 2px;
-                width: 120px;
-                background: white;
-                margin: 16px auto;
-            }
-
-            .headline {
-                font-size: 52px;
-                line-height: 1.3;
-                font-weight: 400;
-            }
-
-            .subheadline {
-                font-size: 22px;
-                line-height: 1.5;
-                font-weight: 400;
             }
 
             .logo-img-mobile {
@@ -1183,46 +1113,73 @@
                 display: none;
             }
 
+            .gradient-box-wrapper {
+                padding: 0;
+            }
+
+            .airhandler-section-container {
+                padding-top: 0;
+            }
+
+            .gradient-box {
+                padding: 110px 20px;
+            }
+
+            .hero-content {
+                flex-direction: row;
+                text-align: center;
+            }
+
+            .headline-section,
+            .subheadline-section {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .headline {
+                font-size: 28px;
+            }
+
+            .subheadline {
+                font-size: 18px;
+            }
+
+            .divider-vertical {
+                width: 100px;
+                height: 2px;
+                margin: 16px auto;
+                background: white;
+            }
+
+            .airhandler-floating-img {
+                /*width: 260px;*/
+                /*top: -100px;*/
+            }
+
             .image-split-section {
-                flex-direction: column-reverse;
-                max-width: 100%;
-                padding: 0 12px;
-                margin-top: 0;
-                /* margin-top: 40px; */
-                box-sizing: border-box;
+                aspect-ratio: auto;
+                height: 400px;
             }
 
             .right-image {
-                position: relative;
-                width: 100%;
-                height: 593px;
-                border-radius: 30px;
-                background-size: cover;
-                background-position: center;
+                height: 100%;
             }
 
             .price-label {
-                padding: 20px;
-                width: 50%;
+                bottom: 15px;
+                padding: 14px;
+                width: auto;
+                max-width: 70%;
             }
 
             .price-text {
-                font-size: 22px;
+                font-size: 16px;
                 font-weight: 400;
             }
+
             .price-button {
                 font-weight: 400;
             }
-            .airhandler-overlay-img {
-                width: 100%;
-            }
-
-            .airhandler-wrapper {
-                transform: translate(0%, -50%);
-                width: 90%;
-                padding: 5%;
-            }
-
 
             /*video section */
             .overlap-wrapper {
@@ -1251,7 +1208,7 @@
             }
 
             .text-content h2 {
-                font-size: 36px;
+                font-size: 32px;
                 color: #FFF;
                 font-weight: 400;
             }
@@ -1373,7 +1330,7 @@
             }
 
             .testimonial-section h2 {
-                font-size: 36px;
+                font-size: 32px;
                 max-width: 100%;
             }
 
@@ -1401,7 +1358,6 @@
             }
 
 
-
             .image-card {
                 width: 100%;
             }
@@ -1422,9 +1378,10 @@
                 margin-bottom: 30px;
             }
 
-            .warranty-heading{
+            .warranty-heading {
                 width: 80%;
             }
+
             .warranty-badges {
                 width: 100%;
                 flex-direction: row;
@@ -1438,16 +1395,17 @@
             }
 
             .gradient-footer {
-                padding: 25% 8%;
+                padding: 40px;
             }
 
-            .gradient-footer .hero-content .subheadline-section .subheadline {
-                margin-top: 0;
+
+            .gradient-footer .hero-content .divider-vertical {
+                width: 150px;
+                height: 2px;
             }
 
             .hero-content .info-button {
                 background: #1C8EFF;
-                margin: 20px;
             }
         }
 
@@ -1521,54 +1479,49 @@
 <!-- Logo for mobile view only -->
 <img class="logo-img-mobile" src="{{media url=wysiwyg/MrCool-badgelogo-fixed.png}}" alt="Placeholder Logo"/>
 
+
 <div class="airhandler-section-container">
 
+    <!-- Gradient Section -->
     <div class="gradient-box-wrapper">
         <div class="gradient-box-container">
             <!-- Logo for desktop view only -->
             <img class="logo-img-desktop" src="{{media url=wysiwyg/MrCool-badgelogo-fixed.png}}"
                  alt="Placeholder Logo"/>
 
-            <!-- Gradient box -->
             <div class="gradient-box">
                 <div class="hero-content">
                     <div class="headline-section">
                         <h2 class="headline">America's New<br> MrCool DIY Mini-Split</h2>
-                        <div class="divider-horizontal"></div>
                     </div>
                     <div class="divider-vertical"></div>
+
                     <div class="subheadline-section">
-                        <p class="subheadline">
-                            Air Conditioner and Heater<br>you can install yourself
-                        </p>
+                        <p class="subheadline">Air Conditioner and Heater<br>you can install yourself</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <div class="airhandler-wrapper">
+    <!-- OVERLAPPING AIRHANDLER IMAGE (between sections) -->
+    <div class="airhandler-floating-wrapper">
         <img src="{{media url=wysiwyg/header-overlay-airhandler.png}}" alt="Airhandler Overlay"
-             class="airhandler-overlay-img"/>
+             class="airhandler-floating-img"/>
     </div>
 
-    <!-- ✅ IMAGE SECTION MATCHED -->
+    <!-- IMAGE SPLIT SECTION -->
     <div class="image-split-section">
         <div class="right-image">
             <div class="price-label">
                 <div class="price-text">From $2,329</div>
-                <!--                    <a href="https://iwae.com/searchanise/result?q=diy&page=1&rb_manufacturer=MrCool&rb_series=DIY&rb_refrigerant=R-454b"-->
-                <!--                       class="price-button" target="_blank" rel="noopener noreferrer">Shop Now</a>-->
                 <a href="#heatPump" class="price-button">Shop Now</a>
-
             </div>
         </div>
     </div>
-
 </div>
 
-<!-- ✅ Video SECTION  -->
+<!-- Video SECTION  -->
 <div class="overlap-wrapper">
 
     <div class="foreground-card">
@@ -1672,7 +1625,7 @@
 
 <!-- Multi-Zone Carousel -->
 <div class="mz-systems-carousel-container" id="multiZoneCarouselContainer">
-    <h2 class="mz-systems-title" >Need an Option for Multiple Rooms?</h2>
+    <h2 class="mz-systems-title">Need an Option for Multiple Rooms?</h2>
     <p class="mz-systems-description">
         Check out the NEW MrCool DIY Multi-Zone Systems
     </p>
@@ -1837,7 +1790,6 @@
         <div class="hero-content">
             <div class="headline-section">
                 <h2 class="headline">Shop the All New <br>MrCool DIY 5th Gen</h2>
-                <div class="divider-horizontal"></div>
             </div>
             <div class="divider-vertical"></div>
             <div class="subheadline-section">

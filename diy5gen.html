@@ -1,1574 +1,1526 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    .mr-cool-diy-body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        font-family: "Poppins", sans-serif;
+    }
 
-    <title>MrCool Hero Section</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+    .logo-img-desktop {
+        position: absolute;
+        top: -70px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 260px;
+        aspect-ratio: 260.453 / 119;
+        object-fit: contain;
+        z-index: 10;
+        display: block;
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            background: #fff;
-            font-family: "Poppins", sans-serif;
+    .logo-img-mobile {
+        width: 160px;
+        margin: 20px 0 16px 12px;
+        display: none;
+    }
+
+    .airhandler-section-container {
+        position: relative;
+        width: 100%;
+        /*padding-top: 40px;*/
+        z-index: 2;
+    }
+
+    .gradient-box-wrapper {
+        padding: 70px 0 0;
+    }
+
+    .gradient-box-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .gradient-box {
+        width: 100%;
+        border-radius: 30px;
+        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+        padding: 100px 40px;
+        box-sizing: border-box;
+        position: relative;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .headline-section, .subheadline-section {
+        flex: 1 1 45%;
+        text-align: center;
+    }
+
+    .headline {
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 1.25;
+        margin: 0 0 10px;
+    }
+
+    .subheadline {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.3;
+        margin: 0;
+    }
+
+    .divider-vertical {
+        width: 2px;
+        height: 100px;
+        background: white;
+        flex-shrink: 0;
+    }
+
+    .airhandler-floating-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 0; /* no height, image is positioned absolutely */
+    }
+
+    .airhandler-floating-img {
+        position: absolute;
+        top: -170px; /* lifts it into gradient box */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        max-width: 100%;
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    /* IMAGE SECTION MATCHES GRADIENT BOX */
+    .image-split-section {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 15px auto 0;
+        /* enough top margin to clear overlay */
+        aspect-ratio: 1478 / 600;
+        border-radius: 30px;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .right-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+        position: relative;
+        background-image: url("{{media url=wysiwyg/remotecontrol.jpg}}");
+    }
+
+    .price-label {
+        position: absolute;
+        bottom: 25px;
+        background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+        border-radius: 0 20px 20px 0;
+        padding: 18px 45px;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        max-width: 200px;
+    }
+
+    .price-text {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 5%;
+    }
+
+    .price-button {
+        display: inline-block;
+        background-color: #007bff;
+        padding: 8px 20px;
+        border-radius: 9999px;
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        /*transition: background 0.3s ease;*/
+    }
+
+    .price-button:hover {
+        background-color: #005fcc;
+    }
+
+    .price-button:visited {
+        color: #fff;
+    }
+
+
+    /*video section */
+
+    .overlap-wrapper {
+        position: relative;
+        max-width: 1200px;;
+        margin: 20px auto;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .background-card {
+        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+        border-radius: 30px;
+        width: 60%;
+        margin-left: 40%;
+        margin-top: -35%;
+        align-content: center;
+        box-sizing: border-box;
+        z-index: 1;
+        padding: 7% 5% 13% 25%;
+    }
+
+    .text-content {
+        align-content: center;
+    }
+
+    .text-content h2 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 1.2459;
+        color: #FFF;
+    }
+
+    .text-content p {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1.36;
+        color: #FFF;
+    }
+
+    /* Top div on left */
+    .foreground-card {
+        position: relative;
+        width: 60%;
+        min-height: 450px;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        z-index: 5;
+    }
+
+
+    .video-thumbnail {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        border-radius: 30px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("{{media url=&quot;wysiwyg/video-thumbnail.png&quot;}}");
+    }
+
+    #ytPlayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+    }
+
+    .polygon-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 25px 35px;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 6.08px 51.03px 0px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        z-index: 15;
+    }
+
+
+    .gradient-feature-wrapper {
+        max-width: 1200px;;
+        margin: 20px auto;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .gradient-feature-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;;
+        margin: auto;
+        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+        border-radius: 30px;
+        padding: 50px 100px;
+        color: #fff;
+        /*gap: 40px;*/
+        flex-wrap: wrap;
+    }
+
+    .feature-left {
+        flex: 1;
+        min-width: 250px;
+        display: flex;
+        flex-direction: column;
+        margin-top: auto;
+        margin-bottom: auto;
+        height: auto;
+
+
+    }
+
+    .feature-left h2 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .feature-left p {
+        width: 75%;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 135%;
+        margin: 0 0 20px;
+        opacity: 0.95;
+
+    }
+
+    .feature-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        min-width: 300px;
+    }
+
+    .feature-box {
+        position: relative;
+        border-radius: 16px;
+        overflow: visible;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        background-color: #eee;
+    }
+
+    .feature-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+    }
+
+    .feature-label {
+        position: absolute;
+        bottom: 16px;
+        left: -8px;
+        background: #00629c;
+        border-radius: 0 10px 10px 0;
+        padding: 10px 16px 10px 24px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.11;
+        color: #fff;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        width: 70%;
+        height: 15%;
+    }
+
+
+    .info-button {
+        display: inline-block;
+        background-color: #1c8eff;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 16px;
+        transition: background 0.3s;
+        align-self: flex-start;
+    }
+
+    .info-button:hover {
+        background-color: #00629c;
+    }
+
+    .info-button:visited {
+        color: #fff;
+    }
+
+    .info-button-spacing {
+        margin: 10px 20px;
+    }
+
+    /*Heat Pump carousel section */
+
+    .diy-ductless-hp-carousel-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+
+    .diy-ductless-hp-title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+        color: #0d1c37;
+        padding: 10px;
+        margin: auto;
+    }
+
+    .diy-ductless-hp-description {
+        text-align: center;
+        max-width: 80%;
+        margin: auto;
+        padding: 10px 28px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 27px;
+        color: #0d1c37;
+    }
+
+    .carousel-wrapper {
+        transform: translateX(-46px);
+    }
+
+    .diy-ductless-hp-carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .diy-ductless-hp-card {
+        flex: 0 0 calc(25% - 20px);
+        max-height: 380px;
+        margin: 10px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+        transform-origin: center;
+        opacity: 0.6;
+        transform: scale(0.9);
+        overflow: hidden;
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+    }
+
+    .diy-ductless-hp-card.diy-ductless-hp-active {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 2;
+        border: 2px solid #00629C;
+    }
+
+    .diy-ductless-hp-card-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .diy-ductless-hp-card-image {
+        width: 100%;
+        height: 100%;
+        max-height: 380px;
+        max-width: 450px;
+        display: flex;
+        justify-content: center;
+        /*align-items: center;*/
+        background-color: #fff;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+    }
+
+    .diy-ductless-hp-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(28, 142, 255, 0.52);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .diy-ductless-hp-card.diy-ductless-hp-active::before {
+        background-color: transparent;
+    }
+
+    .diy-ductless-hp-card-image img {
+        max-width: 160px;
+        max-height: 160px;
+        object-fit: contain;
+    }
+
+    .diy-ductless-hp-card h2 {
+        font-size: 18px;
+        color: #000;
+        height: auto;
+        padding: 0 25px;
+        line-height: 1.3;
+        font-weight: 500;
+        overflow: hidden;
+    }
+
+    .diy-ductless-hp-card .diy-ductless-hp-price {
+        font-size: 16px;
+        color: #3478F6;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .diy-ductless-hp-shop-now-btn {
+        background-color: #1C8EFF;
+        color: white;
+        border: none;
+        border-radius: 100px;
+        padding: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: auto;
+        width: 120px;
+        align-self: center;
+    }
+
+    .diy-ductless-hp-shop-now-btn:hover {
+        background-color: #2460D8;
+    }
+
+    .diy-ductless-hp-shop-now-btn:visited {
+        background-color: #2460D8;
+    }
+
+    .diy-ductless-hp-nav-button {
+        position: absolute;
+        top: 40%;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        border: 1px solid #e0e0e0;
+    }
+
+    .diy-ductless-hp-card.diy-ductless-hp-semi-active {
+        transform: scale(0.95);
+    }
+
+    .diy-ductless-hp-nav-button:hover {
+        background-color: #f0f0f0;
+    }
+
+    .diy-ductless-hp-prev {
+        left: calc(25% + 10px);
+    }
+
+    .diy-ductless-hp-next {
+        right: calc(25% - 75px);
+    }
+
+    .diy-ductless-hp-nav-button svg {
+        width: 20px;
+        height: 20px;
+        fill: #333;
+    }
+
+    /* Navigation dots */
+    .diy-ductless-hp-nav-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .diy-ductless-hp-nav-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .diy-ductless-hp-nav-dot.diy-ductless-hp-active {
+        background-color: #3478F6;
+        transform: scale(1.2);
+    }
+
+    .diy-ductless-hp-card-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+    }
+
+    .diy-ductless-hp-blue-background {
+        transform: scale(0.95);
+
+    }
+
+    /* Multi-Zone carousel section */
+
+    .mz-systems-carousel-container {
+        position: relative;
+        max-width: 1200px;;
+        margin: 20px auto;
+        padding: 20px 0;
+        overflow: hidden;
+        background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+    }
+
+    .mz-systems-title {
+        text-align: center;
+        font-size: 32px;
+        padding: 10px;
+        font-weight: 500;
+        color: #fff;
+        margin: auto;
+    }
+
+    .mz-systems-description {
+        text-align: center;
+        max-width: 80%;
+        margin: auto;
+        padding: 10px 28px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 27px;
+        color: #fff
+    }
+
+
+    .mz-systems-carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .mz-systems-card {
+        flex: 0 0 calc(25% - 20px);
+        /*height: 440px;*/
+        margin: 10px;
+        background: rgba(255, 255, 255, 0.30);
+        backdrop-filter: blur(5px);
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+        transform-origin: center;
+        opacity: 0.6;
+        transform: scale(0.9);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 20px 10px;
+
+    }
+
+    .mz-systems-card.mz-systems-active {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 2;
+        border: 2px solid #00629C;
+    }
+
+    .mz-systems-card-content {
+        text-align: center;
+        /*display: flex;*/
+        flex-direction: column;
+        /*height: 100%;*/
+        width: 100%;
+    }
+
+    .mz-systems-card-image {
+        width: 100%;
+        height: 100%;
+        max-height: 380px;
+        max-width: 450px;
+        /*margin-top: 15%;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+    }
+
+    .mz-systems-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(28, 142, 255, 0.52);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .mz-systems-card.mz-systems-active::before {
+        background-color: transparent;
+    }
+
+    .mz-systems-card-image img {
+        max-width: 240px;
+        max-height: 240px;
+        object-fit: contain;
+    }
+
+    .mz-systems-card h2 {
+        font-size: 22px;
+        color: #fff;
+        height: auto;
+        line-height: 1.3;
+        font-weight: 600;
+        overflow: hidden;
+    }
+
+    .mz-systems-card .mz-systems-price {
+        font-size: 20px;
+        color: #fff;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .mz-systems-shop-now-btn {
+        background: #00629C;
+        color: white;
+        border: none;
+        border-radius: 100px;
+        padding: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: auto;
+        width: 120px;
+        align-self: center;
+    }
+
+    .mz-systems-shop-now-btn:hover {
+        background: #00629C;
+    }
+
+    .mz-systems-shop-now-btn:visited {
+        background: #00629C;
+    }
+
+    .mz-systems-nav-button {
+        position: absolute;
+        top: 40%;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        border: 1px solid #e0e0e0;
+    }
+
+    .mz-systems-card.mz-systems-semi-active {
+        transform: scale(0.95);
+    }
+
+    .mz-systems-nav-button:hover {
+        background-color: #f0f0f0;
+    }
+
+    .mz-systems-prev {
+        left: calc(25% + 10px);
+    }
+
+    .mz-systems-next {
+        right: calc(20% - 20px);
+    }
+
+    .mz-systems-nav-button svg {
+        width: 20px;
+        height: 20px;
+        fill: #333;
+    }
+
+    /* Navigation dots */
+    .mz-systems-nav-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .mz-systems-nav-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .mz-systems-nav-dot.mz-systems-active {
+        background-color: #3478F6;
+        transform: scale(1.2);
+    }
+
+    .mz-systems-card-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+    }
+
+    .mz-systems-blue-background {
+        transform: scale(0.95);
+
+    }
+
+    /*testimonial section */
+
+    .testimonial-section {
+        max-width: 1200px;;
+        min-height: 386px;
+        margin: 20px auto;
+    }
+
+    .testimonial-section-title {
+        color: #0d1c37;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+    }
+
+
+    .testimonial-cards {
+        display: flex;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2%;
+        /*max-width: 90%;*/
+        margin: 30px 10%;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .testimonial-card {
+        flex: 1 1 30%;
+        border-radius: 16px;
+        border: 2px solid #00629c;
+        box-shadow: 0 3.166px 31.663px 0 rgba(13, 89, 239, 0.04);
+        padding: 30px;
+        position: relative;
+    }
+
+    .testimonial-card p {
+        color: #282828;
+        font-size: 14px;
+        font-weight: 300;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 15px;
+    }
+
+    .testimonial-author {
+        color: #000;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .testimonial-author-line {
+        color: #777575;
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 300;
+    }
+
+    .stars {
+        width: 147px;
+        height: 29px;
+    }
+
+    .stars svg {
+        width: 100%;
+        height: 100%;
+        fill: #ffd904;
+    }
+
+    .warranty-section {
+        position: relative;
+        max-width: 1200px;;
+        margin: 20px auto;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+    .image-card {
+        background-image: url("{{media url=wysiwyg/MrCoolWarranty-LifestyleImage_1.jpg}}");
+        border-radius: 30px;
+        width: 70%;
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+        z-index: 1;
+        min-height: 450px;
+    }
+
+
+    .warranty-card {
+        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+        width: 65%;
+        margin-left: 35%;
+        margin-top: -30%;
+        /*border-radius: 30px 0 0 30px;*/
+        box-sizing: border-box;
+        border-radius: 30px;
+        padding: 40px 40px 0 40px;
+        z-index: 2;
+        position: relative;
+
+    }
+
+    .warranty-heading {
+        width: 70%;
+    }
+
+    .warranty-heading h2 {
+        color: #FFF;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin: 0;
+    }
+
+    .warranty-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .warranty-text {
+        width: 60%;
+        padding-right: 20px;
+    }
+
+    .warranty-text p {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    .warranty-text span {
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    .warranty-badges {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-20%);
+        gap: 5%;
+    }
+
+    .badge1 {
+        width: 180px;
+        height: 180px;
+        background-image: url("{{media url=wysiwyg/5-year-parts-warranty_pxrxbz.png}}");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .badge2 {
+        width: 180px;
+        height: 180px;
+        background-image: url("{{media url=wysiwyg/7-year-compressor-warranty_nnuicy.png}}");
+        /*background-size: cover;*/
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .gradient-footer-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .gradient-footer {
+        width: 100%;
+        border-radius: 30px;
+        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+        padding: 5%;
+        box-sizing: border-box;
+        position: relative;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .gradient-footer .hero-content .divider-vertical {
+        height: 150px;
+    }
+
+    .hero-content .info-button {
+        background: #00629C;
+        margin: 20px;
+        color: #fff;
+    }
+
+
+    @media (max-width: 1170px) {
+        .diy-ductless-hp-card {
+            flex: 0 0 calc(33.333% - 20px);
         }
 
-        .logo-img-desktop {
-            position: absolute;
-            top: -70px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 260px;
-            aspect-ratio: 260.453 / 119;
-            object-fit: contain;
-            z-index: 10;
-            display: block;
+
+        .diy-ductless-hp-prev {
+            top: 45%;
+            left: calc(25% + 20px);
+        }
+
+        .diy-ductless-hp-next {
+            top: 45%;
+            right: calc(20% - 20px);
+        }
+
+
+        .mz-systems-card {
+            flex: 0 0 calc(33.333% - 20px);
+        }
+
+        .mz-systems-prev {
+            top: 45%;
+            left: calc(25% + 20px);
+
+        }
+
+        .mz-systems-next {
+            top: 45%;
+            right: calc(20% - 20px);
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1108px) {
+
+        .headline {
+            font-size: 28px;
+        }
+
+        .subheadline {
+            font-size: 20px;
+        }
+
+        .warranty-card {
+            /*width: 85%;*/
+            /*margin-left: 20%;*/
+            margin-top: -40%;
+            padding: 40px;
+
+        }
+
+        .background-card {
+            margin-left: 40%;
+            margin-top: -45%;
+            padding: 7% 5% 7% 30%;
+        }
+
+        .foreground-card {
+            width: 65%;
+        }
+
+    }
+
+
+    /* Mobile screens */
+    @media (max-width: 768px) {
+
+        body,
+        html {
+            overflow-x: hidden;
         }
 
         .logo-img-mobile {
-            width: 160px;
-            margin: 20px 0 16px 12px;
+            display: block;
+            width: auto;
+            height: 80px;
+            margin: 0px 0 0px 12px;
+            object-fit: contain;
+        }
+
+        .logo-img-desktop {
             display: none;
         }
 
         .gradient-box-wrapper {
-            padding: 70px 0 0;
+            padding: 0;
         }
 
-        .gradient-box-container {
-            position: relative;
-            width: 100%;
-            max-width: 1478px;
-            margin: auto;
+        .airhandler-section-container {
+            padding-top: 0;
         }
 
         .gradient-box {
-            width: 100%;
-            max-height: 600px;
-            aspect-ratio: 1478 / 600;
-            border-radius: 30px;
-            background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 40px;
-            color: #fff;
-            box-sizing: border-box;
+            padding: 80px 20px;
         }
 
         .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5%;
-            width: 100%;
+            flex-direction: row;
+            text-align: center;
+        }
+
+        .headline-section,
+        .subheadline-section {
+            flex: 1 1 100%;
+            text-align: center;
         }
 
         .headline {
-            font-size: 48px;
-            font-weight: 500;
-            line-height: 1.25;
-            margin: 0;
-            text-align: center;
+            font-size: 32px;
         }
 
         .subheadline {
-            font-size: 24px;
-            font-weight: 400;
-            line-height: 1.3;
-            margin: 0;
-            text-align: center;
+            font-size: 18px;
         }
 
         .divider-vertical {
-            width: 2px;
-            height: 100px;
+            width: 100px;
+            height: 2px;
+            margin: 16px auto;
             background: white;
-            flex-shrink: 0;
         }
 
-
-        .airhandler-section-container {
-            position: relative;
+        .airhandler-floating-img {
+            /*width: 260px;*/
+            /*top: -100px;*/
         }
 
-        .airhandler-wrapper {
-            position: absolute;
-            width: 100%;
-            transform: translateY(-50%);
-            z-index: 5;
-            display: flex;
-            justify-content: center;
-        }
-
-        .airhandler-overlay-img {
-            width: 100%;
-            max-width: 640px;
-        }
-
-        /* ✅ IMAGE SECTION MATCHES GRADIENT BOX */
         .image-split-section {
-            position: relative;
-            display: flex;
-            width: 100%;
-            max-width: 1478px;
-            margin: 0 auto;
-            padding: 10px 0 0;
-            box-sizing: border-box;
-            z-index: 1;
-            aspect-ratio: 1478 / 600;
+            aspect-ratio: auto;
+            height: 400px;
         }
 
         .right-image {
-            width: 100%;
-            align-content: center;
             height: 100%;
-            aspect-ratio: 1478 / 600;
-            background-image: url("{{media url=wysiwyg/remotecontrol.jpg}}");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 30px;
-            overflow: hidden;
         }
 
         .price-label {
-            position: absolute;
-            bottom: 25px;
-            background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
-            border-radius: 0 20px 20px 0;
-            padding: 18px;
-            text-align: center;
-            align-items: center;
-            color: #fff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            max-width: 193px;
-            width: 25%;
+            bottom: 15px;
+            padding: 3% 12%;
         }
 
         .price-text {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 5%;
+            font-size: 18px;
+            font-weight: 400;
         }
 
         .price-button {
-            display: inline-block;
-            background-color: #007bff;
-            padding: 8px 20px;
-            border-radius: 9999px;
-            color: #FFFFFF;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: background 0.3s ease;
+            font-weight: 400;
         }
-
-        .price-button:hover {
-            background-color: #005fcc;
-        }
-        .price-button:visited{
-            color: #fff;
-        }
-
 
         /*video section */
-
         .overlap-wrapper {
-            position: relative;
-            max-width: 1478px;
-            margin: 20px auto;
-            padding: 0;
-            box-sizing: border-box;
             display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 20px;
+            flex-direction: column;
+
+        }
+
+        .foreground-card {
+            width: 100%;
+            aspect-ratio: 8/9;
+            z-index: 2;
         }
 
         .background-card {
-            background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            border-radius: 30px;
-            width: 60%;
-            margin-left: 40%;
-            margin-top: -35%;
-            align-content: center;
-            box-sizing: border-box;
-            z-index: 1;
-            padding: 7% 5% 13% 25%;
+            left: 5%;
+            width: 90%;
+            position: relative;
+            min-height: auto;
+            padding: 50px 20px 20px;
+            margin: -10% 0 0;
         }
 
         .text-content {
-            align-content: center;
+            padding-left: 0;
         }
 
         .text-content h2 {
-            font-size: 40px;
-            font-weight: 500;
-            line-height: 1.2459;
+            font-size: 28px;
             color: #FFF;
+            font-weight: 400;
         }
 
         .text-content p {
-            font-size: 22px;
-            font-weight: 400;
-            font-style: normal;
-            line-height: 1.36;
+            font-size: 20px;
             color: #FFF;
+
         }
-
-        /* Top div on left */
-        .foreground-card {
-            position: relative;
-            width: 60%;
-            min-height: 450px;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            z-index: 5;
-        }
-
-
-        .video-thumbnail {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10;
-            border-radius: 30px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-image: url("{{media url=&quot;wysiwyg/video-thumbnail.png&quot;}}");
-        }
-
-        #ytPlayer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 5;
-        }
-
-        .polygon-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            padding: 25px 35px;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 6.08px 51.03px 0px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            z-index: 15;
-        }
-
 
         .gradient-feature-wrapper {
-            max-width: 1478px;
-            margin: 20px auto;
-            padding: 0;
-            box-sizing: border-box;
+            padding: 10px 0;
         }
 
         .gradient-feature-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1478px;
-            margin: auto;
-            background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            border-radius: 30px;
-            padding: 100px;
-            color: #fff;
-            /*gap: 40px;*/
-            flex-wrap: wrap;
+            flex-direction: column;
+            padding: 30px 20px;
         }
 
         .feature-left {
-            flex: 1;
-            min-width: 250px;
-            display: flex;
-            flex-direction: column;
-            margin-top: auto;
-            /* ✅ push from top */
-            margin-bottom: auto;
-            /* ✅ push from bottom */
-            height: auto;
-
-
+            margin-bottom: 20px;
         }
 
         .feature-left h2 {
-            font-size: 36px;
-            font-weight: 500;
-            line-height: 1.25;
-            margin: 0 0 16px;
+            font-size: 30px;
+            font-weight: 400;
+
         }
 
         .feature-left p {
-            width: 80%;
             font-size: 16px;
             font-weight: 300;
-            /*line-height: 30px;*/
-            margin: 0 0 20px;
-            opacity: 0.95;
-
         }
 
         .feature-grid {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            min-width: 300px;
-        }
-
-        .feature-box {
-            position: relative;
-            border-radius: 16px;
-            overflow: visible;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background-color: #eee;
-        }
-
-        .feature-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 16px;
-        }
-
-        .feature-label {
-            position: absolute;
-            bottom: 16px;
-            left: -8px;
-            /* ⬅️ increased negative value to protrude more */
-            background: #00629c;
-            border-radius: 0 10px 10px 0;
-            padding: 10px 16px 10px 24px;
-            /* ⬅️ more left padding for spacing inside */
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 1.11;
-            color: #fff;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            /* ⬅️ vertically center the text */
-            width: 70%;
-            height: 15%;
-        }
-
-
-        .info-button {
-            display: inline-block;
-            background-color: #1c8eff;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 999px;
-            font-weight: 500;
-            font-size: 16px;
-            transition: background 0.3s;
-            align-self: flex-start;
-        }
-
-        .info-button:hover {
-            background-color: #00629c;
-        }
-
-        .info-button:visited{
-            color: #fff;
-        }
-        .info-button-spacing {
-            margin: 10px 20px;
-        }
-
-        /*Heat Pump carousel section */
-
-        .diy-ductless-hp-carousel-container {
-            position: relative;
-            max-width: 1478px;
-            margin: 20px auto;
-            overflow: hidden;
-        }
-
-        .diy-ductless-hp-title {
-            text-align: center;
-            font-size: 40px;
-            font-weight: 500;
-            color: #0d1c37;
-            padding: 10px;
-            margin: auto;
-        }
-
-        .diy-ductless-hp-description {
-            text-align: center;
-            max-width: 80%;
-            margin: auto;
-            padding: 10px 28px;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 27px;
-            color: #0d1c37;
-        }
-
-        .carousel-wrapper {
-            transform: translateX(-46px);
-        }
-
-        .diy-ductless-hp-carousel {
-            display: flex;
-            transition: transform 0.5s ease;
+            grid-template-columns: 1fr;
         }
 
         .diy-ductless-hp-card {
-            flex: 0 0 calc(25% - 20px);
-            max-height: 380px;
-            margin: 10px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-            position: relative;
-            transform-origin: center;
-            opacity: 0.6;
-            transform: scale(0.9);
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-            padding: 10px;
+            flex: 0 0 calc(50% - 20px);
         }
 
-        .diy-ductless-hp-card.diy-ductless-hp-active {
-            opacity: 1;
-            transform: scale(1);
-            z-index: 2;
-            border: 2px solid #00629C;
+        .diy-ductless-hp-carousel-container {
+            padding: 30px 0;
         }
 
-        .diy-ductless-hp-card-content {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            width: 100%;
+        .diy-ductless-hp-carousel {
+            width: 95%;
+
         }
 
-        .diy-ductless-hp-card-image {
-            width: 100%;
-            height: 100%;
-            max-height: 380px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-        }
-
-        .diy-ductless-hp-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(28, 142, 255, 0.52);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .diy-ductless-hp-card.diy-ductless-hp-active::before {
-            background-color: transparent;
-        }
-
-        .diy-ductless-hp-card-image img {
-            max-width: 160px;
-            max-height: 160px;
-            object-fit: contain;
-        }
-
-        .diy-ductless-hp-card h2 {
-            font-size: 18px;
-            color: #000;
-            height: auto;
-            padding: 0 25px;
-            line-height: 1.3;
-            font-weight: 500;
-            overflow: hidden;
-        }
-
-        .diy-ductless-hp-card .diy-ductless-hp-price {
-            font-size: 18px;
-            color: #3478F6;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .diy-ductless-hp-shop-now-btn {
-            background-color: #1C8EFF;
-            color: white;
-            border: none;
-            border-radius: 100px;
-            padding: 10px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: auto;
-            width: 120px;
-            align-self: center;
-        }
-
-        .diy-ductless-hp-shop-now-btn:hover {
-            background-color: #2460D8;
-        }
-
-        .diy-ductless-hp-nav-button {
-            position: absolute;
-            top: 40%;
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-        }
-
-        .diy-ductless-hp-card.diy-ductless-hp-semi-active {
-            transform: scale(0.95);
-        }
-
-        .diy-ductless-hp-nav-button:hover {
-            background-color: #f0f0f0;
+        .carousel-wrapper {
+            transform: translateX(-7px);
         }
 
         .diy-ductless-hp-prev {
-            left: calc(25% + 10px);
+            top: 40%;
+            left: 0;
         }
 
         .diy-ductless-hp-next {
-            right: calc(25% - 75px);
+            top: 40%;
+            right: -3%;
         }
 
-        .diy-ductless-hp-nav-button svg {
-            width: 20px;
-            height: 20px;
-            fill: #333;
-        }
-
-        /* Navigation dots */
-        .diy-ductless-hp-nav-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .diy-ductless-hp-nav-dot {
-            width: 10px;
-            height: 10px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .diy-ductless-hp-nav-dot.diy-ductless-hp-active {
-            background-color: #3478F6;
-            transform: scale(1.2);
-        }
-
-        .diy-ductless-hp-card-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            background-color: white;
-        }
-
-        .diy-ductless-hp-blue-background {
-            transform: scale(0.95);
-
-        }
-
-        /* Multi-Zone carousel section */
-
-        .mz-systems-carousel-container {
-            position: relative;
-            max-width: 1478px;
-            margin: 20px auto;
-            overflow: hidden;
-            background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
-        }
-
-        .mz-systems-title {
-            text-align: center;
-            font-size: 40px;
-            padding: 10px;
-            font-weight: 500;
-            color: #fff;
-            margin: auto;
-        }
-
-        .mz-systems-description {
-            text-align: center;
-            max-width: 80%;
-            margin: auto;
-            padding: 10px 28px;
-            font-size: 16px;
+        .diy-ductless-hp-title {
             font-weight: 400;
-            line-height: 27px;
-            color: #fff
         }
 
+        .diy-ductless-hp-description {
+            max-width: 100%;
+        }
 
-        .mz-systems-carousel {
-            display: flex;
-            transition: transform 0.5s ease;
+        .diy-ductless-hp-shop-now-btn {
+            font-weight: 400;
         }
 
         .mz-systems-card {
-            flex: 0 0 calc(25% - 20px);
-            /*height: 440px;*/
-            margin: 10px;
-            background: rgba(255, 255, 255, 0.30);
-            backdrop-filter: blur(5px);
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-            position: relative;
-            transform-origin: center;
-            opacity: 0.6;
-            transform: scale(0.9);
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 20px 10px;
+            flex: 0 0 calc(50% - 20px);
+        }
+
+        .mz-systems-carousel {
+            width: 95%;
 
         }
 
-        .mz-systems-card.mz-systems-active {
-            opacity: 1;
-            transform: scale(1);
-            z-index: 2;
-            border: 2px solid #00629C;
-        }
-
-        .mz-systems-card-content {
-            text-align: center;
-            /*display: flex;*/
-            flex-direction: column;
-            /*height: 100%;*/
-            width: 100%;
-        }
-
-        .mz-systems-card-image {
-            width: 100%;
-            height: 100%;
-            max-height: 380px;
-            max-width: 450px;
-            /*margin-top: 15%;*/
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-        }
-
-        .mz-systems-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(28, 142, 255, 0.52);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .mz-systems-card.mz-systems-active::before {
-            background-color: transparent;
-        }
-
-        .mz-systems-card-image img {
-            max-width: 240px;
-            max-height: 240px;
-            object-fit: contain;
-        }
-
-        .mz-systems-card h2 {
-            font-size: 24px;
-            color: #fff;
-            height: auto;
-            line-height: 1.3;
-            font-weight: 600;
-            overflow: hidden;
-        }
-
-        .mz-systems-card .mz-systems-price {
-            font-size: 20px;
-            color: #fff;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .mz-systems-shop-now-btn {
-            background: #00629C;
-            color: white;
-            border: none;
-            border-radius: 100px;
-            padding: 10px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: auto;
-            width: 120px;
-            align-self: center;
-        }
-
-        .mz-systems-shop-now-btn:hover {
-            background: #00629C;
-        }
-
-        .mz-systems-nav-button {
-            position: absolute;
-            top: 40%;
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-        }
-
-        .mz-systems-card.mz-systems-semi-active {
-            transform: scale(0.95);
-        }
-
-        .mz-systems-nav-button:hover {
-            background-color: #f0f0f0;
+        .mz-systems-carousel-container {
+            padding: 30px 0;
         }
 
         .mz-systems-prev {
-            left: calc(25% + 10px);
+            top: 40%;
+            left: 0;
         }
 
         .mz-systems-next {
-            right: calc(20% - 20px);
+            top: 40%;
+            right: -3%;
         }
 
-        .mz-systems-nav-button svg {
-            width: 20px;
-            height: 20px;
-            fill: #333;
-        }
-
-        /* Navigation dots */
-        .mz-systems-nav-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .mz-systems-nav-dot {
-            width: 10px;
-            height: 10px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .mz-systems-nav-dot.mz-systems-active {
-            background-color: #3478F6;
-            transform: scale(1.2);
-        }
-
-        .mz-systems-card-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            background: transparent;
-        }
-
-        .mz-systems-blue-background {
-            transform: scale(0.95);
-
-        }
-
-        /*testimonial section */
-
-        .testimonial-section {
-            max-width: 1478px;
-            min-height: 386px;
-            margin: 20px auto;
-        }
-
-        .testimonial-section-title {
-            color: #0d1c37;
-            text-align: center;
-            font-size: 40px;
-            font-weight: 500;
-        }
-
-
-        .testimonial-cards {
-            display: flex;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2%;
-            /*max-width: 90%;*/
-            margin: 30px 10%;
-            justify-content: center;
-            align-content: center;
-        }
-
-        .testimonial-card {
-            flex: 1 1 30%;
-            border-radius: 16px;
-            border: 2px solid #00629c;
-            box-shadow: 0 3.166px 31.663px 0 rgba(13, 89, 239, 0.04);
-            padding: 35px;
-            position: relative;
-        }
-
-        .testimonial-card p {
-            color: #282828;
-            font-size: 16px;
-            font-weight: 300;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-top: 15px;
-        }
-
-        .testimonial-author {
-            color: #000;
-            font-size: 22px;
-            font-weight: 500;
-        }
-
-        .testimonial-author-line {
-            color: #777575;
-            font-size: 16px;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        .stars {
-            width: 147px;
-            height: 29px;
-        }
-
-        .stars svg {
-            width: 100%;
-            height: 100%;
-            fill: #ffd904;
-        }
-
-        .warranty-section {
-            position: relative;
-            max-width: 1478px;
-            margin: 20px auto;
-            padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 20px;
-
-        }
-
-        .image-card {
-            background-image: url("{{media url=wysiwyg/MrCoolWarranty-LifestyleImage_1.jpg}}");
-            border-radius: 30px;
-            width: 70%;
-            background-size: cover;
-            background-position: top;
-            background-repeat: no-repeat;
-            z-index: 1;
-            min-height: 593px;
-        }
-
-
-        .warranty-card {
-            background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            width: 65%;
-            margin-left: 35%;
-            margin-top: -40%;
-            /*border-radius: 30px 0 0 30px;*/
-            box-sizing: border-box;
-            border-radius: 30px;
-            padding: 40px;
-            z-index: 2;
-            position: relative;
-
-        }
-
-        .warranty-heading {
-            width: 70%;
-        }
-
-        .warranty-heading h2 {
-            color: #FFF;
-            font-size: 40px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-            margin: 0;
-        }
-
-        .warranty-content {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .warranty-text {
-            width: 60%;
-            padding-right: 20px;
-        }
-
-        .warranty-text p {
-            color: #fff;
-            font-size: 16px;
-            font-weight: 300;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            margin-top: 15px;
-        }
-
-        .warranty-text span {
-            font-style: italic;
+        .mz-systems-title {
             font-weight: 400;
         }
 
-        .warranty-badges {
-            width: 35%;
-            display: flex;
+        .mz-systems-description {
+            max-width: 100%;
+        }
+
+        .mz-systems-card h2 {
+            font-weight: 400;
+        }
+
+        .mz-systems-shop-now-btn {
+            font-weight: 400;
+        }
+
+        .testimonial-section {
+            /*padding: 40px 16px 40px 16px;*/
+        }
+
+        .testimonial-section h2 {
+            font-size: 32px;
+            max-width: 100%;
+            padding: 10px;
+        }
+
+        .testimonial-cards {
+            max-width: 100%;
             flex-direction: column;
-            align-items: center;
+            gap: 4vw;
+            margin: 0;
+        }
+
+        .testimonial-card {
+            padding: 25px 28px;
+        }
+
+        .testimonial-card p {
+            width: 100%;
+        }
+
+        .testimonial-author {
+            font-size: 22px;
+        }
+
+        .testimonial-author-line {
+            font-size: 16px;
+        }
+
+
+        .image-card {
+            width: 100%;
+        }
+
+        .warranty-card {
+            width: 100%;
+            margin-top: -30%;
+            margin-left: 2%;
+        }
+
+        .warranty-content {
+            flex-direction: column;
+        }
+
+        .warranty-text {
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 30px;
+        }
+
+        .warranty-heading {
+            width: 80%;
+        }
+
+        .warranty-badges {
+            width: 100%;
+            flex-direction: row;
             justify-content: center;
-            transform: translateY(-20%);
-            gap: 5%;
+            gap: 30px;
         }
 
-        .badge1 {
-            width: 180px;
-            height: 180px;
-            background-image: url("{{media url=wysiwyg/5-year-parts-warranty_pxrxbz.png}}");
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .badge2 {
-            width: 180px;
-            height: 180px;
-            background-image: url("{{media url=wysiwyg/7-year-compressor-warranty_nnuicy.png}}");
-            /*background-size: cover;*/
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .gradient-footer-wrapper {
-            margin: 20px auto;
-            max-width: 1478px;
-            padding: 0;
+        .badge1, .badge2 {
+            width: 120px;
+            height: 120px;
         }
 
         .gradient-footer {
-            max-width: 1478px;
-            border-radius: 30px;
-            background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-            align-items: center;
-            padding: 5%;
-            color: #fff;
+            padding: 40px;
         }
 
-        .gradient-footer .hero-content .subheadline-section .subheadline {
-            margin-top: 12%;
-        }
 
         .gradient-footer .hero-content .divider-vertical {
-            height: 150px;
+            width: 150px;
+            height: 2px;
         }
 
         .hero-content .info-button {
-            background: #00629C;
-            margin: 20px 20px 20px 30%;
-            color: #fff;
+            background: #1C8EFF;
+        }
+    }
+
+    @media (max-width: 576px) {
+
+        .diy-ductless-hp-carousel {
+            flex-direction: column;
+            transition: none;
+            transform: none !important;
         }
 
-
-        @media (max-width: 1170px) {
-            .diy-ductless-hp-card {
-                flex: 0 0 calc(33.333% - 20px);
-            }
-
-
-            .diy-ductless-hp-prev {
-                top: 45%;
-                left: calc(25% + 20px);
-            }
-
-            .diy-ductless-hp-next {
-                top: 45%;
-                right: calc(20% - 20px);
-            }
-
-
-            .mz-systems-card {
-                flex: 0 0 calc(33.333% - 20px);
-            }
-
-            .mz-systems-prev {
-                top: 45%;
-                left: calc(25% + 20px);
-
-            }
-
-            .mz-systems-next {
-                top: 45%;
-                right: calc(20% - 20px);
-            }
+        .carousel-wrapper {
+            transform: translateX(15px);
         }
 
-        @media (min-width: 769px) and (max-width: 1108px) {
-            .headline {
-                font-size: 32px;
-            }
-
-            .subheadline {
-                font-size: 20px;
-            }
-
-            .airhandler-wrapper {
-                width: 70%;
-                margin-left: 15%;
-            }
-
-            .warranty-card {
-                width: 85%;
-                margin-left: 20%;
-                margin-top: -48%;
-            }
-
-            .background-card {
-                margin-left: 40%;
-                margin-top: -45%;
-                padding: 7% 5% 7% 30%;
-            }
-
-            .foreground-card {
-                width: 65%;
-            }
-
+        .diy-ductless-hp-card {
+            flex: 0 0 auto;
+            width: 80%;
+            max-width: 470px;
+            margin: 10px auto;
+            height: 350px;
+            opacity: 1;
+            transform: scale(1);
         }
 
-
-        /* Mobile screens */
-        @media (max-width: 768px) {
-
-
-            body,
-            html {
-                overflow-x: hidden;
-            }
-
-
-            .gradient-box-wrapper {
-                padding: 0 0 10px 0;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .gradient-box-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                padding: 0 12px;
-                box-sizing: border-box;
-            }
-
-            .gradient-box {
-                width: 100%;
-                height: 638px;
-                padding: 30px;
-                border-radius: 30px;
-                background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                color: #fff;
-                box-sizing: border-box;
-            }
-
-            .hero-content {
-                flex-direction: column;
-                gap: 24px;
-                text-align: center;
-            }
-
-            .divider-vertical {
-                display: none;
-            }
-
-            .divider-horizontal {
-                height: 2px;
-                width: 120px;
-                background: white;
-                margin: 16px auto;
-            }
-
-            .headline {
-                font-size: 52px;
-                line-height: 1.3;
-                font-weight: 400;
-            }
-
-            .subheadline {
-                font-size: 22px;
-                line-height: 1.5;
-                font-weight: 400;
-            }
-
-            .logo-img-mobile {
-                display: block;
-                width: auto;
-                height: 80px;
-                margin: 0px 0 0px 12px;
-                object-fit: contain;
-            }
-
-            .logo-img-desktop {
-                display: none;
-            }
-
-            .image-split-section {
-                flex-direction: column-reverse;
-                max-width: 100%;
-                padding: 0 12px;
-                margin-top: 0;
-                /* margin-top: 40px; */
-                box-sizing: border-box;
-            }
-
-            .right-image {
-                position: relative;
-                width: 100%;
-                height: 593px;
-                border-radius: 30px;
-                background-size: cover;
-                background-position: center;
-            }
-
-            .price-label {
-                padding: 20px;
-                width: 50%;
-            }
-
-            .price-text {
-                font-size: 22px;
-                font-weight: 400;
-            }
-            .price-button {
-                font-weight: 400;
-            }
-            .airhandler-overlay-img {
-                width: 100%;
-            }
-
-            .airhandler-wrapper {
-                transform: translate(0%, -50%);
-                width: 90%;
-                padding: 5%;
-            }
-
-
-            /*video section */
-            .overlap-wrapper {
-                display: flex;
-                flex-direction: column;
-
-            }
-
-            .foreground-card {
-                width: 100%;
-                aspect-ratio: 8/9;
-                z-index: 2;
-            }
-
-            .background-card {
-                left: 5%;
-                width: 90%;
-                position: relative;
-                min-height: auto;
-                padding: 50px 20px 20px;
-                margin: -10% 0 0;
-            }
-
-            .text-content {
-                padding-left: 0;
-            }
-
-            .text-content h2 {
-                font-size: 36px;
-                color: #FFF;
-                font-weight: 400;
-            }
-
-            .text-content p {
-                font-size: 20px;
-                color: #FFF;
-
-            }
-
-            .gradient-feature-wrapper {
-                padding: 40px 10px 0;
-            }
-
-            .gradient-feature-container {
-                flex-direction: column;
-                padding: 30px 20px;
-            }
-
-            .feature-left {
-                margin-bottom: 20px;
-            }
-
-            .feature-left h2 {
-                font-size: 28px;
-                font-weight: 400;
-
-            }
-
-            .feature-left p {
-                font-size: 14px;
-                font-weight: 300;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .diy-ductless-hp-card {
-                flex: 0 0 calc(50% - 20px);
-            }
-
-            .diy-ductless-hp-carousel-container {
-                padding: 30px 0;
-            }
-
-            .diy-ductless-hp-carousel {
-                width: 95%;
-
-            }
-
-            .carousel-wrapper {
-                transform: translateX(-7px);
-            }
-
-            .diy-ductless-hp-prev {
-                top: 40%;
-                left: 0;
-            }
-
-            .diy-ductless-hp-next {
-                top: 40%;
-                right: -3%;
-            }
-
-            .diy-ductless-hp-title {
-                font-weight: 400;
-            }
-
-            .diy-ductless-hp-description {
-                max-width: 100%;
-            }
-
-            .diy-ductless-hp-shop-now-btn {
-                font-weight: 400;
-            }
-
-            .mz-systems-card {
-                flex: 0 0 calc(50% - 20px);
-            }
-
-            .mz-systems-carousel {
-                width: 95%;
-
-            }
-
-            .mz-systems-carousel-container {
-                padding: 30px 0;
-            }
-
-            .mz-systems-prev {
-                top: 40%;
-                left: 0;
-            }
-
-            .mz-systems-next {
-                top: 40%;
-                right: -3%;
-            }
-
-            .mz-systems-title {
-                font-weight: 400;
-            }
-
-            .mz-systems-description {
-                max-width: 100%;
-            }
-
-            .mz-systems-card h2 {
-                font-weight: 400;
-            }
-
-            .mz-systems-shop-now-btn {
-                font-weight: 400;
-            }
-
-            .testimonial-section {
-                /*padding: 40px 16px 40px 16px;*/
-            }
-
-            .testimonial-section h2 {
-                font-size: 36px;
-                max-width: 100%;
-            }
-
-            .testimonial-cards {
-                max-width: 100%;
-                flex-direction: column;
-                gap: 4vw;
-                margin: 0;
-            }
-
-            .testimonial-card {
-                padding: 25px 28px;
-            }
-
-            .testimonial-card p {
-                width: 100%;
-            }
-
-            .testimonial-author {
-                font-size: 22px;
-            }
-
-            .testimonial-author-line {
-                font-size: 16px;
-            }
-
-
-
-            .image-card {
-                width: 100%;
-            }
-
-            .warranty-card {
-                width: 100%;
-                margin-top: -30%;
-                margin-left: 2%;
-            }
-
-            .warranty-content {
-                flex-direction: column;
-            }
-
-            .warranty-text {
-                width: 100%;
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-
-            .warranty-heading{
-                width: 80%;
-            }
-            .warranty-badges {
-                width: 100%;
-                flex-direction: row;
-                justify-content: center;
-                gap: 30px;
-            }
-
-            .badge1, .badge2 {
-                width: 120px;
-                height: 120px;
-            }
-
-            .gradient-footer {
-                padding: 25% 8%;
-            }
-
-            .gradient-footer .hero-content .subheadline-section .subheadline {
-                margin-top: 0;
-            }
-
-            .hero-content .info-button {
-                background: #1C8EFF;
-                margin: 20px;
-            }
+        .diy-ductless-hp-nav-button,
+        .diy-ductless-hp-nav-dots {
+            display: none;
         }
 
-        @media (max-width: 576px) {
-
-            .diy-ductless-hp-carousel {
-                flex-direction: column;
-                transition: none;
-                transform: none !important;
-            }
-
-            .carousel-wrapper {
-                transform: translateX(15px);
-            }
-
-            .diy-ductless-hp-card {
-                flex: 0 0 auto;
-                width: 80%;
-                max-width: 470px;
-                margin: 10px auto;
-                height: 350px;
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            .diy-ductless-hp-nav-button,
-            .diy-ductless-hp-nav-dots {
-                display: none;
-            }
-
-            .mz-systems-carousel-container {
-                padding: 20px 0;
-            }
-
-            .mz-systems-carousel {
-                flex-direction: column;
-                transition: none;
-                transform: none !important;
-            }
-
-            .mz-systems-card {
-                flex: 0 0 auto;
-                width: 80%;
-                max-width: 470px;
-                margin: 10px auto;
-                height: 350px;
-                opacity: 1;
-                transform: scale(1);
-                /*padding: 10px;*/
-            }
-
-            .mz-systems-nav-button,
-            .mz-systems-nav-dots {
-                display: none;
-            }
-
-            .warranty-card {
-                margin-top: -65%;
-            }
-
-            .background-card {
-                margin: -15% 0 0;
-            }
+        .mz-systems-carousel-container {
+            padding: 20px 0;
         }
 
-    </style>
+        .mz-systems-carousel {
+            flex-direction: column;
+            transition: none;
+            transform: none !important;
+        }
 
-</head>
+        .mz-systems-card {
+            flex: 0 0 auto;
+            width: 80%;
+            max-width: 470px;
+            margin: 10px auto;
+            height: 350px;
+            opacity: 1;
+            transform: scale(1);
+            /*padding: 10px;*/
+        }
 
-<body>
+        .mz-systems-nav-button,
+        .mz-systems-nav-dots {
+            display: none;
+        }
+
+        .warranty-card {
+            margin-top: -65%;
+        }
+
+        .background-card {
+            margin: -15% 0 0;
+        }
+    }
+
+</style>
+
+<div class="mr-cool-diy-body">
+
     <!-- Logo for mobile view only -->
     <img class="logo-img-mobile" src="{{media url=wysiwyg/MrCool-badgelogo-fixed.png}}" alt="Placeholder Logo"/>
 
+
     <div class="airhandler-section-container">
 
+        <!-- Gradient Section -->
         <div class="gradient-box-wrapper">
             <div class="gradient-box-container">
                 <!-- Logo for desktop view only -->
                 <img class="logo-img-desktop" src="{{media url=wysiwyg/MrCool-badgelogo-fixed.png}}"
                      alt="Placeholder Logo"/>
 
-                <!-- Gradient box -->
                 <div class="gradient-box">
                     <div class="hero-content">
                         <div class="headline-section">
                             <h2 class="headline">America's New<br> MrCool DIY Mini-Split</h2>
-                            <div class="divider-horizontal"></div>
                         </div>
                         <div class="divider-vertical"></div>
+
                         <div class="subheadline-section">
-                            <p class="subheadline">
-                                Air Conditioner and Heater<br>you can install yourself
-                            </p>
+                            <p class="subheadline">Air Conditioner and Heater<br>you can install yourself</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <div class="airhandler-wrapper">
+        <!-- OVERLAPPING AIRHANDLER IMAGE (between sections) -->
+        <div class="airhandler-floating-wrapper">
             <img src="{{media url=wysiwyg/header-overlay-airhandler.png}}" alt="Airhandler Overlay"
-                 class="airhandler-overlay-img"/>
+                 class="airhandler-floating-img"/>
         </div>
 
-        <!-- ✅ IMAGE SECTION MATCHED -->
+        <!-- IMAGE SPLIT SECTION -->
         <div class="image-split-section">
             <div class="right-image">
                 <div class="price-label">
                     <div class="price-text">From $2,329</div>
-<!--                    <a href="https://iwae.com/searchanise/result?q=diy&page=1&rb_manufacturer=MrCool&rb_series=DIY&rb_refrigerant=R-454b"-->
-<!--                       class="price-button" target="_blank" rel="noopener noreferrer">Shop Now</a>-->
                     <a href="#heatPump" class="price-button">Shop Now</a>
-
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!-- ✅ Video SECTION  -->
+    <!-- Video SECTION  -->
     <div class="overlap-wrapper">
 
         <div class="foreground-card">
@@ -1672,7 +1624,7 @@
 
     <!-- Multi-Zone Carousel -->
     <div class="mz-systems-carousel-container" id="multiZoneCarouselContainer">
-        <h2 class="mz-systems-title" >Need an Option for Multiple Rooms?</h2>
+        <h2 class="mz-systems-title">Need an Option for Multiple Rooms?</h2>
         <p class="mz-systems-description">
             Check out the NEW MrCool DIY Multi-Zone Systems
         </p>
@@ -1837,7 +1789,6 @@
             <div class="hero-content">
                 <div class="headline-section">
                     <h2 class="headline">Shop the All New <br>MrCool DIY 5th Gen</h2>
-                    <div class="divider-horizontal"></div>
                 </div>
                 <div class="divider-vertical"></div>
                 <div class="subheadline-section">
@@ -1850,8 +1801,7 @@
             </div>
         </div>
     </div>
-
-</body>
+</div>
 
 <script>
 
@@ -2235,6 +2185,3 @@
 
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
-
-
-</html>
