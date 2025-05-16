@@ -1,2173 +1,1827 @@
+<meta property="og:image" content="{{media url=wysiwyg/remotecontrol.jpg}}"/>
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
-
+   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
     .mr-cool-diy-body {
-        margin: 0;
-        padding: 0;
-        background: #fff;
-        font-family: "Poppins", sans-serif;
-    }
-
+       margin: 0;
+       padding: 0;
+       background: #fff;
+       font-family: "Poppins", sans-serif;
+   }
     .logo-img-desktop {
-        position: absolute;
-        top: -70px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 260px;
-        aspect-ratio: 260.453 / 119;
-        object-fit: contain;
-        z-index: 10;
-        display: block;
-    }
-
-
+       position: absolute;
+       top: -70px;
+       left: 50%;
+       transform: translateX(-50%);
+       width: 260px;
+       aspect-ratio: 260.453 / 119;
+       object-fit: contain;
+       z-index: 10;
+       display: block;
+   }
     .airhandler-section-container {
-        position: relative;
-        width: 100%;
-        /*padding-top: 40px;*/
-        z-index: 2;
-    }
-
+       position: relative;
+       width: 100%;
+       z-index: 2;
+   }
     .gradient-box-wrapper {
-        padding: 70px 0 0;
-    }
-
+       padding: 70px 0 0;
+   }
     .gradient-box-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        position: relative;
-    }
-
+       max-width: 1200px;
+       margin: 0 auto;
+       position: relative;
+   }
     .gradient-box {
-        width: 100%;
-        border-radius: 30px;
-        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-        padding: 100px 40px;
-        box-sizing: border-box;
-        position: relative;
-        color: #fff;
-        overflow: hidden;
-    }
-
+       width: 100%;
+       border-radius: 30px;
+       background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+       padding: 100px 40px;
+       box-sizing: border-box;
+       position: relative;
+       color: #fff;
+       overflow: hidden;
+   }
     .hero-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       flex-wrap: wrap;
+   }
     .headline-section, .subheadline-section {
-        flex: 1 1 45%;
-        text-align: center;
-    }
-
+       flex: 1 1 45%;
+       text-align: center;
+   }
     .headline {
-        font-size: 36px;
-        font-weight: 500;
-        line-height: 1.25;
-        margin: 0 0 10px;
-    }
-
+       font-size: 36px;
+       font-weight: 500;
+       line-height: 1.25;
+       margin: 0 0 10px;
+   }
     .subheadline {
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 1.3;
-        margin: 0;
-    }
-
+       font-size: 20px;
+       font-weight: 400;
+       line-height: 1.3;
+       margin: 0;
+   }
     .divider-vertical {
-        width: 2px;
-        height: 100px;
-        background: white;
-        flex-shrink: 0;
-    }
-
+       width: 2px;
+       height: 100px;
+       background: #fff;
+       flex-shrink: 0;
+   }
     .airhandler-floating-wrapper {
-        position: relative;
-        z-index: 3;
-        width: 100%;
-        height: 0; /* no height, image is positioned absolutely */
-    }
-
+       position: relative;
+       z-index: 3;
+       width: 100%;
+       height: 0;
+   }
     .airhandler-floating-img {
-        position: absolute;
-        top: -170px; /* lifts it into gradient box */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 400px;
-        max-width: 100%;
-        z-index: 3;
-        pointer-events: none;
-    }
-
-    /* IMAGE SECTION MATCHES GRADIENT BOX */
+       position: absolute;
+       top: -170px;
+       left: 50%;
+       transform: translateX(-50%);
+       width: 400px;
+       max-width: 100%;
+       z-index: 3;
+       pointer-events: none;
+   }
     .image-split-section {
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        margin: 15px auto 0;
-        /* enough top margin to clear overlay */
-        aspect-ratio: 1478 / 600;
-        border-radius: 30px;
-        overflow: hidden;
-        z-index: 1;
-    }
-
+       position: relative;
+       width: 100%;
+       max-width: 1200px;
+       margin: 15px auto 0;
+       aspect-ratio: 1478 / 600;
+       border-radius: 30px;
+       overflow: hidden;
+       z-index: 1;
+   }
     .right-image {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        border-radius: 30px;
-        position: relative;
-        background-image: url("{{media url=wysiwyg/remotecontrol.jpg}}");
-    }
-
+       width: 100%;
+       height: 100%;
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+       border-radius: 30px;
+       position: relative;
+       background-image: url("{{media url=wysiwyg/remotecontrol.jpg}}");
+   }
     .price-label {
-        position: absolute;
-        bottom: 25px;
-        background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
-        border-radius: 0 20px 20px 0;
-        padding: 18px 45px;
-        color: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        max-width: 200px;
-    }
-
+       position: absolute;
+       bottom: 25px;
+       background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+       border-radius: 0 20px 20px 0;
+       padding: 18px 45px;
+       color: #fff;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+       max-width: 200px;
+   }
     .price-text {
-        font-size: 20px;
-        font-weight: 500;
-        margin-bottom: 5%;
-    }
-
+       font-size: 20px;
+       font-weight: 500;
+       margin-bottom: 5%;
+   }
     .price-button {
-        display: inline-block;
-        background-color: #007bff;
-        padding: 8px 20px;
-        border-radius: 9999px;
-        color: #FFFFFF;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 14px;
-        /*transition: background 0.3s ease;*/
-    }
-
+       display: inline-block;
+       background-color: #007bff;
+       padding: 8px 20px;
+       border-radius: 9999px;
+       color: #fff;
+       text-decoration: none;
+       font-weight: 500;
+       font-size: 14px;
+   }
     .price-button:hover {
-        background-color: #005fcc;
-    }
-
+       background-color: #005fcc;
+   }
     .price-button:visited {
-        color: #fff;
-    }
-
-
-    /*video section */
-
+       background-color: #005fcc;
+       color: #fff;
+   }
     .overlap-wrapper {
-        position: relative;
-        max-width: 1200px;;
-        margin: 20px auto;
-        padding: 0;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 20px;
-    }
-
+       position: relative;
+       max-width: 1200px;;
+       margin: 20px auto;
+       padding: 0;
+       box-sizing: border-box;
+       display: flex;
+       justify-content: flex-start;
+       flex-wrap: wrap;
+       align-items: center;
+       gap: 20px;
+   }
     .background-card {
-        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-        border-radius: 30px;
-        width: 60%;
-        margin-left: 40%;
-        margin-top: -35%;
-        align-content: center;
-        box-sizing: border-box;
-        z-index: 1;
-        padding: 7% 5% 13% 25%;
-    }
-
+       background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+       border-radius: 30px;
+       width: 60%;
+       margin-left: 40%;
+       margin-top: -30%;
+       align-content: center;
+       box-sizing: border-box;
+       z-index: 1;
+       padding: 7% 5% 10% 25%;
+   }
     .text-content {
-        align-content: center;
-    }
-
+       align-content: center;
+   }
     .text-content h2 {
-        font-size: 32px;
-        font-weight: 500;
-        line-height: 1.2459;
-        color: #FFF;
-    }
-
+       font-size: 32px;
+       font-weight: 500;
+       line-height: 1.2459;
+       color: #FFF;
+   }
     .text-content p {
-        font-size: 18px;
-        font-weight: 400;
-        font-style: normal;
-        line-height: 1.36;
-        color: #FFF;
-    }
-
-    /* Top div on left */
+       font-size: 18px;
+       font-weight: 400;
+       font-style: normal;
+       line-height: 1.36;
+       color: #FFF;
+   }
     .foreground-card {
-        position: relative;
-        width: 60%;
-        min-height: 450px;
-        border-radius: 30px;
-        overflow: hidden;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        z-index: 5;
-    }
-
-
-    .video-thumbnail {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-        border-radius: 30px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-image: url("{{media url=&quot;wysiwyg/video-thumbnail.png&quot;}}");
-    }
-
-    #ytPlayer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 5;
-    }
-
-    .polygon-button {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        padding: 25px 35px;
-        transform: translate(-50%, -50%);
-        background: #fff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0px 6.08px 51.03px 0px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        z-index: 15;
-    }
-
-
+       position: relative;
+       width: 60%;
+       max-width: 800px;
+       aspect-ratio: 16 / 9;
+       border-radius: 30px;
+       overflow: hidden;
+       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+       z-index: 5;
+       padding: 0;
+   }
+    .foreground-card iframe {
+       box-sizing: border-box;
+       /*width: 177.77777778vh  !important;*/
+       height: 56.25vw  !important;
+       min-width: 100%;
+       min-height: 100%;
+       position: absolute  !important;
+       top: 50%  !important;
+       left: 50%  !important;
+       transform: translate(-50%, -50%);
+   }
+   .video-thumbnail {
+       position: absolute;
+       inset: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 10;
+       border-radius: 30px;
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-image: url("{{media url=&quot;wysiwyg/video-thumbnail.png&quot;}}");
+       display: none;
+   }
+   .polygon-button {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       padding: 25px 35px;
+       transform: translate(-50%, -50%);
+       background: #fff;
+       border-radius: 50%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       box-shadow: 0px 6.08px 51.03px 0px rgba(0, 0, 0, 0.15);
+       cursor: pointer;
+       z-index: 15;
+   }
     .gradient-feature-wrapper {
-        max-width: 1200px;;
-        margin: 20px auto;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
+       max-width: 1200px;;
+       margin: 20px auto;
+       padding: 0;
+       box-sizing: border-box;
+   }
     .gradient-feature-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;;
-        margin: auto;
-        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-        border-radius: 30px;
-        padding: 50px 100px;
-        color: #fff;
-        /*gap: 40px;*/
-        flex-wrap: wrap;
-    }
-
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       max-width: 1200px;;
+       margin: auto;
+       background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+       border-radius: 30px;
+       padding: 50px 100px;
+       color: #fff;
+       flex-wrap: wrap;
+   }
     .feature-left {
-        flex: 1;
-        min-width: 250px;
-        display: flex;
-        flex-direction: column;
-        margin-top: auto;
-        margin-bottom: auto;
-        height: auto;
-
-
-    }
-
+       flex: 1;
+       min-width: 250px;
+       display: flex;
+       flex-direction: column;
+       margin-top: auto;
+       margin-bottom: auto;
+       height: auto;
+   }
     .feature-left h2 {
-        font-size: 32px;
-        font-weight: 500;
-        line-height: normal;
-    }
-
+       font-size: 32px;
+       font-weight: 500;
+       line-height: normal;
+   }
     .feature-left p {
-        width: 75%;
-        font-size: 16px;
-        font-weight: 300;
-        line-height: 135%;
-        margin: 0 0 20px;
-        opacity: 0.95;
-
-    }
-
+       width: 75%;
+       font-size: 16px;
+       font-weight: 300;
+       line-height: 135%;
+       margin: 0 0 20px;
+       opacity: 0.95;
+   }
     .feature-grid {
-        flex: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        min-width: 300px;
-    }
-
+       flex: 1;
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 20px;
+       min-width: 300px;
+   }
     .feature-box {
-        position: relative;
-        border-radius: 16px;
-        overflow: visible;
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        background-color: #eee;
-    }
-
-    .feature-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        border-radius: 16px;
-    }
-
+       position: relative;
+       border-radius: 16px;
+       overflow: visible;
+       width: 100%;
+       min-width: 180px;
+       aspect-ratio: 1 / 1;
+       background-color: #eee;
+   }
+    .feature-box-image {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       display: block;
+       border-radius: 16px;
+   }
+    .energy-star-logo {
+       width: 40%;
+       position: absolute;
+       object-fit: cover;
+       background-image: url("{{media url=&quot;wysiwyg/Energy-Star-Logo.png&quot;}}");
+       background-size: contain;
+       background-position: center;
+       background-repeat: no-repeat;
+       margin: 0;
+       left: -10px;
+       top: 10px;
+       height: 30%;
+   }
     .feature-label {
-        position: absolute;
-        bottom: 16px;
-        left: -8px;
-        background: #00629c;
-        border-radius: 0 10px 10px 0;
-        padding: 10px 16px 10px 24px;
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 1.11;
-        color: #fff;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        width: 70%;
-        height: 15%;
-    }
-
-
+       position: absolute;
+       bottom: 16px;
+       background: #00629c;
+       border-radius: 0 10px 10px 0;
+       padding: 10px 16px;
+       font-size: 18px;
+       font-weight: 500;
+       line-height: 1.11;
+       color: #fff;
+       min-height: 48px;
+       display: flex;
+       align-items: center;
+       width: 70%;
+       height: 15%;
+   }
     .info-button {
-        display: inline-block;
-        background-color: #1c8eff;
-        color: #fff;
-        text-decoration: none;
-        padding: 10px 20px;
-        border-radius: 999px;
-        font-weight: 500;
-        font-size: 16px;
-        transition: background 0.3s;
-        align-self: flex-start;
-    }
-
+       display: inline-block;
+       background-color: #1c8eff;
+       color: #fff;
+       text-decoration: none;
+       padding: 10px 20px;
+       border-radius: 999px;
+       font-weight: 500;
+       font-size: 16px;
+       transition: background 0.3s;
+       align-self: flex-start;
+   }
     .info-button:hover {
-        background-color: #00629c;
-    }
-
+       background-color: #00629c;
+   }
     .info-button:visited {
-        color: #fff;
-    }
-
+       color: #fff;
+   }
     .info-button-spacing {
-        margin: 10px 20px;
-    }
-
-    /*Heat Pump carousel section */
-
+       margin: 10px 20px;
+   }
     .diy-ductless-hp-carousel-container {
-        position: relative;
-        max-width: 1200px;
-        margin: 20px auto;
-        overflow: hidden;
-    }
-
+       position: relative;
+       max-width: 1200px;
+       margin: 20px auto;
+       overflow: hidden;
+   }
     .diy-ductless-hp-title {
-        text-align: center;
-        font-size: 32px;
-        font-weight: 500;
-        color: #0d1c37;
-        padding: 10px;
-        margin: auto;
-    }
-
+       text-align: center;
+       font-size: 32px;
+       font-weight: 500;
+       color: #0d1c37;
+       padding: 10px;
+       margin: auto;
+   }
     .diy-ductless-hp-description {
-        text-align: center;
-        max-width: 80%;
-        margin: auto;
-        padding: 10px 28px;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 27px;
-        color: #0d1c37;
-    }
-
+       text-align: center;
+       max-width: 80%;
+       margin: auto;
+       padding: 10px 28px;
+       font-size: 16px;
+       font-weight: 400;
+       line-height: 27px;
+       color: #0d1c37;
+   }
     .carousel-wrapper {
-        transform: translateX(-46px);
-    }
-
+       transform: translateX(-46px);
+   }
     .diy-ductless-hp-carousel {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-
+       display: flex;
+       transition: transform 0.5s ease;
+   }
     .diy-ductless-hp-card {
-        flex: 0 0 calc(25% - 20px);
-        max-height: 380px;
-        margin: 10px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s ease;
-        position: relative;
-        transform-origin: center;
-        opacity: 0.6;
-        transform: scale(0.9);
-        overflow: hidden;
-        border: 1px solid #e0e0e0;
-        padding: 10px;
-    }
-
+       flex: 0 0 calc(25% - 20px);
+       max-height: 380px;
+       margin: 10px;
+       background-color: #fff;
+       border-radius: 10px;
+       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       transition: all 0.3s ease;
+       position: relative;
+       transform-origin: center;
+       opacity: 0.6;
+       transform: scale(0.9);
+       overflow: hidden;
+       border: 1px solid #e0e0e0;
+       padding: 10px;
+   }
     .diy-ductless-hp-card.diy-ductless-hp-active {
-        opacity: 1;
-        transform: scale(1);
-        z-index: 2;
-        border: 2px solid #00629C;
-    }
-
+       opacity: 1;
+       transform: scale(1);
+       z-index: 2;
+       border: 2px solid #00629C;
+   }
     .diy-ductless-hp-card-content {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-    }
-
+       text-align: center;
+       display: flex;
+       flex-direction: column;
+       height: 100%;
+       width: 100%;
+   }
     .diy-ductless-hp-card-image {
-        width: 100%;
-        height: 100%;
-        max-height: 380px;
-        max-width: 450px;
-        display: flex;
-        justify-content: center;
-        /*align-items: center;*/
-        background-color: #fff;
-        border-radius: 8px 8px 0 0;
-        overflow: hidden;
-    }
-
+       width: 100%;
+       height: 100%;
+       max-height: 380px;
+       max-width: 450px;
+       display: flex;
+       justify-content: center;
+       background-color: #fff;
+       border-radius: 8px 8px 0 0;
+       overflow: hidden;
+   }
     .diy-ductless-hp-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(28, 142, 255, 0.52);
-        z-index: 1;
-        pointer-events: none;
-    }
-
+       content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(28, 142, 255, 0.52);
+       z-index: 1;
+       pointer-events: none;
+   }
     .diy-ductless-hp-card.diy-ductless-hp-active::before {
-        background-color: transparent;
-    }
-
+       background-color: transparent;
+   }
     .diy-ductless-hp-card-image img {
-        max-width: 160px;
-        max-height: 160px;
-        object-fit: contain;
-    }
-
+       max-width: 160px;
+       max-height: 160px;
+       object-fit: contain;
+   }
     .diy-ductless-hp-card h2 {
-        font-size: 18px;
-        color: #000;
-        height: auto;
-        padding: 0 25px;
-        line-height: 1.3;
-        font-weight: 500;
-        overflow: hidden;
-    }
-
+       font-size: 18px;
+       color: #000;
+       height: auto;
+       padding: 0 25px;
+       line-height: 1.3;
+       font-weight: 500;
+       overflow: hidden;
+   }
     .diy-ductless-hp-card .diy-ductless-hp-price {
-        font-size: 16px;
-        color: #3478F6;
-        font-weight: 500;
-        margin-bottom: 20px;
-    }
-
+       font-size: 16px;
+       color: #3478F6;
+       font-weight: 500;
+       margin-bottom: 20px;
+   }
     .diy-ductless-hp-shop-now-btn {
-        background-color: #1C8EFF;
-        color: white;
-        border: none;
-        border-radius: 100px;
-        padding: 10px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: auto;
-        width: 120px;
-        align-self: center;
-    }
-
+       background-color: #1C8EFF;
+       color: #fff;
+       border: none;
+       border-radius: 100px;
+       padding: 10px;
+       font-size: 14px;
+       cursor: pointer;
+       transition: all 0.3s ease;
+       margin-top: auto;
+       width: 120px;
+       align-self: center;
+   }
     .diy-ductless-hp-shop-now-btn:hover {
-        background-color: #2460D8;
-    }
-
+       background-color: #2460D8;
+       color: #fff;
+   }
     .diy-ductless-hp-shop-now-btn:visited {
-        background-color: #2460D8;
-    }
-
+       background-color: #2460D8;
+       color: #fff;
+   }
     .diy-ductless-hp-nav-button {
-        position: absolute;
-        top: 40%;
-        width: 40px;
-        height: 40px;
-        background-color: white;
-        border-radius: 50%;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        z-index: 10;
-        transition: all 0.3s ease;
-        border: 1px solid #e0e0e0;
-    }
-
+       display: inline-block;
+       position: absolute;
+       top: 40%;
+       width: 40px;
+       height: 40px;
+       background-color: #fff;
+       border-radius: 50%;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       cursor: pointer;
+       z-index: 10;
+       transition: all 0.3s ease;
+       border: 1px solid #e0e0e0;
+   }
     .diy-ductless-hp-card.diy-ductless-hp-semi-active {
-        transform: scale(0.95);
-    }
-
+       transform: scale(0.95);
+   }
     .diy-ductless-hp-nav-button:hover {
-        background-color: #f0f0f0;
-    }
-
+       background-color: #f0f0f0;
+   }
     .diy-ductless-hp-prev {
-        left: calc(25% + 10px);
-    }
-
+       left: calc(25% + 10px);
+   }
     .diy-ductless-hp-next {
-        right: calc(25% - 75px);
-    }
-
+       right: calc(25% - 75px);
+   }
     .diy-ductless-hp-nav-button svg {
-        width: 20px;
-        height: 20px;
-        fill: #333;
-    }
-
-    /* Navigation dots */
+       width: 20px;
+       height: 20px;
+       fill: #333;
+   }
     .diy-ductless-hp-nav-dots {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
+       display: flex;
+       justify-content: center;
+       margin-top: 20px;
+   }
     .diy-ductless-hp-nav-dot {
-        width: 10px;
-        height: 10px;
-        background-color: #ccc;
-        border-radius: 50%;
-        margin: 0 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
+       width: 10px;
+       height: 10px;
+       background-color: #ccc;
+       border-radius: 50%;
+       margin: 0 5px;
+       cursor: pointer;
+       transition: all 0.3s ease;
+   }
     .diy-ductless-hp-nav-dot.diy-ductless-hp-active {
-        background-color: #3478F6;
-        transform: scale(1.2);
-    }
-
+       background-color: #3478F6;
+       transform: scale(1.2);
+   }
     .diy-ductless-hp-card-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        background-color: white;
-    }
-
+       width: 100%;
+       height: 100%;
+       display: flex;
+       flex-direction: column;
+       background-color: #fff;
+   }
     .diy-ductless-hp-blue-background {
-        transform: scale(0.95);
-
-    }
-
-    /* Multi-Zone carousel section */
-
+       transform: scale(0.95);
+   }
     .mz-systems-carousel-container {
-        position: relative;
-        max-width: 1200px;;
-        margin: 20px auto;
-        padding: 20px 0;
-        overflow: hidden;
-        background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
-    }
-
+       position: relative;
+       max-width: 1200px;;
+       margin: 20px auto;
+       padding: 20px 0;
+       overflow: hidden;
+       background: linear-gradient(120deg, #00629C 49.4%, #1C8EFF 95.33%);
+   }
     .mz-systems-title {
-        text-align: center;
-        font-size: 32px;
-        padding: 10px;
-        font-weight: 500;
-        color: #fff;
-        margin: auto;
-    }
-
+       text-align: center;
+       font-size: 32px;
+       padding: 10px;
+       font-weight: 500;
+       color: #fff;
+       margin: auto;
+   }
     .mz-systems-description {
-        text-align: center;
-        max-width: 80%;
-        margin: auto;
-        padding: 10px 28px;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 27px;
-        color: #fff
-    }
-
-
+       text-align: center;
+       max-width: 80%;
+       margin: auto;
+       padding: 10px 28px;
+       font-size: 16px;
+       font-weight: 400;
+       line-height: 27px;
+       color: #fff
+   }
     .mz-systems-carousel {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-
+       display: flex;
+       transition: transform 0.5s ease;
+   }
     .mz-systems-card {
-        flex: 0 0 calc(25% - 20px);
-        /*height: 440px;*/
-        margin: 10px;
-        background: rgba(255, 255, 255, 0.30);
-        backdrop-filter: blur(5px);
-        border-radius: 16px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s ease;
-        position: relative;
-        transform-origin: center;
-        opacity: 0.6;
-        transform: scale(0.9);
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 20px 10px;
-
-    }
-
+       flex: 0 0 calc(25% - 20px);
+       margin: 10px;
+       background: rgba(255, 255, 255, 0.30);
+       backdrop-filter: blur(5px);
+       border-radius: 16px;
+       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       transition: all 0.3s ease;
+       position: relative;
+       transform-origin: center;
+       opacity: 0.6;
+       transform: scale(0.9);
+       overflow: hidden;
+       border: 1px solid rgba(255, 255, 255, 0.2);
+       padding: 20px 10px;
+   }
     .mz-systems-card.mz-systems-active {
-        opacity: 1;
-        transform: scale(1);
-        z-index: 2;
-        border: 2px solid #00629C;
-    }
-
+       opacity: 1;
+       transform: scale(1);
+       z-index: 2;
+       border: 2px solid #00629C;
+   }
     .mz-systems-card-content {
-        text-align: center;
-        /*display: flex;*/
-        flex-direction: column;
-        /*height: 100%;*/
-        width: 100%;
-    }
-
+       text-align: center;
+       flex-direction: column;
+       width: 100%;
+   }
     .mz-systems-card-image {
-        width: 100%;
-        height: 100%;
-        max-height: 380px;
-        max-width: 450px;
-        /*margin-top: 15%;*/
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px 8px 0 0;
-        overflow: hidden;
-    }
-
+       width: 100%;
+       height: 100%;
+       max-height: 380px;
+       max-width: 450px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       border-radius: 8px 8px 0 0;
+       overflow: hidden;
+   }
     .mz-systems-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(28, 142, 255, 0.52);
-        z-index: 1;
-        pointer-events: none;
-    }
-
+       content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(28, 142, 255, 0.52);
+       z-index: 1;
+       pointer-events: none;
+   }
     .mz-systems-card.mz-systems-active::before {
-        background-color: transparent;
-    }
-
+       background-color: transparent;
+   }
     .mz-systems-card-image img {
-        max-width: 240px;
-        max-height: 240px;
-        object-fit: contain;
-    }
-
+       max-width: 240px;
+       max-height: 240px;
+       object-fit: contain;
+   }
     .mz-systems-card h2 {
-        font-size: 22px;
-        color: #fff;
-        height: auto;
-        line-height: 1.3;
-        font-weight: 600;
-        overflow: hidden;
-    }
-
+       font-size: 22px;
+       color: #fff;
+       height: auto;
+       line-height: 1.3;
+       font-weight: 600;
+       overflow: hidden;
+   }
     .mz-systems-card .mz-systems-price {
-        font-size: 20px;
-        color: #fff;
-        font-weight: 500;
-        margin-bottom: 20px;
-    }
-
+       font-size: 20px;
+       color: #fff;
+       font-weight: 500;
+       margin-bottom: 20px;
+   }
     .mz-systems-shop-now-btn {
-        background: #00629C;
-        color: white;
-        border: none;
-        border-radius: 100px;
-        padding: 10px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: auto;
-        width: 120px;
-        align-self: center;
-    }
-
+       display: inline-block;
+       background: #00629C;
+       color: #fff;
+       border: none;
+       border-radius: 100px;
+       padding: 10px;
+       font-size: 14px;
+       cursor: pointer;
+       transition: all 0.3s ease;
+       margin-top: auto;
+       width: 120px;
+       align-self: center;
+   }
     .mz-systems-shop-now-btn:hover {
-        background: #00629C;
-    }
-
+       background: #00629C;
+       color: #fff;
+   }
     .mz-systems-shop-now-btn:visited {
-        background: #00629C;
-    }
-
+       background: #00629C;
+       color: #fff;
+   }
     .mz-systems-nav-button {
-        position: absolute;
-        top: 40%;
-        width: 40px;
-        height: 40px;
-        background-color: white;
-        border-radius: 50%;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        z-index: 10;
-        transition: all 0.3s ease;
-        border: 1px solid #e0e0e0;
-    }
-
+       position: absolute;
+       top: 40%;
+       width: 40px;
+       height: 40px;
+       background-color: #fff;
+       border-radius: 50%;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       cursor: pointer;
+       z-index: 10;
+       transition: all 0.3s ease;
+       border: 1px solid #e0e0e0;
+   }
     .mz-systems-card.mz-systems-semi-active {
-        transform: scale(0.95);
-    }
-
+       transform: scale(0.95);
+   }
     .mz-systems-nav-button:hover {
-        background-color: #f0f0f0;
-    }
-
+       background-color: #f0f0f0;
+   }
     .mz-systems-prev {
-        left: calc(25% + 10px);
-    }
-
+       left: calc(25% + 10px);
+   }
     .mz-systems-next {
-        right: calc(20% - 20px);
-    }
-
+       right: calc(20% - 20px);
+   }
     .mz-systems-nav-button svg {
-        width: 20px;
-        height: 20px;
-        fill: #333;
-    }
-
-    /* Navigation dots */
+       width: 20px;
+       height: 20px;
+       fill: #333;
+   }
     .mz-systems-nav-dots {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
+       display: flex;
+       justify-content: center;
+       margin-top: 20px;
+   }
     .mz-systems-nav-dot {
-        width: 10px;
-        height: 10px;
-        background-color: #ccc;
-        border-radius: 50%;
-        margin: 0 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
+       width: 10px;
+       height: 10px;
+       background-color: #ccc;
+       border-radius: 50%;
+       margin: 0 5px;
+       cursor: pointer;
+       transition: all 0.3s ease;
+   }
     .mz-systems-nav-dot.mz-systems-active {
-        background-color: #3478F6;
-        transform: scale(1.2);
-    }
-
+       background-color: #3478F6;
+       transform: scale(1.2);
+   }
     .mz-systems-card-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        background: transparent;
-    }
-
+       width: 100%;
+       height: 100%;
+       display: flex;
+       flex-direction: column;
+       background: transparent;
+   }
     .mz-systems-blue-background {
-        transform: scale(0.95);
-
-    }
-
-    /*testimonial section */
-
+       transform: scale(0.95);
+   }
     .testimonial-section {
-        max-width: 1200px;;
-        min-height: 386px;
-        margin: 20px auto;
-    }
-
+       max-width: 1200px;;
+       min-height: 386px;
+       margin: 20px auto;
+   }
     .testimonial-section-title {
-        color: #0d1c37;
-        text-align: center;
-        font-size: 32px;
-        font-weight: 500;
-    }
-
-
+       color: #0d1c37;
+       text-align: center;
+       font-size: 32px;
+       font-weight: 500;
+   }
     .testimonial-cards {
-        display: flex;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2%;
-        /*max-width: 90%;*/
-        margin: 30px 10%;
-        justify-content: center;
-        align-content: center;
-    }
-
+       display: flex;
+       grid-template-columns: repeat(3, 1fr);
+       gap: 2%;
+       margin: 30px 10%;
+       justify-content: center;
+       align-content: center;
+   }
     .testimonial-card {
-        flex: 1 1 30%;
-        border-radius: 16px;
-        border: 2px solid #00629c;
-        box-shadow: 0 3.166px 31.663px 0 rgba(13, 89, 239, 0.04);
-        padding: 30px;
-        position: relative;
-    }
-
+       flex: 1 1 30%;
+       border-radius: 16px;
+       border: 2px solid #00629c;
+       box-shadow: 0 3.166px 31.663px 0 rgba(13, 89, 239, 0.04);
+       padding: 30px;
+       position: relative;
+   }
     .testimonial-card p {
-        color: #282828;
-        font-size: 14px;
-        font-weight: 300;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-top: 15px;
-    }
-
+       color: #282828;
+       font-size: 14px;
+       font-weight: 300;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       margin-top: 15px;
+   }
     .testimonial-author {
-        color: #000;
-        font-size: 18px;
-        font-weight: 500;
-    }
-
+       color: #000;
+       font-size: 18px;
+       font-weight: 500;
+   }
     .testimonial-author-line {
-        color: #777575;
-        font-size: 14px;
-        font-style: italic;
-        font-weight: 300;
-    }
-
+       color: #777575;
+       font-size: 14px;
+       font-style: italic;
+       font-weight: 300;
+   }
     .stars {
-        width: 147px;
-        height: 29px;
-    }
-
+       width: 147px;
+       height: 29px;
+   }
     .stars svg {
-        width: 100%;
-        height: 100%;
-        fill: #ffd904;
-    }
-
+       width: 100%;
+       height: 100%;
+       fill: #ffd904;
+   }
     .warranty-section {
-        position: relative;
-        max-width: 1200px;;
-        margin: 20px auto;
-        padding: 0;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 20px;
-
-    }
-
+       position: relative;
+       max-width: 1200px;;
+       margin: 20px auto;
+       padding: 0;
+       box-sizing: border-box;
+       display: flex;
+       justify-content: flex-start;
+       flex-wrap: wrap;
+       align-items: center;
+       gap: 20px;
+   }
     .image-card {
-        background-image: url("{{media url=wysiwyg/MrCoolWarranty-LifestyleImage_1.jpg}}");
-        border-radius: 30px;
-        width: 70%;
-        background-size: cover;
-        background-position: top;
-        background-repeat: no-repeat;
-        z-index: 1;
-        min-height: 450px;
-    }
-
-
+       background-image: url("{{media url=wysiwyg/MrCoolWarranty-LifestyleImage_1.jpg}}");
+       border-radius: 30px;
+       width: 70%;
+       background-size: cover;
+       background-position: top;
+       background-repeat: no-repeat;
+       z-index: 1;
+       min-height: 450px;
+   }
     .warranty-card {
-        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-        width: 65%;
-        margin-left: 35%;
-        margin-top: -30%;
-        /*border-radius: 30px 0 0 30px;*/
-        box-sizing: border-box;
-        border-radius: 30px;
-        padding: 40px 40px 0 40px;
-        z-index: 2;
-        position: relative;
-
-    }
-
+       background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+       width: 65%;
+       margin-left: 35%;
+       margin-top: -30%;
+       box-sizing: border-box;
+       border-radius: 30px;
+       padding: 40px 40px 0 40px;
+       z-index: 2;
+       position: relative;
+   }
     .warranty-heading {
-        width: 70%;
-    }
-
+       width: 70%;
+   }
     .warranty-heading h2 {
-        color: #FFF;
-        font-size: 30px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        margin: 0;
-    }
-
+       color: #FFF;
+       font-size: 30px;
+       font-style: normal;
+       font-weight: 500;
+       line-height: normal;
+       margin: 0;
+   }
     .warranty-content {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
+       display: flex;
+       flex-direction: row;
+       width: 100%;
+       box-sizing: border-box;
+   }
     .warranty-text {
-        width: 60%;
-        padding-right: 20px;
-    }
-
+       width: 60%;
+       padding-right: 20px;
+   }
     .warranty-text p {
-        color: #fff;
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 1.5;
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-
+       color: #fff;
+       font-size: 14px;
+       font-weight: 300;
+       line-height: 1.5;
+       margin-bottom: 15px;
+       margin-top: 15px;
+   }
     .warranty-text span {
-        font-style: italic;
-        font-weight: 400;
-    }
-
+       font-style: italic;
+       font-weight: 400;
+   }
     .warranty-badges {
-        width: 35%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: translateY(-20%);
-        gap: 5%;
-    }
-
+       width: 35%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       transform: translateY(-20%);
+       gap: 5%;
+   }
     .badge1 {
-        width: 180px;
-        height: 180px;
-        background-image: url("{{media url=wysiwyg/5-year-parts-warranty_pxrxbz.png}}");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
+       width: 180px;
+       height: 180px;
+       background-image: url("{{media url=wysiwyg/5-year-parts-warranty_pxrxbz.png}}");
+       background-size: contain;
+       background-position: center;
+       background-repeat: no-repeat;
+   }
     .badge2 {
-        width: 180px;
-        height: 180px;
-        background-image: url("{{media url=wysiwyg/7-year-compressor-warranty_nnuicy.png}}");
-        /*background-size: cover;*/
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
+       width: 180px;
+       height: 180px;
+       background-image: url("{{media url=wysiwyg/7-year-compressor-warranty_nnuicy.png}}");
+       background-size: contain;
+       background-position: center;
+       background-repeat: no-repeat;
+   }
     .gradient-footer-wrapper {
-        max-width: 1200px;
-        margin: 0 auto;
-        position: relative;
-    }
-
+       max-width: 1200px;
+       margin: 0 auto;
+       position: relative;
+   }
     .gradient-footer {
-        width: 100%;
-        border-radius: 30px;
-        background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
-        padding: 5%;
-        box-sizing: border-box;
-        position: relative;
-        color: #fff;
-        overflow: hidden;
-    }
-
+       width: 100%;
+       border-radius: 30px;
+       background: linear-gradient(120deg, #00629c 49.4%, #1c8eff 95.33%);
+       padding: 5%;
+       box-sizing: border-box;
+       position: relative;
+       color: #fff;
+       overflow: hidden;
+   }
     .gradient-footer .hero-content .divider-vertical {
-        height: 150px;
-    }
-
+       height: 150px;
+   }
     .hero-content .info-button {
-        background: #00629C;
-        margin: 20px;
-        color: #fff;
-    }
-
-
+       background: #00629C;
+       margin: 20px;
+       color: #fff;
+   }
     @media (max-width: 1170px) {
-        .diy-ductless-hp-card {
-            flex: 0 0 calc(33.333% - 20px);
-        }
-
-
+       .diy-ductless-hp-card {
+           flex: 0 0 calc(33.333% - 20px);
+       }
         .diy-ductless-hp-prev {
-            top: 45%;
-            left: calc(25% + 20px);
-        }
-
+           top: 45%;
+           left: calc(25% + 20px);
+       }
         .diy-ductless-hp-next {
-            top: 45%;
-            right: calc(20% - 20px);
-        }
-
-
+           top: 45%;
+           right: calc(20% - 20px);
+       }
         .mz-systems-card {
-            flex: 0 0 calc(33.333% - 20px);
-        }
-
+           flex: 0 0 calc(33.333% - 20px);
+       }
         .mz-systems-prev {
-            top: 45%;
-            left: calc(25% + 20px);
-
-        }
-
+           top: 45%;
+           left: calc(25% + 20px);
+       }
         .mz-systems-next {
-            top: 45%;
-            right: calc(20% - 20px);
-        }
-    }
-
+           top: 45%;
+           right: calc(20% - 20px);
+       }
+   }
     @media (min-width: 769px) and (max-width: 1108px) {
-
-        .headline {
-            font-size: 28px;
-        }
-
+       .headline {
+           font-size: 28px;
+       }
         .subheadline {
-            font-size: 20px;
-        }
-
-        .warranty-card {
-            /*width: 85%;*/
-            /*margin-left: 20%;*/
-            margin-top: -40%;
-            padding: 40px;
-
-        }
-
-        .background-card {
-            margin-left: 40%;
-            margin-top: -45%;
-            padding: 7% 5% 7% 30%;
-        }
-
-        .foreground-card {
-            width: 65%;
-        }
-
-    }
-
-
-    /* Mobile screens */
-    @media (max-width: 768px) {
-
-        body,
-        html {
-            overflow-x: hidden;
-        }
-
-        .logo-img-desktop {
-            width: 60%;
-            height: 80px;
-            margin: 0;
-            top: -50px;
-        }
-
-        .gradient-box-wrapper {
-            padding: 45px 0 0;
-        }
-
-        .airhandler-section-container {
-            padding-top: 0;
-        }
-
-        .gradient-box {
-            padding: 80px 20px;
-        }
-
-        .hero-content {
-            flex-direction: row;
-            text-align: center;
-        }
-
-        .headline-section,
-        .subheadline-section {
-            flex: 1 1 100%;
-            text-align: center;
-        }
-
-        .headline {
-            font-size: 32px;
-        }
-
-        .subheadline {
-            font-size: 18px;
-        }
-
-        .divider-vertical {
-            width: 100px;
-            height: 2px;
-            margin: 16px auto;
-            background: white;
-        }
-
-        .airhandler-floating-img {
-            /*width: 260px;*/
-            /*top: -100px;*/
-        }
-
-        .image-split-section {
-            aspect-ratio: auto;
-            height: 400px;
-        }
-
-        .right-image {
-            height: 100%;
-        }
-
-        .price-label {
-            bottom: 15px;
-            padding: 3% 12%;
-        }
-
-        .price-text {
-            font-size: 18px;
-            font-weight: 400;
-        }
-
-        .price-button {
-            font-weight: 400;
-        }
-
-        /*video section */
-        .overlap-wrapper {
-            display: flex;
-            flex-direction: column;
-
-        }
-
-        .foreground-card {
-            width: 100%;
-            aspect-ratio: 8/9;
-            z-index: 2;
-        }
-
-        .background-card {
-            left: 5%;
-            width: 90%;
-            position: relative;
-            min-height: auto;
-            padding: 50px 20px 20px;
-            margin: -10% 0 0;
-        }
-
-        .text-content {
-            padding-left: 0;
-        }
-
-        .text-content h2 {
-            font-size: 28px;
-            color: #FFF;
-            font-weight: 400;
-        }
-
-        .text-content p {
-            font-size: 20px;
-            color: #FFF;
-
-        }
-
-        .gradient-feature-wrapper {
-            padding: 10px 0;
-        }
-
+           font-size: 20px;
+       }
         .gradient-feature-container {
-            flex-direction: column;
-            padding: 30px 20px;
-        }
-
-        .feature-left {
-            margin-bottom: 20px;
-        }
-
-        .feature-left h2 {
-            font-size: 30px;
-            font-weight: 400;
-
-        }
-
-        .feature-left p {
-            font-size: 16px;
-            font-weight: 300;
-        }
-
-        .feature-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .diy-ductless-hp-card {
-            flex: 0 0 calc(50% - 20px);
-        }
-
-        .diy-ductless-hp-carousel-container {
-            padding: 30px 0;
-        }
-
-        .diy-ductless-hp-carousel {
-            width: 95%;
-
-        }
-
-        .carousel-wrapper {
-            transform: translateX(-7px);
-        }
-
-        .diy-ductless-hp-prev {
-            top: 40%;
-            left: 0;
-        }
-
-        .diy-ductless-hp-next {
-            top: 40%;
-            right: -3%;
-        }
-
-        .diy-ductless-hp-title {
-            font-weight: 400;
-        }
-
-        .diy-ductless-hp-description {
-            max-width: 100%;
-        }
-
-        .diy-ductless-hp-shop-now-btn {
-            font-weight: 400;
-        }
-
-        .mz-systems-card {
-            flex: 0 0 calc(50% - 20px);
-        }
-
-        .mz-systems-carousel {
-            width: 95%;
-
-        }
-
-        .mz-systems-carousel-container {
-            padding: 30px 0;
-        }
-
-        .mz-systems-prev {
-            top: 40%;
-            left: 0;
-        }
-
-        .mz-systems-next {
-            top: 40%;
-            right: -3%;
-        }
-
-        .mz-systems-title {
-            font-weight: 400;
-        }
-
-        .mz-systems-description {
-            max-width: 100%;
-        }
-
-        .mz-systems-card h2 {
-            font-weight: 400;
-        }
-
-        .mz-systems-shop-now-btn {
-            font-weight: 400;
-        }
-
-        .testimonial-section {
-            /*padding: 40px 16px 40px 16px;*/
-        }
-
-        .testimonial-section h2 {
-            font-size: 32px;
-            max-width: 100%;
-            padding: 10px;
-        }
-
-        .testimonial-cards {
-            max-width: 100%;
-            flex-direction: column;
-            gap: 4vw;
-            margin: 0;
-        }
-
-        .testimonial-card {
-            padding: 25px 28px;
-        }
-
-        .testimonial-card p {
-            width: 100%;
-        }
-
-        .testimonial-author {
-            font-size: 22px;
-        }
-
-        .testimonial-author-line {
-            font-size: 16px;
-        }
-
-
-        .image-card {
-            width: 100%;
-        }
-
+           padding: 50px 70px;
+       }
+        .feature-label {
+           padding: 10px;
+           font-size: 16px;
+       }
         .warranty-card {
-            width: 100%;
-            margin-top: -30%;
-            margin-left: 2%;
-        }
-
-        .warranty-content {
-            flex-direction: column;
-        }
-
-        .warranty-text {
-            width: 100%;
-            padding-right: 0;
-            margin-bottom: 30px;
-        }
-
-        .warranty-heading {
-            width: 80%;
-        }
-
-        .warranty-badges {
-            width: 100%;
-            flex-direction: row;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .badge1, .badge2 {
-            width: 120px;
-            height: 120px;
-        }
-
-        .gradient-footer {
-            padding: 40px;
-        }
-
-
-        .gradient-footer .hero-content .divider-vertical {
-            width: 150px;
-            height: 2px;
-        }
-
-        .hero-content .info-button {
-            background: #1C8EFF;
-        }
-    }
-
-    @media (max-width: 576px) {
-
-        .diy-ductless-hp-carousel {
-            flex-direction: column;
-            transition: none;
-            transform: none !important;
-        }
-
-        .carousel-wrapper {
-            transform: translateX(15px);
-        }
-
-        .diy-ductless-hp-card {
-            flex: 0 0 auto;
-            width: 80%;
-            max-width: 470px;
-            margin: 10px auto;
-            height: 350px;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .diy-ductless-hp-nav-button,
-        .diy-ductless-hp-nav-dots {
-            display: none;
-        }
-
-        .mz-systems-carousel-container {
-            padding: 20px 0;
-        }
-
-        .mz-systems-carousel {
-            flex-direction: column;
-            transition: none;
-            transform: none !important;
-        }
-
-        .mz-systems-card {
-            flex: 0 0 auto;
-            width: 80%;
-            max-width: 470px;
-            margin: 10px auto;
-            height: 350px;
-            opacity: 1;
-            transform: scale(1);
-            /*padding: 10px;*/
-        }
-
-        .mz-systems-nav-button,
-        .mz-systems-nav-dots {
-            display: none;
-        }
-
-        .warranty-card {
-            margin-top: -65%;
-        }
-
+           margin-top: -40%;
+           padding: 40px;
+       }
         .background-card {
-            margin: -15% 0 0;
-        }
-    }
-
+           margin-left: 39%;
+           margin-top: -32%;
+           padding: 7% 5% 6% 30%;
+       }
+        .foreground-card {
+           width: 65%;
+       }
+   }
+    @media (max-width: 768px) {
+       body,
+       html {
+           overflow-x: hidden;
+       }
+        .logo-img-desktop {
+           width: 60%;
+           height: 80px;
+           margin: 0;
+           top: -50px;
+       }
+        .gradient-box-wrapper {
+           padding: 45px 0 0;
+       }
+        .airhandler-section-container {
+           padding-top: 0;
+       }
+        .gradient-box {
+           padding: 80px 20px;
+       }
+        .hero-content {
+           flex-direction: row;
+           text-align: center;
+       }
+        .headline-section,
+       .subheadline-section {
+           flex: 1 1 100%;
+           text-align: center;
+       }
+        .headline {
+           font-size: 32px;
+       }
+        .subheadline {
+           font-size: 18px;
+       }
+        .divider-vertical {
+           width: 100px;
+           height: 2px;
+           margin: 16px auto;
+           background: #fff;
+       }
+        .image-split-section {
+           aspect-ratio: auto;
+           height: 400px;
+       }
+        .right-image {
+           height: 100%;
+       }
+        .price-label {
+           bottom: 15px;
+           padding: 3% 12%;
+       }
+        .price-text {
+           font-size: 18px;
+           font-weight: 400;
+       }
+        .price-button {
+           font-weight: 400;
+       }
+        .overlap-wrapper {
+           display: flex;
+           flex-direction: column;
+       }
+        .foreground-card {
+           width: 100%;
+           aspect-ratio: 8/9;
+           z-index: 2;
+       }
+        .foreground-card iframe {
+           /*width: 177.77777778vh !important;*/
+           background-color: black;
+       }
+       .video-thumbnail {
+           display: block;
+       }
+        .background-card {
+           left: 5%;
+           width: 90%;
+           position: relative;
+           min-height: auto;
+           padding: 50px 20px 20px;
+           margin: -10% 0 0;
+       }
+        .text-content {
+           padding-left: 0;
+       }
+        .text-content h2 {
+           font-size: 28px;
+           color: #FFF;
+           font-weight: 400;
+       }
+        .text-content p {
+           font-size: 20px;
+           color: #FFF;
+       }
+        .gradient-feature-wrapper {
+           padding: 10px 0;
+       }
+        .gradient-feature-container {
+           flex-direction: column;
+           padding: 30px 20px;
+       }
+        .feature-left {
+           margin-bottom: 20px;
+       }
+        .feature-left h2 {
+           font-size: 30px;
+           font-weight: 400;
+       }
+        .feature-left p {
+           font-size: 16px;
+           font-weight: 300;
+       }
+        .feature-grid {
+           grid-template-columns: 1fr;
+       }
+        .diy-ductless-hp-card {
+           flex: 0 0 calc(50% - 20px);
+       }
+        .diy-ductless-hp-carousel-container {
+           padding: 30px 0;
+       }
+        .diy-ductless-hp-carousel {
+           width: 94%;
+       }
+        .carousel-wrapper {
+           transform: translateX(-7px);
+       }
+        .diy-ductless-hp-prev {
+           top: 40%;
+           left: 0;
+       }
+        .diy-ductless-hp-next {
+           top: 40%;
+           right: -3%;
+       }
+        .diy-ductless-hp-title {
+           font-weight: 400;
+       }
+        .diy-ductless-hp-description {
+           max-width: 100%;
+       }
+        .diy-ductless-hp-shop-now-btn {
+           font-weight: 400;
+       }
+        .mz-systems-card {
+           flex: 0 0 calc(50% - 20px);
+       }
+        .mz-systems-carousel {
+           width: 94%;
+       }
+        .mz-systems-carousel-container {
+           padding: 30px 0;
+       }
+        .mz-systems-prev {
+           top: 40%;
+           left: 0;
+       }
+        .mz-systems-next {
+           top: 40%;
+           right: -3%;
+       }
+        .mz-systems-title {
+           font-weight: 400;
+       }
+        .mz-systems-description {
+           max-width: 100%;
+       }
+        .mz-systems-card h2 {
+           font-weight: 400;
+       }
+        .mz-systems-shop-now-btn {
+           font-weight: 400;
+       }
+        .testimonial-section h2 {
+           font-size: 32px;
+           max-width: 100%;
+           padding: 10px;
+       }
+        .testimonial-cards {
+           max-width: 100%;
+           flex-direction: column;
+           gap: 4vw;
+           margin: 0;
+       }
+        .testimonial-card {
+           padding: 25px 28px;
+       }
+        .testimonial-card p {
+           width: 100%;
+       }
+        .testimonial-author {
+           font-size: 22px;
+       }
+        .testimonial-author-line {
+           font-size: 16px;
+       }
+        .image-card {
+           width: 100%;
+       }
+        .warranty-card {
+           width: 100%;
+           margin-top: -30%;
+           margin-left: 2%;
+       }
+        .warranty-content {
+           flex-direction: column;
+       }
+        .warranty-text {
+           width: 100%;
+           padding-right: 0;
+           margin-bottom: 30px;
+       }
+        .warranty-heading {
+           width: 80%;
+       }
+        .warranty-badges {
+           width: 100%;
+           flex-direction: row;
+           justify-content: center;
+           gap: 30px;
+       }
+        .badge1, .badge2 {
+           width: 120px;
+           height: 120px;
+       }
+        .gradient-footer {
+           padding: 40px;
+       }
+        .gradient-footer .hero-content .divider-vertical {
+           width: 150px;
+           height: 2px;
+       }
+        .hero-content .info-button {
+           background: #1C8EFF;
+       }
+   }
+    @media (max-width: 576px) {
+       .diy-ductless-hp-carousel {
+           flex-direction: column;
+           transition: none;
+           transform: none !important;
+       }
+        .carousel-wrapper {
+           transform: translateX(15px);
+       }
+        .diy-ductless-hp-card {
+           flex: 0 0 auto;
+           width: 80%;
+           max-width: 470px;
+           margin: 10px auto;
+           height: 350px;
+           opacity: 1;
+           transform: scale(1);
+       }
+        .diy-ductless-hp-nav-button,
+       .diy-ductless-hp-nav-dots {
+           display: none;
+       }
+        .mz-systems-carousel-container {
+           padding: 20px 0;
+       }
+        .mz-systems-carousel {
+           flex-direction: column;
+           transition: none;
+           transform: none !important;
+       }
+        .mz-systems-card {
+           flex: 0 0 auto;
+           width: 80%;
+           max-width: 470px;
+           margin: 10px auto;
+           height: 350px;
+           opacity: 1;
+           transform: scale(1);
+       }
+        .mz-systems-nav-button,
+       .mz-systems-nav-dots {
+           display: none;
+       }
+        .warranty-card {
+           margin-top: -65%;
+       }
+        .background-card {
+           margin: -15% 0 0;
+       }
+   }
 </style>
-
 <div class="mr-cool-diy-body">
-
-    <div class="airhandler-section-container">
-
-        <!-- Gradient Section -->
-        <div class="gradient-box-wrapper">
-            <div class="gradient-box-container">
-                <!-- Logo for desktop view only -->
-                <img class="logo-img-desktop" src="{{media url=wysiwyg/MrCool-badgelogo-fixed.png}}"
-                     alt="Placeholder Logo"/>
-
-                <div class="gradient-box">
-                    <div class="hero-content">
-                        <div class="headline-section">
-                            <h2 class="headline">America's New<br> MrCool DIY Mini-Split</h2>
-                        </div>
-                        <div class="divider-vertical"></div>
-
-                        <div class="subheadline-section">
-                            <p class="subheadline">Air Conditioner and Heater<br>you can install yourself</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- OVERLAPPING AIRHANDLER IMAGE (between sections) -->
-        <div class="airhandler-floating-wrapper">
-            <img src="{{media url=wysiwyg/header-overlay-airhandler.png}}" alt="Airhandler Overlay"
-                 class="airhandler-floating-img"/>
-        </div>
-
-        <!-- IMAGE SPLIT SECTION -->
-        <div class="image-split-section">
-            <div class="right-image">
-                <div class="price-label">
-                    <div class="price-text">From $2,329</div>
-                    <a href="#heatPump" class="price-button">Shop Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Video SECTION  -->
-    <div class="overlap-wrapper">
-
-        <div class="foreground-card">
-            <div class="video-thumbnail" id="videoThumbnail"></div>
-
-            <iframe id="ytPlayer" width="100%" height="100%"
-                    src="https://www.youtube.com/embed/IstvsasKlYA?enablejsapi=1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-
-            <div class="polygon-button" id="playButton">
-                <svg width="23" height="39" viewBox="0 0 23 39" fill="none" xmlns="http://www.w3.org/2000/svg"
-                     class="polygon-icon">
-                    <path id="Polygon 1"
-                          d="M22.9609 19.4999L-0.0065936 38.6537L-0.00659193 0.346156L22.9609 19.4999Z"
-                          fill="url(#paint0_linear_6329_352)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear_6329_352" x1="15.7759" y1="25.8447" x2="0.03179"
-                                        y2="44.7634" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#00629C"/>
-                            <stop offset="1" stop-color="#1C8EFF"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-        </div>
-        <div class="background-card">
-            <div class="text-content">
-                <h2>A DIY solution<br>for every home.</h2>
-                <p>Innovative solutions for <br>your family.</p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="gradient-feature-wrapper">
-        <div class="gradient-feature-container">
-            <div class="feature-left">
-                <h2>DIY Made Easy.</h2>
-                <p>
-                    MRCOOL DIY is the only ductless mini split system designed for fast,
-                    affordable installation—no HVAC pro required. The pre-charged,
-                    sealed line sets come with all the refrigerant you need, so there's
-                    no need for special tools, tanks, or extra service costs. Just
-                    connect, power up, and enjoy comfort for thousands less than a
-                    traditional system.
-                </p>
-                <a href="https://iwae.com/searchanise/result?q=diy&page=1&rb_manufacturer=MrCool&rb_series=DIY&rb_refrigerant=R-454b"
-                   class="info-button" target="_blank">Find Your Fit</a>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-box">
-                    <img src="{{media url=wysiwyg/PreCharged-Linesets.png}}" alt="Pre-charged"/>
-                    <div class="feature-label">Pre-charged<br>R-454B line sets</div>
-                </div>
-                <div class="feature-box">
-                    <img src="{{media url=wysiwyg/NoVacuum-Required.png}}" alt="No vacuum"/>
-                    <div class="feature-label">No vacuum<br>required</div>
-                </div>
-                <div class="feature-box">
-                    <img src="{{media url=wysiwyg/WifiControl.png}}" alt="WiFi"/>
-                    <div class="feature-label">WiFi control</div>
-                </div>
-                <div class="feature-box">
-                    <img src="{{media url=wysiwyg/EnergyStar-CondenserPhoto.png}}" alt="Energy Star"/>
-                    <div class="feature-label">Energy Star<br>certified</div>
-                </div>
-            </div>
-        </div>
-        <div id="heatPump" style="position: relative; top: -80px; visibility: hidden; height: 0;"></div>
-
-    </div>
-
-    <!-- Heat Pump Carousel -->
-    <div class="diy-ductless-hp-carousel-container" id="heatPumpCarouselContainer">
-        <h2 class="diy-ductless-hp-title">Pick the Perfect MrCool DIY for Your Space</h2>
-        <p class="diy-ductless-hp-description">
-            Every space is a little different. Whether your space is big or small,
-            we have the perfect MrCool DIY to fit your specific heating and cooling
-            needs. The unit comes standard with a 5 year parts and 7 year compressor
-            warranty. IWAE offers an additional 1 Year Extended Labor Warranty with
-            purchase of the DIY 5th Gen System.
-        </p>
-        <div class="carousel-wrapper">
-            <div class="diy-ductless-hp-carousel" id="heatPumpCarousel"></div>
-            <div class="diy-ductless-hp-nav-button diy-ductless-hp-prev" id="heatPumpPrev">
-                <svg viewBox="0 0 24 24">
-                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                </svg>
-            </div>
-            <div class="diy-ductless-hp-nav-button diy-ductless-hp-next" id="heatPumpNext">
-                <svg viewBox="0 0 24 24">
-                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                </svg>
-            </div>
-        </div>
-
-        <div class="diy-ductless-hp-nav-dots" id="heatPumpDots"></div>
-    </div>
-
-    <!-- Multi-Zone Carousel -->
-    <div class="mz-systems-carousel-container" id="multiZoneCarouselContainer">
-        <h2 class="mz-systems-title">Need an Option for Multiple Rooms?</h2>
-        <p class="mz-systems-description">
-            Check out the NEW MrCool DIY Multi-Zone Systems
-        </p>
-
-        <div class="carousel-wrapper">
-            <div class="mz-systems-carousel" id="multiZoneCarousel"></div>
-            <div class="mz-systems-nav-button mz-systems-prev" id="multiZonePrev">
-                <svg viewBox="0 0 24 24">
-                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                </svg>
-            </div>
-            <div class="mz-systems-nav-button mz-systems-next" id="multiZoneNext">
-                <svg viewBox="0 0 24 24">
-                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                </svg>
-            </div>
-        </div>
-        <div class="mz-systems-nav-dots" id="multiZoneDots"></div>
-    </div>
-
-
-    <!-- Testimonial Section -->
-    <div class="testimonial-section">
-        <h2 class="testimonial-section-title">
-            Join thousands enjoying their MrCool DIY Mini Split
-        </h2>
-        <div class="testimonial-cards">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-card">
-                <div class="stars">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="147" height="30" viewBox="0 0 147 30"
-                         fill="none">
-                        <path
-                                d="M14.0477 1.79188C14.1901 1.35375 14.8099 1.35374 14.9523 1.79188L17.6487 10.0906C17.7123 10.2865 17.8949 10.4192 18.101 10.4192L26.8267 10.4192C27.2874 10.4192 27.4789 11.0087 27.1062 11.2794L20.047 16.4083C19.8803 16.5294 19.8105 16.7441 19.8742 16.94L22.5706 25.2387C22.713 25.6768 22.2115 26.0411 21.8388 25.7704L14.7795 20.6415C14.6128 20.5204 14.3872 20.5204 14.2205 20.6415L7.1612 25.7704C6.7885 26.0411 6.28704 25.6768 6.42939 25.2387L9.1258 16.94C9.18946 16.7441 9.11972 16.5294 8.95304 16.4083L1.89376 11.2794C1.52106 11.0087 1.71261 10.4192 2.17329 10.4192L10.899 10.4192C11.1051 10.4192 11.2877 10.2865 11.3513 10.0906L14.0477 1.79188Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M43.5492 1.74099C43.6945 1.30894 44.3055 1.30894 44.4508 1.74099L47.2588 10.0951C47.3239 10.2887 47.5053 10.4192 47.7096 10.4192L56.7613 10.4192C57.2259 10.4192 57.4148 11.0169 57.0346 11.2839L49.7397 16.4073C49.5673 16.5284 49.4951 16.7484 49.5622 16.948L52.3551 25.2572C52.5014 25.6925 52.0069 26.0618 51.631 25.7979L44.2733 20.6304C44.1093 20.5152 43.8907 20.5152 43.7267 20.6304L36.369 25.7979C35.9931 26.0618 35.4986 25.6925 35.6449 25.2572L38.4378 16.948C38.5049 16.7484 38.4327 16.5284 38.2603 16.4073L30.9654 11.2839C30.5852 11.0169 30.7741 10.4192 31.2387 10.4192L40.2904 10.4192C40.4947 10.4192 40.6761 10.2887 40.7412 10.0951L43.5492 1.74099Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M73.0477 1.79188C73.1901 1.35375 73.8099 1.35374 73.9523 1.79188L76.6487 10.0906C76.7123 10.2865 76.8949 10.4192 77.101 10.4192L85.8267 10.4192C86.2874 10.4192 86.4789 11.0087 86.1062 11.2794L79.047 16.4083C78.8803 16.5294 78.8105 16.7441 78.8742 16.94L81.5706 25.2387C81.713 25.6768 81.2115 26.0411 80.8388 25.7704L73.7795 20.6415C73.6128 20.5204 73.3872 20.5204 73.2205 20.6415L66.1612 25.7704C65.7885 26.0411 65.287 25.6768 65.4294 25.2387L68.1258 16.94C68.1895 16.7441 68.1197 16.5294 67.953 16.4083L60.8938 11.2794C60.5211 11.0087 60.7126 10.4192 61.1733 10.4192L69.899 10.4192C70.1051 10.4192 70.2877 10.2865 70.3513 10.0906L73.0477 1.79188Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M102.549 1.74099C102.694 1.30894 103.306 1.30894 103.451 1.74099L106.259 10.0951C106.324 10.2887 106.505 10.4192 106.71 10.4192L115.761 10.4192C116.226 10.4192 116.415 11.0169 116.035 11.2839L108.74 16.4073C108.567 16.5284 108.495 16.7484 108.562 16.948L111.355 25.2572C111.501 25.6925 111.007 26.0618 110.631 25.7979L103.273 20.6304C103.109 20.5152 102.891 20.5152 102.727 20.6304L95.369 25.7979C94.9931 26.0618 94.4986 25.6925 94.6449 25.2572L97.4378 16.948C97.5049 16.7484 97.4327 16.5284 97.2603 16.4073L89.9654 11.2839C89.5852 11.0169 89.7741 10.4192 90.2387 10.4192L99.2904 10.4192C99.4947 10.4192 99.6761 10.2887 99.7412 10.0951L102.549 1.74099Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M132.048 1.79188C132.19 1.35375 132.81 1.35374 132.952 1.79188L135.649 10.0906C135.712 10.2865 135.895 10.4192 136.101 10.4192L144.827 10.4192C145.287 10.4192 145.479 11.0087 145.106 11.2794L138.047 16.4083C137.88 16.5294 137.811 16.7441 137.874 16.94L140.571 25.2387C140.713 25.6768 140.212 26.0411 139.839 25.7704L132.78 20.6415C132.613 20.5204 132.387 20.5204 132.22 20.6415L125.161 25.7704C124.788 26.0411 124.287 25.6768 124.429 25.2387L127.126 16.94C127.189 16.7441 127.12 16.5294 126.953 16.4083L119.894 11.2794C119.521 11.0087 119.713 10.4192 120.173 10.4192L128.899 10.4192C129.105 10.4192 129.288 10.2865 129.351 10.0906L132.048 1.79188Z"
-                                fill="#FFD904"/>
-                    </svg>
-                </div>
-                <p>
-                    "Thanks for everything you guys do to keep all your customers
-                    satisfied. If I would need another mini split, I would not hesitate
-                    to buy another MrCool."
-                </p>
-                <div class="testimonial-author">Phil Brann</div>
-                <div class="testimonial-author-line">Customer Google Review</div>
-            </div>
-
-            <!-- Testimonial 2 -->
-            <div class="testimonial-card">
-                <div class="stars">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="147" height="30" viewBox="0 0 147 30"
-                         fill="none">
-                        <path
-                                d="M14.0477 1.79188C14.1901 1.35375 14.8099 1.35374 14.9523 1.79188L17.6487 10.0906C17.7123 10.2865 17.8949 10.4192 18.101 10.4192L26.8267 10.4192C27.2874 10.4192 27.4789 11.0087 27.1062 11.2794L20.047 16.4083C19.8803 16.5294 19.8105 16.7441 19.8742 16.94L22.5706 25.2387C22.713 25.6768 22.2115 26.0411 21.8388 25.7704L14.7795 20.6415C14.6128 20.5204 14.3872 20.5204 14.2205 20.6415L7.1612 25.7704C6.7885 26.0411 6.28704 25.6768 6.42939 25.2387L9.1258 16.94C9.18946 16.7441 9.11972 16.5294 8.95304 16.4083L1.89376 11.2794C1.52106 11.0087 1.71261 10.4192 2.17329 10.4192L10.899 10.4192C11.1051 10.4192 11.2877 10.2865 11.3513 10.0906L14.0477 1.79188Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M43.5492 1.74099C43.6945 1.30894 44.3055 1.30894 44.4508 1.74099L47.2588 10.0951C47.3239 10.2887 47.5053 10.4192 47.7096 10.4192L56.7613 10.4192C57.2259 10.4192 57.4148 11.0169 57.0346 11.2839L49.7397 16.4073C49.5673 16.5284 49.4951 16.7484 49.5622 16.948L52.3551 25.2572C52.5014 25.6925 52.0069 26.0618 51.631 25.7979L44.2733 20.6304C44.1093 20.5152 43.8907 20.5152 43.7267 20.6304L36.369 25.7979C35.9931 26.0618 35.4986 25.6925 35.6449 25.2572L38.4378 16.948C38.5049 16.7484 38.4327 16.5284 38.2603 16.4073L30.9654 11.2839C30.5852 11.0169 30.7741 10.4192 31.2387 10.4192L40.2904 10.4192C40.4947 10.4192 40.6761 10.2887 40.7412 10.0951L43.5492 1.74099Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M73.0477 1.79188C73.1901 1.35375 73.8099 1.35374 73.9523 1.79188L76.6487 10.0906C76.7123 10.2865 76.8949 10.4192 77.101 10.4192L85.8267 10.4192C86.2874 10.4192 86.4789 11.0087 86.1062 11.2794L79.047 16.4083C78.8803 16.5294 78.8105 16.7441 78.8742 16.94L81.5706 25.2387C81.713 25.6768 81.2115 26.0411 80.8388 25.7704L73.7795 20.6415C73.6128 20.5204 73.3872 20.5204 73.2205 20.6415L66.1612 25.7704C65.7885 26.0411 65.287 25.6768 65.4294 25.2387L68.1258 16.94C68.1895 16.7441 68.1197 16.5294 67.953 16.4083L60.8938 11.2794C60.5211 11.0087 60.7126 10.4192 61.1733 10.4192L69.899 10.4192C70.1051 10.4192 70.2877 10.2865 70.3513 10.0906L73.0477 1.79188Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M102.549 1.74099C102.694 1.30894 103.306 1.30894 103.451 1.74099L106.259 10.0951C106.324 10.2887 106.505 10.4192 106.71 10.4192L115.761 10.4192C116.226 10.4192 116.415 11.0169 116.035 11.2839L108.74 16.4073C108.567 16.5284 108.495 16.7484 108.562 16.948L111.355 25.2572C111.501 25.6925 111.007 26.0618 110.631 25.7979L103.273 20.6304C103.109 20.5152 102.891 20.5152 102.727 20.6304L95.369 25.7979C94.9931 26.0618 94.4986 25.6925 94.6449 25.2572L97.4378 16.948C97.5049 16.7484 97.4327 16.5284 97.2603 16.4073L89.9654 11.2839C89.5852 11.0169 89.7741 10.4192 90.2387 10.4192L99.2904 10.4192C99.4947 10.4192 99.6761 10.2887 99.7412 10.0951L102.549 1.74099Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M132.048 1.79188C132.19 1.35375 132.81 1.35374 132.952 1.79188L135.649 10.0906C135.712 10.2865 135.895 10.4192 136.101 10.4192L144.827 10.4192C145.287 10.4192 145.479 11.0087 145.106 11.2794L138.047 16.4083C137.88 16.5294 137.811 16.7441 137.874 16.94L140.571 25.2387C140.713 25.6768 140.212 26.0411 139.839 25.7704L132.78 20.6415C132.613 20.5204 132.387 20.5204 132.22 20.6415L125.161 25.7704C124.788 26.0411 124.287 25.6768 124.429 25.2387L127.126 16.94C127.189 16.7441 127.12 16.5294 126.953 16.4083L119.894 11.2794C119.521 11.0087 119.713 10.4192 120.173 10.4192L128.899 10.4192C129.105 10.4192 129.288 10.2865 129.351 10.0906L132.048 1.79188Z"
-                                fill="#FFD904"/>
-                    </svg>
-                </div>
-                <p>
-                    "MrCool is the best purchase I made for my home! I have the 48K with
-                    5 Air Handlers. Runs efficiently, quiet and the heat is inexpensive
-                    to run and warms the house up quickly!"
-                </p>
-                <div class="testimonial-author">Bill Bourque</div>
-                <div class="testimonial-author-line">Customer Google Review</div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div class="testimonial-card">
-                <div class="stars">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="147" height="30" viewBox="0 0 147 30"
-                         fill="none">
-                        <path
-                                d="M14.0477 1.79188C14.1901 1.35375 14.8099 1.35374 14.9523 1.79188L17.6487 10.0906C17.7123 10.2865 17.8949 10.4192 18.101 10.4192L26.8267 10.4192C27.2874 10.4192 27.4789 11.0087 27.1062 11.2794L20.047 16.4083C19.8803 16.5294 19.8105 16.7441 19.8742 16.94L22.5706 25.2387C22.713 25.6768 22.2115 26.0411 21.8388 25.7704L14.7795 20.6415C14.6128 20.5204 14.3872 20.5204 14.2205 20.6415L7.1612 25.7704C6.7885 26.0411 6.28704 25.6768 6.42939 25.2387L9.1258 16.94C9.18946 16.7441 9.11972 16.5294 8.95304 16.4083L1.89376 11.2794C1.52106 11.0087 1.71261 10.4192 2.17329 10.4192L10.899 10.4192C11.1051 10.4192 11.2877 10.2865 11.3513 10.0906L14.0477 1.79188Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M43.5492 1.74099C43.6945 1.30894 44.3055 1.30894 44.4508 1.74099L47.2588 10.0951C47.3239 10.2887 47.5053 10.4192 47.7096 10.4192L56.7613 10.4192C57.2259 10.4192 57.4148 11.0169 57.0346 11.2839L49.7397 16.4073C49.5673 16.5284 49.4951 16.7484 49.5622 16.948L52.3551 25.2572C52.5014 25.6925 52.0069 26.0618 51.631 25.7979L44.2733 20.6304C44.1093 20.5152 43.8907 20.5152 43.7267 20.6304L36.369 25.7979C35.9931 26.0618 35.4986 25.6925 35.6449 25.2572L38.4378 16.948C38.5049 16.7484 38.4327 16.5284 38.2603 16.4073L30.9654 11.2839C30.5852 11.0169 30.7741 10.4192 31.2387 10.4192L40.2904 10.4192C40.4947 10.4192 40.6761 10.2887 40.7412 10.0951L43.5492 1.74099Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M73.0477 1.79188C73.1901 1.35375 73.8099 1.35374 73.9523 1.79188L76.6487 10.0906C76.7123 10.2865 76.8949 10.4192 77.101 10.4192L85.8267 10.4192C86.2874 10.4192 86.4789 11.0087 86.1062 11.2794L79.047 16.4083C78.8803 16.5294 78.8105 16.7441 78.8742 16.94L81.5706 25.2387C81.713 25.6768 81.2115 26.0411 80.8388 25.7704L73.7795 20.6415C73.6128 20.5204 73.3872 20.5204 73.2205 20.6415L66.1612 25.7704C65.7885 26.0411 65.287 25.6768 65.4294 25.2387L68.1258 16.94C68.1895 16.7441 68.1197 16.5294 67.953 16.4083L60.8938 11.2794C60.5211 11.0087 60.7126 10.4192 61.1733 10.4192L69.899 10.4192C70.1051 10.4192 70.2877 10.2865 70.3513 10.0906L73.0477 1.79188Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M102.549 1.74099C102.694 1.30894 103.306 1.30894 103.451 1.74099L106.259 10.0951C106.324 10.2887 106.505 10.4192 106.71 10.4192L115.761 10.4192C116.226 10.4192 116.415 11.0169 116.035 11.2839L108.74 16.4073C108.567 16.5284 108.495 16.7484 108.562 16.948L111.355 25.2572C111.501 25.6925 111.007 26.0618 110.631 25.7979L103.273 20.6304C103.109 20.5152 102.891 20.5152 102.727 20.6304L95.369 25.7979C94.9931 26.0618 94.4986 25.6925 94.6449 25.2572L97.4378 16.948C97.5049 16.7484 97.4327 16.5284 97.2603 16.4073L89.9654 11.2839C89.5852 11.0169 89.7741 10.4192 90.2387 10.4192L99.2904 10.4192C99.4947 10.4192 99.6761 10.2887 99.7412 10.0951L102.549 1.74099Z"
-                                fill="#FFD904"/>
-                        <path
-                                d="M132.048 1.79188C132.19 1.35375 132.81 1.35374 132.952 1.79188L135.649 10.0906C135.712 10.2865 135.895 10.4192 136.101 10.4192L144.827 10.4192C145.287 10.4192 145.479 11.0087 145.106 11.2794L138.047 16.4083C137.88 16.5294 137.811 16.7441 137.874 16.94L140.571 25.2387C140.713 25.6768 140.212 26.0411 139.839 25.7704L132.78 20.6415C132.613 20.5204 132.387 20.5204 132.22 20.6415L125.161 25.7704C124.788 26.0411 124.287 25.6768 124.429 25.2387L127.126 16.94C127.189 16.7441 127.12 16.5294 126.953 16.4083L119.894 11.2794C119.521 11.0087 119.713 10.4192 120.173 10.4192L128.899 10.4192C129.105 10.4192 129.288 10.2865 129.351 10.0906L132.048 1.79188Z"
-                                fill="#FFD904"/>
-                    </svg>
-                </div>
-                <p>
-                    "I can’t emphasize enough how efficient the Mr Cool customer support
-                    team is, I purchased 2 mini splits and absolutely love how quiet and
-                    economical they are. I highly recommend a MrCool system!"
-                </p>
-                <div class="testimonial-author">Carol Foreman</div>
-                <div class="testimonial-author-line">Customer Google Review</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Warranty SECTION  -->
-    <div class="warranty-section">
-        <div class="image-card">
-            <!-- just a placeholder image or color block -->
-        </div>
-        <div class="warranty-card">
-            <div class="warranty-heading">
-                <h2>MrCool Warranty Programs</h2>
-            </div>
-            <div class="warranty-content">
-
-                <div class="warranty-text">
-                    <p>
-                        Each unit comes backed with a standard
-                        <span>
-                            5-year warranty on replacement parts and a 7-year warranty on the
-                            compressor</span>. For even greater protection, upgrade to the MrCool Care Kit
-                        Program and enjoy an extended limited lifetime replacement
-                        warranty—because long-term comfort shouldn’t come with surprises.
-                    </p>
-                    <p>
-                        And when you purchase through IWAE, you get an
-                        <span> additional 1-year extended labor warranty </span> included at
-                        no extra cost, giving you even more value and coverage from day one.
-                    </p>
-                </div>
-
-                <div class="warranty-badges">
-                    <div class="badge1"></div>
-                    <div class="badge2"></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Footer SECTION  -->
-    <div class="gradient-footer-wrapper">
-        <div class="gradient-footer">
-            <div class="hero-content">
-                <div class="headline-section">
-                    <h2 class="headline">Shop the All New <br>MrCool DIY 5th Gen</h2>
-                </div>
-                <div class="divider-vertical"></div>
-                <div class="subheadline-section">
-                    <p class="subheadline">
-                        Transform your space with <br>effortless comfort
-                    </p>
-                    <a href="https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/single-zone/?refrigerant=1045&series=518"
-                       class="info-button" target="_blank">Shop Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
+   <div class="airhandler-section-container">
+       <div class="gradient-box-wrapper">
+           <div class="gradient-box-container">
+               <img class="logo-img-desktop" src="{{media url=wysiwyg/MrCool-badgelogo-fixed.png}}"
+                    alt="MrCool Logo"/>
+               <div class="gradient-box">
+                   <div class="hero-content">
+                       <div class="headline-section">
+                           <h2 class="headline">America's New<br> MrCool DIY Mini-Split</h2>
+                       </div>
+                       <div class="divider-vertical"></div>
+                       <div class="subheadline-section">
+                           <p class="subheadline">Air Conditioner and Heater<br>you can install yourself</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="airhandler-floating-wrapper">
+           <img src="{{media url=wysiwyg/header-overlay-airhandler.png}}" alt="Airhandler Overlay"
+                class="airhandler-floating-img"/>
+       </div>
+       <div class="image-split-section">
+           <div class="right-image">
+               <div class="price-label">
+                   <div class="price-text">From $2,329</div>
+                   <a href="#heatPump" class="price-button">Shop Now</a>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="overlap-wrapper">
+       <div class="foreground-card">
+           <iframe id="vimeoPlayer"  src="https://player.vimeo.com/video/1084961642?badge=0&autopause=0&player_id=0&app_id=58479&" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" frameborder="0" title="MRCOOL DIY Comfort Is In Your Hands"></iframe>
+           <div class="video-thumbnail" id="videoThumbnail"></div>
+           <div class="polygon-button" id="playButton">
+               <svg width="23" height="39" viewBox="0 0 23 39" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="polygon-icon">
+                   <path id="Polygon 1"
+                         d="M22.9609 19.4999L-0.0065936 38.6537L-0.00659193 0.346156L22.9609 19.4999Z"
+                         fill="url(#paint0_linear_6329_352)"/>
+                   <defs>
+                       <linearGradient id="paint0_linear_6329_352" x1="15.7759" y1="25.8447" x2="0.03179"
+                                       y2="44.7634" gradientUnits="userSpaceOnUse">
+                           <stop stop-color="#00629C"/>
+                           <stop offset="1" stop-color="#1C8EFF"/>
+                       </linearGradient>
+                   </defs>
+               </svg>
+           </div>
+       </div>
+       <div class="background-card">
+           <div class="text-content">
+               <h2>A DIY solution<br>for every home.</h2>
+               <p>Innovative solutions for <br>your family.</p>
+           </div>
+       </div>
+   </div>
+   <div class="gradient-feature-wrapper">
+       <div class="gradient-feature-container">
+           <div class="feature-left">
+               <h2>DIY Made Easy.</h2>
+               <p>
+                   MRCOOL DIY is the only ductless mini split system designed for fast,
+                   affordable installation—no HVAC pro required. The pre-charged,
+                   sealed line sets come with all the refrigerant you need, so there's
+                   no need for special tools, tanks, or extra service costs. Just
+                   connect, power up, and enjoy comfort for thousands less than a
+                   traditional system.
+               </p>
+               <a href='{{config path="web/unsecure/base_url"}}searchanise/result?q=diy&page=1&rb_manufacturer=MrCool&rb_series=DIY&rb_refrigerant=R-454b'
+                  class="info-button" target="_blank">Find Your Fit</a>
+           </div>
+           <div class="feature-grid">
+               <div class="feature-box">
+                   <img class="feature-box-image" src="{{media url=wysiwyg/PreCharged-Linesets.png}}"
+                        alt="Pre-charged"/>
+                   <div class="feature-label">Pre-charged<br>R-454B line sets</div>
+               </div>
+               <div class="feature-box">
+                   <img class="feature-box-image" src="{{media url=wysiwyg/NoVacuum-Required.png}}" alt="No vacuum"/>
+                   <div class="feature-label">No vacuum<br>required</div>
+               </div>
+               <div class="feature-box">
+                   <img class="feature-box-image" src="{{media url=wysiwyg/WifiControl.png}}" alt="WiFi"/>
+                   <div class="feature-label">WiFi control</div>
+               </div>
+               <div class="feature-box">
+                   <div class="energy-star-logo"></div>
+                   <img class="feature-box-image" src="{{media url=wysiwyg/EnergyStar-CondenserPhoto.png}}"
+                        alt="Energy Star"/>
+                   <div class="feature-label">Energy Star<br>certified</div>
+               </div>
+           </div>
+       </div>
+       <div id="heatPump" style="position: relative; top: -80px; visibility: hidden; height: 0;"></div>
+   </div>
+   <div class="diy-ductless-hp-carousel-container" id="heatPumpCarouselContainer">
+       <h2 class="diy-ductless-hp-title">Pick the Perfect MrCool DIY for Your Space</h2>
+       <p class="diy-ductless-hp-description">
+           Every space is a little different. Whether your space is big or small,
+           we have the perfect MrCool DIY to fit your specific heating and cooling
+           needs. The unit comes standard with a 5 year parts and 7 year compressor
+           warranty. IWAE offers an additional 1 Year Extended Labor Warranty with
+           purchase of the DIY 5th Gen System.
+       </p>
+       <div class="carousel-wrapper">
+           <div class="diy-ductless-hp-carousel" id="heatPumpCarousel"></div>
+           <div class="diy-ductless-hp-nav-button diy-ductless-hp-prev" id="heatPumpPrev">
+               <svg viewBox="0 0 24 24">
+                   <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+               </svg>
+           </div>
+           <div class="diy-ductless-hp-nav-button diy-ductless-hp-next" id="heatPumpNext">
+               <svg viewBox="0 0 24 24">
+                   <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+               </svg>
+           </div>
+       </div>
+       <div class="diy-ductless-hp-nav-dots" id="heatPumpDots"></div>
+   </div>
+   <div class="mz-systems-carousel-container" id="multiZoneCarouselContainer">
+       <h2 class="mz-systems-title">Need an Option for Multiple Rooms?</h2>
+       <p class="mz-systems-description">
+           Check out the NEW MrCool DIY Multi-Zone Systems
+       </p>
+       <div class="carousel-wrapper">
+           <div class="mz-systems-carousel" id="multiZoneCarousel"></div>
+           <div class="mz-systems-nav-button mz-systems-prev" id="multiZonePrev">
+               <svg viewBox="0 0 24 24">
+                   <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+               </svg>
+           </div>
+           <div class="mz-systems-nav-button mz-systems-next" id="multiZoneNext">
+               <svg viewBox="0 0 24 24">
+                   <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+               </svg>
+           </div>
+       </div>
+       <div class="mz-systems-nav-dots" id="multiZoneDots"></div>
+   </div>
+   <div class="testimonial-section">
+       <h2 class="testimonial-section-title">
+           Join thousands enjoying their MrCool DIY Mini Split
+       </h2>
+       <div class="testimonial-cards">
+           <div class="testimonial-card">
+               <div class="stars">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="147" height="30" viewBox="0 0 147 30"
+                        fill="none">
+                       <path
+                               d="M14.0477 1.79188C14.1901 1.35375 14.8099 1.35374 14.9523 1.79188L17.6487 10.0906C17.7123 10.2865 17.8949 10.4192 18.101 10.4192L26.8267 10.4192C27.2874 10.4192 27.4789 11.0087 27.1062 11.2794L20.047 16.4083C19.8803 16.5294 19.8105 16.7441 19.8742 16.94L22.5706 25.2387C22.713 25.6768 22.2115 26.0411 21.8388 25.7704L14.7795 20.6415C14.6128 20.5204 14.3872 20.5204 14.2205 20.6415L7.1612 25.7704C6.7885 26.0411 6.28704 25.6768 6.42939 25.2387L9.1258 16.94C9.18946 16.7441 9.11972 16.5294 8.95304 16.4083L1.89376 11.2794C1.52106 11.0087 1.71261 10.4192 2.17329 10.4192L10.899 10.4192C11.1051 10.4192 11.2877 10.2865 11.3513 10.0906L14.0477 1.79188Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M43.5492 1.74099C43.6945 1.30894 44.3055 1.30894 44.4508 1.74099L47.2588 10.0951C47.3239 10.2887 47.5053 10.4192 47.7096 10.4192L56.7613 10.4192C57.2259 10.4192 57.4148 11.0169 57.0346 11.2839L49.7397 16.4073C49.5673 16.5284 49.4951 16.7484 49.5622 16.948L52.3551 25.2572C52.5014 25.6925 52.0069 26.0618 51.631 25.7979L44.2733 20.6304C44.1093 20.5152 43.8907 20.5152 43.7267 20.6304L36.369 25.7979C35.9931 26.0618 35.4986 25.6925 35.6449 25.2572L38.4378 16.948C38.5049 16.7484 38.4327 16.5284 38.2603 16.4073L30.9654 11.2839C30.5852 11.0169 30.7741 10.4192 31.2387 10.4192L40.2904 10.4192C40.4947 10.4192 40.6761 10.2887 40.7412 10.0951L43.5492 1.74099Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M73.0477 1.79188C73.1901 1.35375 73.8099 1.35374 73.9523 1.79188L76.6487 10.0906C76.7123 10.2865 76.8949 10.4192 77.101 10.4192L85.8267 10.4192C86.2874 10.4192 86.4789 11.0087 86.1062 11.2794L79.047 16.4083C78.8803 16.5294 78.8105 16.7441 78.8742 16.94L81.5706 25.2387C81.713 25.6768 81.2115 26.0411 80.8388 25.7704L73.7795 20.6415C73.6128 20.5204 73.3872 20.5204 73.2205 20.6415L66.1612 25.7704C65.7885 26.0411 65.287 25.6768 65.4294 25.2387L68.1258 16.94C68.1895 16.7441 68.1197 16.5294 67.953 16.4083L60.8938 11.2794C60.5211 11.0087 60.7126 10.4192 61.1733 10.4192L69.899 10.4192C70.1051 10.4192 70.2877 10.2865 70.3513 10.0906L73.0477 1.79188Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M102.549 1.74099C102.694 1.30894 103.306 1.30894 103.451 1.74099L106.259 10.0951C106.324 10.2887 106.505 10.4192 106.71 10.4192L115.761 10.4192C116.226 10.4192 116.415 11.0169 116.035 11.2839L108.74 16.4073C108.567 16.5284 108.495 16.7484 108.562 16.948L111.355 25.2572C111.501 25.6925 111.007 26.0618 110.631 25.7979L103.273 20.6304C103.109 20.5152 102.891 20.5152 102.727 20.6304L95.369 25.7979C94.9931 26.0618 94.4986 25.6925 94.6449 25.2572L97.4378 16.948C97.5049 16.7484 97.4327 16.5284 97.2603 16.4073L89.9654 11.2839C89.5852 11.0169 89.7741 10.4192 90.2387 10.4192L99.2904 10.4192C99.4947 10.4192 99.6761 10.2887 99.7412 10.0951L102.549 1.74099Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M132.048 1.79188C132.19 1.35375 132.81 1.35374 132.952 1.79188L135.649 10.0906C135.712 10.2865 135.895 10.4192 136.101 10.4192L144.827 10.4192C145.287 10.4192 145.479 11.0087 145.106 11.2794L138.047 16.4083C137.88 16.5294 137.811 16.7441 137.874 16.94L140.571 25.2387C140.713 25.6768 140.212 26.0411 139.839 25.7704L132.78 20.6415C132.613 20.5204 132.387 20.5204 132.22 20.6415L125.161 25.7704C124.788 26.0411 124.287 25.6768 124.429 25.2387L127.126 16.94C127.189 16.7441 127.12 16.5294 126.953 16.4083L119.894 11.2794C119.521 11.0087 119.713 10.4192 120.173 10.4192L128.899 10.4192C129.105 10.4192 129.288 10.2865 129.351 10.0906L132.048 1.79188Z"
+                               fill="#FFD904"/>
+                   </svg>
+               </div>
+               <p>
+                   "Thanks for everything you guys do to keep all your customers
+                   satisfied. If I would need another mini split, I would not hesitate
+                   to buy another MrCool."
+               </p>
+               <div class="testimonial-author">Phil Brann</div>
+               <div class="testimonial-author-line">Customer Google Review</div>
+           </div>
+           <div class="testimonial-card">
+               <div class="stars">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="147" height="30" viewBox="0 0 147 30"
+                        fill="none">
+                       <path
+                               d="M14.0477 1.79188C14.1901 1.35375 14.8099 1.35374 14.9523 1.79188L17.6487 10.0906C17.7123 10.2865 17.8949 10.4192 18.101 10.4192L26.8267 10.4192C27.2874 10.4192 27.4789 11.0087 27.1062 11.2794L20.047 16.4083C19.8803 16.5294 19.8105 16.7441 19.8742 16.94L22.5706 25.2387C22.713 25.6768 22.2115 26.0411 21.8388 25.7704L14.7795 20.6415C14.6128 20.5204 14.3872 20.5204 14.2205 20.6415L7.1612 25.7704C6.7885 26.0411 6.28704 25.6768 6.42939 25.2387L9.1258 16.94C9.18946 16.7441 9.11972 16.5294 8.95304 16.4083L1.89376 11.2794C1.52106 11.0087 1.71261 10.4192 2.17329 10.4192L10.899 10.4192C11.1051 10.4192 11.2877 10.2865 11.3513 10.0906L14.0477 1.79188Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M43.5492 1.74099C43.6945 1.30894 44.3055 1.30894 44.4508 1.74099L47.2588 10.0951C47.3239 10.2887 47.5053 10.4192 47.7096 10.4192L56.7613 10.4192C57.2259 10.4192 57.4148 11.0169 57.0346 11.2839L49.7397 16.4073C49.5673 16.5284 49.4951 16.7484 49.5622 16.948L52.3551 25.2572C52.5014 25.6925 52.0069 26.0618 51.631 25.7979L44.2733 20.6304C44.1093 20.5152 43.8907 20.5152 43.7267 20.6304L36.369 25.7979C35.9931 26.0618 35.4986 25.6925 35.6449 25.2572L38.4378 16.948C38.5049 16.7484 38.4327 16.5284 38.2603 16.4073L30.9654 11.2839C30.5852 11.0169 30.7741 10.4192 31.2387 10.4192L40.2904 10.4192C40.4947 10.4192 40.6761 10.2887 40.7412 10.0951L43.5492 1.74099Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M73.0477 1.79188C73.1901 1.35375 73.8099 1.35374 73.9523 1.79188L76.6487 10.0906C76.7123 10.2865 76.8949 10.4192 77.101 10.4192L85.8267 10.4192C86.2874 10.4192 86.4789 11.0087 86.1062 11.2794L79.047 16.4083C78.8803 16.5294 78.8105 16.7441 78.8742 16.94L81.5706 25.2387C81.713 25.6768 81.2115 26.0411 80.8388 25.7704L73.7795 20.6415C73.6128 20.5204 73.3872 20.5204 73.2205 20.6415L66.1612 25.7704C65.7885 26.0411 65.287 25.6768 65.4294 25.2387L68.1258 16.94C68.1895 16.7441 68.1197 16.5294 67.953 16.4083L60.8938 11.2794C60.5211 11.0087 60.7126 10.4192 61.1733 10.4192L69.899 10.4192C70.1051 10.4192 70.2877 10.2865 70.3513 10.0906L73.0477 1.79188Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M102.549 1.74099C102.694 1.30894 103.306 1.30894 103.451 1.74099L106.259 10.0951C106.324 10.2887 106.505 10.4192 106.71 10.4192L115.761 10.4192C116.226 10.4192 116.415 11.0169 116.035 11.2839L108.74 16.4073C108.567 16.5284 108.495 16.7484 108.562 16.948L111.355 25.2572C111.501 25.6925 111.007 26.0618 110.631 25.7979L103.273 20.6304C103.109 20.5152 102.891 20.5152 102.727 20.6304L95.369 25.7979C94.9931 26.0618 94.4986 25.6925 94.6449 25.2572L97.4378 16.948C97.5049 16.7484 97.4327 16.5284 97.2603 16.4073L89.9654 11.2839C89.5852 11.0169 89.7741 10.4192 90.2387 10.4192L99.2904 10.4192C99.4947 10.4192 99.6761 10.2887 99.7412 10.0951L102.549 1.74099Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M132.048 1.79188C132.19 1.35375 132.81 1.35374 132.952 1.79188L135.649 10.0906C135.712 10.2865 135.895 10.4192 136.101 10.4192L144.827 10.4192C145.287 10.4192 145.479 11.0087 145.106 11.2794L138.047 16.4083C137.88 16.5294 137.811 16.7441 137.874 16.94L140.571 25.2387C140.713 25.6768 140.212 26.0411 139.839 25.7704L132.78 20.6415C132.613 20.5204 132.387 20.5204 132.22 20.6415L125.161 25.7704C124.788 26.0411 124.287 25.6768 124.429 25.2387L127.126 16.94C127.189 16.7441 127.12 16.5294 126.953 16.4083L119.894 11.2794C119.521 11.0087 119.713 10.4192 120.173 10.4192L128.899 10.4192C129.105 10.4192 129.288 10.2865 129.351 10.0906L132.048 1.79188Z"
+                               fill="#FFD904"/>
+                   </svg>
+               </div>
+               <p>
+                   "MrCool is the best purchase I made for my home! I have the 48K with
+                   5 Air Handlers. Runs efficiently, quiet and the heat is inexpensive
+                   to run and warms the house up quickly!"
+               </p>
+               <div class="testimonial-author">Bill Bourque</div>
+               <div class="testimonial-author-line">Customer Google Review</div>
+           </div>
+           <div class="testimonial-card">
+               <div class="stars">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="147" height="30" viewBox="0 0 147 30"
+                        fill="none">
+                       <path
+                               d="M14.0477 1.79188C14.1901 1.35375 14.8099 1.35374 14.9523 1.79188L17.6487 10.0906C17.7123 10.2865 17.8949 10.4192 18.101 10.4192L26.8267 10.4192C27.2874 10.4192 27.4789 11.0087 27.1062 11.2794L20.047 16.4083C19.8803 16.5294 19.8105 16.7441 19.8742 16.94L22.5706 25.2387C22.713 25.6768 22.2115 26.0411 21.8388 25.7704L14.7795 20.6415C14.6128 20.5204 14.3872 20.5204 14.2205 20.6415L7.1612 25.7704C6.7885 26.0411 6.28704 25.6768 6.42939 25.2387L9.1258 16.94C9.18946 16.7441 9.11972 16.5294 8.95304 16.4083L1.89376 11.2794C1.52106 11.0087 1.71261 10.4192 2.17329 10.4192L10.899 10.4192C11.1051 10.4192 11.2877 10.2865 11.3513 10.0906L14.0477 1.79188Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M43.5492 1.74099C43.6945 1.30894 44.3055 1.30894 44.4508 1.74099L47.2588 10.0951C47.3239 10.2887 47.5053 10.4192 47.7096 10.4192L56.7613 10.4192C57.2259 10.4192 57.4148 11.0169 57.0346 11.2839L49.7397 16.4073C49.5673 16.5284 49.4951 16.7484 49.5622 16.948L52.3551 25.2572C52.5014 25.6925 52.0069 26.0618 51.631 25.7979L44.2733 20.6304C44.1093 20.5152 43.8907 20.5152 43.7267 20.6304L36.369 25.7979C35.9931 26.0618 35.4986 25.6925 35.6449 25.2572L38.4378 16.948C38.5049 16.7484 38.4327 16.5284 38.2603 16.4073L30.9654 11.2839C30.5852 11.0169 30.7741 10.4192 31.2387 10.4192L40.2904 10.4192C40.4947 10.4192 40.6761 10.2887 40.7412 10.0951L43.5492 1.74099Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M73.0477 1.79188C73.1901 1.35375 73.8099 1.35374 73.9523 1.79188L76.6487 10.0906C76.7123 10.2865 76.8949 10.4192 77.101 10.4192L85.8267 10.4192C86.2874 10.4192 86.4789 11.0087 86.1062 11.2794L79.047 16.4083C78.8803 16.5294 78.8105 16.7441 78.8742 16.94L81.5706 25.2387C81.713 25.6768 81.2115 26.0411 80.8388 25.7704L73.7795 20.6415C73.6128 20.5204 73.3872 20.5204 73.2205 20.6415L66.1612 25.7704C65.7885 26.0411 65.287 25.6768 65.4294 25.2387L68.1258 16.94C68.1895 16.7441 68.1197 16.5294 67.953 16.4083L60.8938 11.2794C60.5211 11.0087 60.7126 10.4192 61.1733 10.4192L69.899 10.4192C70.1051 10.4192 70.2877 10.2865 70.3513 10.0906L73.0477 1.79188Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M102.549 1.74099C102.694 1.30894 103.306 1.30894 103.451 1.74099L106.259 10.0951C106.324 10.2887 106.505 10.4192 106.71 10.4192L115.761 10.4192C116.226 10.4192 116.415 11.0169 116.035 11.2839L108.74 16.4073C108.567 16.5284 108.495 16.7484 108.562 16.948L111.355 25.2572C111.501 25.6925 111.007 26.0618 110.631 25.7979L103.273 20.6304C103.109 20.5152 102.891 20.5152 102.727 20.6304L95.369 25.7979C94.9931 26.0618 94.4986 25.6925 94.6449 25.2572L97.4378 16.948C97.5049 16.7484 97.4327 16.5284 97.2603 16.4073L89.9654 11.2839C89.5852 11.0169 89.7741 10.4192 90.2387 10.4192L99.2904 10.4192C99.4947 10.4192 99.6761 10.2887 99.7412 10.0951L102.549 1.74099Z"
+                               fill="#FFD904"/>
+                       <path
+                               d="M132.048 1.79188C132.19 1.35375 132.81 1.35374 132.952 1.79188L135.649 10.0906C135.712 10.2865 135.895 10.4192 136.101 10.4192L144.827 10.4192C145.287 10.4192 145.479 11.0087 145.106 11.2794L138.047 16.4083C137.88 16.5294 137.811 16.7441 137.874 16.94L140.571 25.2387C140.713 25.6768 140.212 26.0411 139.839 25.7704L132.78 20.6415C132.613 20.5204 132.387 20.5204 132.22 20.6415L125.161 25.7704C124.788 26.0411 124.287 25.6768 124.429 25.2387L127.126 16.94C127.189 16.7441 127.12 16.5294 126.953 16.4083L119.894 11.2794C119.521 11.0087 119.713 10.4192 120.173 10.4192L128.899 10.4192C129.105 10.4192 129.288 10.2865 129.351 10.0906L132.048 1.79188Z"
+                               fill="#FFD904"/>
+                   </svg>
+               </div>
+               <p>
+                   "I can’t emphasize enough how efficient the Mr Cool customer support
+                   team is, I purchased 2 mini splits and absolutely love how quiet and
+                   economical they are. I highly recommend a MrCool system!"
+               </p>
+               <div class="testimonial-author">Carol Foreman</div>
+               <div class="testimonial-author-line">Customer Google Review</div>
+           </div>
+       </div>
+   </div>
+   <div class="warranty-section">
+       <div class="image-card"></div>
+       <div class="warranty-card">
+           <div class="warranty-heading">
+               <h2>MrCool Warranty Programs</h2>
+           </div>
+           <div class="warranty-content">
+               <div class="warranty-text">
+                   <p>
+                       Each unit comes backed with a standard
+                       <span>
+                        5-year warranty on replacement parts and a 7-year warranty on the
+                        compressor</span>. For even greater protection, upgrade to the MrCool Care Kit Program and
+                       enjoy extended limited lifetime system replacement—because long-term comfort shouldn’t come with
+                       surprises.
+                   </p>
+                   <p>
+                       And when you purchase through IWAE, you get an
+                       <span> additional 1-year extended labor warranty </span> included at
+                       no extra cost, giving you even more value and coverage from day one.
+                   </p>
+               </div>
+               <div class="warranty-badges">
+                   <div class="badge1"></div>
+                   <div class="badge2"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="gradient-footer-wrapper">
+       <div class="gradient-footer">
+           <div class="hero-content">
+               <div class="headline-section">
+                   <h2 class="headline">Shop the All New <br>MrCool DIY 5th Gen</h2>
+               </div>
+               <div class="divider-vertical"></div>
+               <div class="subheadline-section">
+                   <p class="subheadline">
+                       Transform your space with <br>effortless comfort
+                   </p>
+                   <a href='{{config path="web/unsecure/base_url"}}shop/heating-air-conditioning/full-systems/ductless-split-systems/single-zone/?refrigerant=1045&series=518'
+                      class="info-button" target="_blank">Shop Now</a>
+               </div>
+           </div>
+       </div>
+   </div>
 </div>
-
-<script>
-
-    // Product data for standard products
-    const heatPumpProducts = [
-        {
-            id: 0,
-            title:
-                "9k BTU 23.6 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
-            price: "$2,329.00",
-            image: "{{media url=wysiwyg/9k-12k-18k.jpg}}", // Replace with actual image path
-            link: "https://iwae.com/shop/9k-btu-23-6-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26231.html"
-        },
-        {
-            id: 1,
-            title:
-                "12k BTU 23.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
-            price: "$2,359.00",
-            image: "{{media url=wysiwyg/9k-12k-18k.jpg}}", // Replace with actual image path
-            link: "https://iwae.com/shop/12k-btu-23-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26232.html"
-        },
-        {
-            id: 2,
-            title:
-                "18k BTU 22.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
-            price: "$2,499.00",
-            image: "{{media url=wysiwyg/9k-12k-18k.jpg}}", // Replace with actual image path
-            link: "https://iwae.com/shop/18k-btu-22-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26233.html"
-        },
-        {
-            id: 3,
-            title:
-                "24k BTU 21.0 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
-            price: "$2,699.00",
-            image: "{{media url=wysiwyg/24k-36k.jpg}}", // Replace with actual image path
-            link: "https://iwae.com/shop/24k-btu-22-7-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26234.html"
-        },
-        {
-            id: 4,
-            title:
-                "36k BTU 18 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
-            price: "$3,299.00",
-            image: "{{media url=wysiwyg/24k-36k.jpg}}", // Replace with actual image path
-            link: "https://iwae.com/shop/36k-btu-18-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26235.html"
-        },
-    ];
-
-
-    // Product data for multi-zone systems
-    const multiZoneProducts = [
-        {
-            id: 0,
-            title: "2 Zone",
-            price: "As Low As $2,545",
-            image: "{{media url=wysiwyg/ha-ductless-split-system-dual-zone.png}}", // Replace with actual image path
-            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/dual-zone/?series=518"
-        },
-        {
-            id: 1,
-            title: "3 Zone",
-            price: "As Low As $2,736",
-            image: "{{media url=wysiwyg/ha-ductless-split-system-triple-zone.png}}", // Replace with actual image path
-            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/triple-zone/?series=518"
-        },
-        {
-            id: 2,
-            title: "4 Zone",
-            price: "As Low As $3,438",
-            image: "{{media url=wysiwyg/ha-ductless-split-system-quad-zone.png}}", // Replace with actual image path
-            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/quad-zone/?series=518"
-        },
-        {
-            id: 3,
-            title: "5 Zone",
-            price: "As Low As $4,189",
-            image: "{{media url=wysiwyg/ha-ductless-split-system-five-zone.png}}", // Replace with actual image path
-            link: "https://iwae.com/shop/heating-air-conditioning/full-systems/ductless-split-systems/five-zone/?series=518"
-        },
-    ];
-
-    initCarousel({
-        data: heatPumpProducts,
-        carouselId: 'heatPumpCarousel',
-        prefix: 'diy-ductless-hp',
-        prevBtnId: 'heatPumpPrev',
-        nextBtnId: 'heatPumpNext',
-        dotsContainerId: 'heatPumpDots'
-    });
-
-    initCarousel({
-        data: multiZoneProducts,
-        carouselId: 'multiZoneCarousel',
-        prefix: 'mz-systems',
-        prevBtnId: 'multiZonePrev',
-        nextBtnId: 'multiZoneNext',
-        dotsContainerId: 'multiZoneDots'
-    });
-
-    function initCarousel({data, carouselId, prefix, prevBtnId, nextBtnId, dotsContainerId}) {
-        const carousel = document.getElementById(carouselId);
-        const dotsContainer = document.getElementById(dotsContainerId);
-        let currentIndex = 0;
-        const totalCards = data.length;
-
-        function generateCarousel() {
-            carousel.innerHTML = '';
-
-            // Check if we're in mobile vertical layout
-            const isMobile = window.innerWidth <= 576;
-            const isMedium = window.innerWidth > 576 && window.innerWidth <= 768;
-
-            if (isMobile) {
-                // For mobile: display all cards in a vertical grid
-                data.forEach(item => {
-                    carousel.innerHTML += `
-                <div class="${prefix}-card ${prefix}-active">
-                    <div class="${prefix}-card-container">
-                        <div class="${prefix}-card-image">
-                            <img src="${item.image}" alt="${item.title}">
-                        </div>
-                        <div class="${prefix}-card-content">
-                            <h2>${item.title}</h2>
-                            <div class="${prefix}-price">${item.price}</div>
-                            <a href="${item.link}" target="_blank">
-                                <button class="${prefix}-shop-now-btn">Shop Now</button>
-                            </a>
-                        </div>
+<script type="text/javascript">
+   require(['jquery',    'https://player.vimeo.com/api/player.js'], function ($,Player) {
+       $(document).ready(function () {
+           const heatPumpProducts = [
+               {
+                   id: 0,
+                   title: "9k BTU 23.6 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+                   promo: "9",
+                   price: "$2,329.00",
+                   image: "{{media url=wysiwyg/Static-Pages/9k-12k-18k.jpg}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/9k-btu-23-6-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26231.html'
+               },
+               {
+                   id: 1,
+                   title: "12k BTU 23.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+                   promo: "12",
+                   price: "$2,359.00",
+                   image: "{{media url=wysiwyg/Static-Pages/9k-12k-18k.jpg}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/12k-btu-23-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26232.html'
+               },
+               {
+                   id: 2,
+                   title: "18k BTU 22.5 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+                   promo: "18",
+                   price: "$2,909.00",
+                   image: "{{media url=wysiwyg/Static-Pages/9k-12k-18k.jpg}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/18k-btu-22-5-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26233.html'
+               },
+               {
+                   id: 3,
+                   title: "24k BTU 21.0 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+                   promo: "24",
+                   price: "$3,329.00",
+                   image: "{{media url=wysiwyg/Static-Pages/24k-36k.jpg}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/24k-btu-22-7-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26234.html'
+               },
+               {
+                   id: 4,
+                   title: "36k BTU 18 SEER2 MrCool DIY Ductless Heat Pump Split System 5th Generation",
+                   promo: "36",
+                   price: "$3,769.00",
+                   image: "{{media url=wysiwyg/Static-Pages/24k-36k.jpg}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/36k-btu-18-seer2-mrcool-diy-ductless-heat-pump-split-system-5th-generation-with-25-ft-line-set-1-year-labor-warranty-ha26235.html'
+               },
+           ];
+           const multiZoneProducts = [
+               {
+                   id: 0,
+                   title: "2 Zone",
+                   promo: "Multi 2",
+                   price: "As Low As $2,545",
+                   image: "{{media url=wysiwyg/ha-ductless-split-system-dual-zone.png}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/heating-air-conditioning/full-systems/ductless-split-systems/dual-zone/?series=518'
+               },
+               {
+                   id: 1,
+                   title: "3 Zone",
+                   promo: "Multi 3",
+                   price: "As Low As $2,736",
+                   image: "{{media url=wysiwyg/ha-ductless-split-system-triple-zone.png}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/heating-air-conditioning/full-systems/ductless-split-systems/triple-zone/?series=518'
+               },
+               {
+                   id: 2,
+                   title: "4 Zone",
+                   promo: "Multi 4",
+                   price: "As Low As $3,438",
+                   image: "{{media url=wysiwyg/ha-ductless-split-system-quad-zone.png}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/heating-air-conditioning/full-systems/ductless-split-systems/quad-zone/?series=518'
+               },
+               {
+                   id: 3,
+                   title: "5 Zone",
+                   promo: "Multi 5",
+                   price: "As Low As $4,189",
+                   image: "{{media url=wysiwyg/ha-ductless-split-system-five-zone.png}}",
+                   link: '{{config path="web/unsecure/base_url"}}shop/heating-air-conditioning/full-systems/ductless-split-systems/five-zone/?series=518'
+               },
+           ];
+            function initCarousel({data, carouselId, prefix, prevBtnId, nextBtnId, dotsContainerId}) {
+               const carousel = document.getElementById(carouselId);
+               const dotsContainer = document.getElementById(dotsContainerId);
+               let currentIndex = 0;
+               const totalCards = data.length;
+                function generateCarousel() {
+                   carousel.innerHTML = '';
+                   const isMobile = window.innerWidth <= 576;
+                   const isMedium = window.innerWidth > 576 && window.innerWidth <= 768;
+                   if (isMobile) {
+                       data.forEach(item => {
+                           carousel.innerHTML += `
+            <div class="${prefix}-card ${prefix}-active">
+                <div class="${prefix}-card-container">
+                    <div class="${prefix}-card-image">
+                        <img src="${item.image}" alt="${item.title}">
                     </div>
-                </div>`;
-                });
-            } else if (isMedium) {
-                for (let i = 1; i < totalCards + 4; i++) {
-                    const dataIndex = (currentIndex - 1 + i + totalCards) % totalCards;
-                    const item = data[dataIndex];
-                    const isActive = i === 1 || i === 2;
-
-                    carousel.innerHTML += `
-                <div class="${prefix}-card ${isActive ? prefix + '-active' : ''}">
-                    <div class="${prefix}-card-container">
-                        <div class="${prefix}-card-image">
-                            <img src="${item.image}" alt="${item.title}">
-                        </div>
-                        <div class="${prefix}-card-content">
-                            <h2>${item.title}</h2>
-                            <div class="${prefix}-price">${item.price}</div>
-                            <a href="${item.link}" target="_blank">
-                                <button class="${prefix}-shop-now-btn">Shop Now</button>
-                            </a>
-                        </div>
+                    <div class="${prefix}-card-content">
+                        <h2>${item.title}</h2>
+                        <div class="${prefix}-price">${item.price}</div>
+                          <a href="${item.link}" target="_blank" rel="noopener noreferrer"  title="${item.title}" class="${prefix}-shop-now-btn" data-promotion="true" data-promotion-creative="promoDIY${item.promo.replace(" ", "")}" data-promotion-name="Promo DIY ${item.promo}" data-promotion-position="promoDIY${item.promo.replace(" ", "")}" data-promotion-id="Promo_DIY_${item.promo.replace(" ", "_")}" >Shop Now</a>
                     </div>
-                </div>`
-                    ;
-                }
-
-            } else {
-                for (let i = 0; i < totalCards + 4; i++) {
-                    const dataIndex = (currentIndex - 1 + i + totalCards) % totalCards;
-                    const item = data[dataIndex];
-                    const isActive = i === 1 || i === 2;
-
-                    carousel.innerHTML += `
-                <div class="${prefix}-card ${isActive ? prefix + '-active' : ''}">
-                    <div class="${prefix}-card-container">
-                        <div class="${prefix}-card-image">
-                            <img src="${item.image}" alt="${item.title}">
-                        </div>
-                        <div class="${prefix}-card-content">
-                            <h2>${item.title}</h2>
-                            <div class="${prefix}-price">${item.price}</div>
-                            <a href="${item.link}" target="_blank">
-                                <button class="${prefix}-shop-now-btn">Shop Now</button>
-                            </a>
-                        </div>
+                </div>
+            </div>`;
+                       });
+                   } else if (isMedium) {
+                       for (let i = 1; i < totalCards + 4; i++) {
+                           const dataIndex = (currentIndex - 1 + i + totalCards) % totalCards;
+                           const item = data[dataIndex];
+                           const isActive = i === 1 || i === 2;
+                           carousel.innerHTML += `
+            <div class="${prefix}-card ${isActive ? prefix + '-active' : ''}">
+                <div class="${prefix}-card-container">
+                    <div class="${prefix}-card-image">
+                        <img src="${item.image}" alt="${item.title}">
                     </div>
-                </div>`
-                    ;
-                }
-            }
-            adjustActiveCards();
-            updateDots();
-        }
-
-        function updateDots() {
-            if (window.innerWidth > 576) {
-                dotsContainer.innerHTML = '';
-                data.forEach((_, i) => {
-                    dotsContainer.innerHTML += `<div class="${prefix}-nav-dot ${i === currentIndex ? prefix + '-active' : ''}"></div>`;
-                });
-
-                [...dotsContainer.children].forEach((dot, i) => {
-                    dot.onclick = () => {
-                        if (i !== currentIndex) {
-                            navigateToCard(i);
-                        }
-                    };
-                });
-            }
-        }
-
-        function adjustActiveCards() {
-            const cards = document.querySelectorAll(`.${prefix}-card`);
-            const isNarrow = window.innerWidth < 1170;
-            const isMedium = window.innerWidth > 576 && window.innerWidth <= 768;
-            const isMobile = window.innerWidth <= 576;
-
-            if (isMobile) {
-                cards.forEach(card => {
-                    card.classList.remove(`${prefix}-semi-active`);
-                    card.classList.add(`${prefix}-active`);
-                });
-                return;
-            }
-
-            if (isMedium) {
-                cards.forEach(card => {
-                    card.classList.remove(`${prefix}-semi-active`);
-                    card.classList.add(`${prefix}-active`);
-                });
-                return;
-            }
-
-            if (isNarrow && !isMedium) {
-                let foundActive = false;
-                cards.forEach(card => {
-                    if (card.classList.contains(`${prefix}-active`)) {
-                        if (foundActive) {
-                            card.classList.remove(`${prefix}-active`);
-                            card.classList.add(`${prefix}-semi-active`);
-                        } else {
-                            foundActive = true;
-                        }
-                    }
-                });
-            } else {
-                cards.forEach(card => {
-                    if (card.classList.contains(`${prefix}-semi-active`)) {
-                        card.classList.remove(`${prefix}-semi-active`);
-                        card.classList.add(`${prefix}-active`);
-                    }
-                });
-            }
-        }
-
-        // FIXED navigation function that matches the second implementation's behavior
-        function navigateToCard(index) {
-            if (index === currentIndex) return;
-
-            // Determine direction (next or prev)
-            const direction = index > currentIndex ? 'next' : 'prev';
-
-            // Get the card width for transition
-            const card = carousel.querySelector(`.${prefix}-card`);
-            if (!card) return;
-            const cardWidth = card.offsetWidth + 20; // 20 for margins
-
-            // Set transition and move in the appropriate direction
-            carousel.style.transition = 'transform 0.5s ease';
-            if ((currentIndex === totalCards - 1 && index === 0) ||
-                (index > currentIndex && !(currentIndex === 0 && index === totalCards - 1))) {
-                carousel.style.transform = `translateX(-${cardWidth}px)`;
-            } else {
-                carousel.style.transform = `translateX(${cardWidth}px)`;
-            }
-            // After animation completes, update the index and reset
-            setTimeout(() => {
-                currentIndex = index;
-                generateCarousel();
-                carousel.style.transition = 'none';
-                carousel.style.transform = 'translateX(0)';
-                setTimeout(() => {
-                    carousel.style.transition = 'transform 0.5s ease';
-                }, 50);
-            }, 500);
-        }
-
-        // Navigation
-        document.getElementById(prevBtnId).onclick = () => {
-            navigateToCard((currentIndex - 1 + totalCards) % totalCards);
-        };
-        document.getElementById(nextBtnId).onclick = () => {
-            navigateToCard((currentIndex + 1) % totalCards);
-        };
-
-        // Touch navigation
-        let touchStartX = 0;
-        carousel.addEventListener('touchstart', e => {
-            touchStartX = e.touches[0].clientX;
+                    <div class="${prefix}-card-content">
+                        <h2>${item.title}</h2>
+                        <div class="${prefix}-price">${item.price}</div>
+                          <a href="${item.link}" target="_blank" rel="noopener noreferrer"  title="${item.title}" class="${prefix}-shop-now-btn" data-promotion="true" data-promotion-creative="promoDIY${item.promo.replace(" ", "")}" data-promotion-name="Promo DIY ${item.promo}" data-promotion-position="promoDIY${item.promo.replace(" ", "")}" data-promotion-id="Promo_DIY_${item.promo.replace(" ", "_")}" >Shop Now</a>
+                    </div>
+                </div>
+            </div>`;
+                       }
+                   } else {
+                       for (let i = 0; i < totalCards + 4; i++) {
+                           const dataIndex = (currentIndex - 1 + i + totalCards) % totalCards;
+                           const item = data[dataIndex];
+                           const isActive = i === 1 || i === 2;
+                           carousel.innerHTML += `
+            <div class="${prefix}-card ${isActive ? prefix + '-active' : ''}">
+                <div class="${prefix}-card-container">
+                    <div class="${prefix}-card-image">
+                        <img src="${item.image}" alt="${item.title}">
+                    </div>
+                    <div class="${prefix}-card-content">
+                        <h2>${item.title}</h2>
+                        <div class="${prefix}-price">${item.price}</div>
+                          <a href="${item.link}" target="_blank" rel="noopener noreferrer"  title="${item.title}" class="${prefix}-shop-now-btn" data-promotion="true" data-promotion-creative="promoDIY${item.promo.replace(" ", "")}" data-promotion-name="Promo DIY ${item.promo}" data-promotion-position="promoDIY${item.promo.replace(" ", "")}" data-promotion-id="Promo_DIY_${item.promo.replace(" ", "_")}" >Shop Now</a>
+                    </div>
+                </div>
+            </div>`;
+                       }
+                   }
+                   adjustActiveCards();
+                   updateDots();
+               }
+                function updateDots() {
+                   if (window.innerWidth > 576) {
+                       dotsContainer.innerHTML = '';
+                       data.forEach((_, i) => {
+                           dotsContainer.innerHTML += `<div class="${prefix}-nav-dot ${i === currentIndex ? prefix + '-active' : ''}"></div>`;
+                       });
+                       [...dotsContainer.children].forEach((dot, i) => {
+                           dot.onclick = () => {
+                               if (i !== currentIndex) {
+                                   navigateToCard(i);
+                               }
+                           };
+                       });
+                   }
+               }
+                function adjustActiveCards() {
+                   const cards = document.querySelectorAll(`.${prefix}-card`);
+                   const isNarrow = window.innerWidth < 1170;
+                   const isMedium = window.innerWidth > 576 && window.innerWidth <= 768;
+                   const isMobile = window.innerWidth <= 576;
+                   if (isMobile) {
+                       cards.forEach(card => {
+                           card.classList.remove(`${prefix}-semi-active`);
+                           card.classList.add(`${prefix}-active`);
+                       });
+                       return;
+                   }
+                   if (isMedium) {
+                       cards.forEach(card => {
+                           card.classList.remove(`${prefix}-semi-active`);
+                           card.classList.add(`${prefix}-active`);
+                       });
+                       return;
+                   }
+                   if (isNarrow && !isMedium) {
+                       let foundActive = false;
+                       cards.forEach(card => {
+                           if (card.classList.contains(`${prefix}-active`)) {
+                               if (foundActive) {
+                                   card.classList.remove(`${prefix}-active`);
+                                   card.classList.add(`${prefix}-semi-active`);
+                               } else {
+                                   foundActive = true;
+                               }
+                           }
+                       });
+                   } else {
+                       cards.forEach(card => {
+                           if (card.classList.contains(`${prefix}-semi-active`)) {
+                               card.classList.remove(`${prefix}-semi-active`);
+                               card.classList.add(`${prefix}-active`);
+                           }
+                       });
+                   }
+               }
+                function navigateToCard(index) {
+                   if (index === currentIndex) return;
+                   const card = carousel.querySelector(`.${prefix}-card`);
+                   if (!card) return;
+                   const cardWidth = card.offsetWidth + 20;
+                   carousel.style.transition = 'transform 0.5s ease';
+                   if ((currentIndex === totalCards - 1 && index === 0) ||
+                       (index > currentIndex && !(currentIndex === 0 && index === totalCards - 1))) {
+                       carousel.style.transform = `translateX(-${cardWidth}px)`;
+                   } else {
+                       carousel.style.transform = `translateX(${cardWidth}px)`;
+                   }
+                   setTimeout(() => {
+                       currentIndex = index;
+                       generateCarousel();
+                       carousel.style.transition = 'none';
+                       carousel.style.transform = 'translateX(0)';
+                       setTimeout(() => {
+                           carousel.style.transition = 'transform 0.5s ease';
+                       }, 50);
+                   }, 500);
+               }
+                document.getElementById(prevBtnId).onclick = () => {
+                   navigateToCard((currentIndex - 1 + totalCards) % totalCards);
+               };
+               document.getElementById(nextBtnId).onclick = () => {
+                   navigateToCard((currentIndex + 1) % totalCards);
+               };
+               let touchStartX = 0;
+               carousel.addEventListener('touchstart', e => {
+                   touchStartX = e.touches[0].clientX;
+               });
+               carousel.addEventListener('touchend', e => {
+                   const touchEndX = e.changedTouches[0].clientX;
+                   const diff = touchStartX - touchEndX;
+                   if (Math.abs(diff) > 50) {
+                       const cardWidth = carousel.querySelector(`.${prefix}-card`).offsetWidth + 20;
+                       carousel.style.transition = 'transform 0.5s ease';
+                       carousel.style.transform = `translateX(${diff > 0 ? -cardWidth : cardWidth}px)`;
+                       setTimeout(() => {
+                           if (diff > 0) {
+                               currentIndex = (currentIndex + 1) % totalCards;
+                           } else {
+                               currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                           }
+                           generateCarousel();
+                           carousel.style.transition = 'none';
+                           carousel.style.transform = 'translateX(0)';
+                           setTimeout(() => {
+                               carousel.style.transition = 'transform 0.5s ease';
+                           }, 50);
+                       }, 500);
+                   }
+               });
+               window.addEventListener('resize', () => {
+                   generateCarousel();
+                   updateDots();
+                   adjustActiveCards();
+               });
+               generateCarousel();
+               updateDots();
+           }
+            initCarousel({
+               data: heatPumpProducts,
+               carouselId: 'heatPumpCarousel',
+               prefix: 'diy-ductless-hp',
+               prevBtnId: 'heatPumpPrev',
+               nextBtnId: 'heatPumpNext',
+               dotsContainerId: 'heatPumpDots'
+           });
+           initCarousel({
+               data: multiZoneProducts,
+               carouselId: 'multiZoneCarousel',
+               prefix: 'mz-systems',
+               prevBtnId: 'multiZonePrev',
+               nextBtnId: 'multiZoneNext',
+               dotsContainerId: 'multiZoneDots'
+           });
+            function initVimeoPlayer() {
+               if (typeof Player !== 'function') return;
+               const isMobile = window.innerWidth <= 768;
+               const iframe = document.getElementById('vimeoPlayer');
+               const playButton = document.getElementById('playButton');
+               const videoThumbnail = document.getElementById('videoThumbnail');
+              if (!iframe || !playButton) return;
+                const player = new Player(iframe);
+                const playVideo = () => {
+                   player.play().then(() => {
+                       playButton.style.display = 'none';
+                       videoThumbnail.style.display = 'none';
+                   }).catch(err => console.error('Play error:', err));
+               };
+                playButton.addEventListener('click', playVideo);
+               playButton.addEventListener('touchstart', e => {
+                   e.preventDefault();
+                   playVideo();
+               });
+                player.on('pause', () => {
+                   playButton.style.display = 'flex';
+                   if (isMobile && videoThumbnail) videoThumbnail.style.display = 'block';
+               });
+                player.on('play', () => {
+                   playButton.style.display = 'none';
+                   if (isMobile && videoThumbnail) videoThumbnail.style.display = 'none';
+               });
+                player.on('ended', () => {
+                   playButton.style.display = 'flex';
+                   if (isMobile && videoThumbnail) videoThumbnail.style.display = 'block';
+               });
+           }
+            initVimeoPlayer();
         });
-        carousel.addEventListener('touchend', e => {
-            const touchEndX = e.changedTouches[0].clientX;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > 50) { // Minimum swipe distance
-                const cardWidth = carousel.querySelector(`.${prefix}-card`).offsetWidth + 20;
-
-                carousel.style.transition = 'transform 0.5s ease';
-                carousel.style.transform = `translateX(${diff > 0 ? -cardWidth : cardWidth}px)`;
-
-                setTimeout(() => {
-                    if (diff > 0) {
-                        // Swipe left - go next
-                        currentIndex = (currentIndex + 1) % totalCards;
-                    } else {
-                        // Swipe right - go prev
-                        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-                    }
-                    generateCarousel();
-                    carousel.style.transition = 'none';
-                    carousel.style.transform = 'translateX(0)';
-                    setTimeout(() => {
-                        carousel.style.transition = 'transform 0.5s ease';
-                    }, 50);
-                }, 500);
-            }
-        });
-
-        // Re-initialize on resize
-        window.addEventListener('resize', () => {
-            generateCarousel();
-            updateDots();
-            adjustActiveCards();
-        });
-
-        // Initialize
-        generateCarousel();
-        updateDots();
-    }
-
-    let player;
-    let playButton;
-    let videoThumbnail;
-
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('ytPlayer', {
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-        });
-    }
-
-    function onPlayerReady(event) {
-        playButton = document.getElementById('playButton');
-
-        if (playButton) {
-            playButton.addEventListener('click', function () {
-                event.target.playVideo();
-                playButton.style.display = 'none';
-                videoThumbnail.style.display = 'none';
-            });
-        }
-    }
-
-    function onPlayerStateChange(event) {
-        if (!playButton || !videoThumbnail) return;
-
-        // Show button when paused
-        if (event.data === YT.PlayerState.PAUSED) {
-            playButton.style.display = 'flex';
-            videoThumbnail.style.display = 'block';
-        }
-        // Hide button when playing
-        else if (event.data === YT.PlayerState.PLAYING) {
-            playButton.style.display = 'none';
-            videoThumbnail.style.display = 'none';
-        }
-    }
-
-    // Wait for DOM to be fully loaded before accessing elements
-    document.addEventListener('DOMContentLoaded', function () {
-        // If API loaded before our code
-        if (window.YT && YT.loaded) {
-            onYouTubeIframeAPIReady();
-        }
-        // Set up play button reference
-        playButton = document.getElementById('playButton');
-        videoThumbnail = document.getElementById('videoThumbnail');
-
-    });
-
-
+   });
 </script>
-<script src="https://www.youtube.com/iframe_api"></script>

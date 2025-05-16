@@ -1,3 +1,5 @@
+<meta property="og:title" content="MrCool DIY Ductless Mini Split AC & Heat Pump - 5th Generation"/>
+<meta property="og:description" content="Air Conditioner and Heater you can install yourself"/>
 <meta property="og:image" content="{{media url=wysiwyg/remotecontrol.jpg}}"/>
 
 <style>
@@ -185,11 +187,11 @@
         border-radius: 30px;
         width: 60%;
         margin-left: 40%;
-        margin-top: -30%;
+        margin-top: -35%;
         align-content: center;
         box-sizing: border-box;
         z-index: 1;
-        padding: 7% 5% 10% 25%;
+        padding: 7% 5% 13% 25%;
     }
 
     .text-content {
@@ -211,28 +213,17 @@
         color: #FFF;
     }
 
+    /* Top div on left */
     .foreground-card {
         position: relative;
         width: 60%;
-        max-width: 800px;
-        aspect-ratio: 16 / 9;
+        min-height: 450px;
         border-radius: 30px;
         overflow: hidden;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         z-index: 5;
-        padding: 0;
     }
-    .foreground-card iframe {
-        box-sizing: border-box;
-        /*width: 177.77777778vh  !important;*/
-        height: 56.25vw  !important;
-        min-width: 100%;
-        min-height: 100%;
-        position: absolute  !important;
-        top: 50%  !important;
-        left: 50%  !important;
-        transform: translate(-50%, -50%);
-    }
+
 
     .video-thumbnail {
         position: absolute;
@@ -245,7 +236,15 @@
         background-position: center;
         background-repeat: no-repeat;
         background-image: url("{{media url=wysiwyg/Static-Pages/video-thumbnail.png}}");
-        display: none;
+    }
+
+    #ytPlayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
     }
 
     .polygon-button {
@@ -357,6 +356,7 @@
     .feature-label {
         position: absolute;
         bottom: 16px;
+        /*left: -8px;*/
         background: #00629c;
         border-radius: 0 10px 10px 0;
         padding: 10px 16px;
@@ -525,7 +525,7 @@
 
     .diy-ductless-hp-shop-now-btn {
         background-color: #1C8EFF;
-        color: #fff;
+        color: white;
         border: none;
         border-radius: 100px;
         padding: 10px;
@@ -536,13 +536,13 @@
         width: 120px;
         align-self: center;
     }
+
     .diy-ductless-hp-shop-now-btn:hover {
         background-color: #2460D8;
-        color: #fff;
     }
+
     .diy-ductless-hp-shop-now-btn:visited {
         background-color: #2460D8;
-        color: #fff;
     }
 
     .diy-ductless-hp-nav-button {
@@ -746,9 +746,8 @@
     }
 
     .mz-systems-shop-now-btn {
-        display: inline-block;
         background: #00629C;
-        color: #fff;
+        color: white;
         border: none;
         border-radius: 100px;
         padding: 10px;
@@ -759,13 +758,13 @@
         width: 120px;
         align-self: center;
     }
+
     .mz-systems-shop-now-btn:hover {
         background: #00629C;
-        color: #fff;
     }
+
     .mz-systems-shop-now-btn:visited {
         background: #00629C;
-        color: #fff;
     }
 
     .mz-systems-nav-button {
@@ -1098,14 +1097,16 @@
         }
 
         .warranty-card {
+            /*width: 85%;*/
+            /*margin-left: 20%;*/
             margin-top: -40%;
             padding: 40px;
-        }
+                    }
 
         .background-card {
-            margin-left: 39%;
-            margin-top: -32%;
-            padding: 7% 5% 6% 30%;
+            margin-left: 40%;
+            margin-top: -45%;
+            padding: 7% 5% 7% 30%;
         }
 
         .foreground-card {
@@ -1165,9 +1166,13 @@
             width: 100px;
             height: 2px;
             margin: 16px auto;
-            background: #fff;
+            background: white;
         }
 
+        .airhandler-floating-img {
+            /*width: 260px;*/
+            /*top: -100px;*/
+        }
 
         .image-split-section {
             aspect-ratio: auto;
@@ -1203,14 +1208,6 @@
             width: 100%;
             aspect-ratio: 8/9;
             z-index: 2;
-        }
-
-        .foreground-card iframe {
-            /*width: 177.77777778vh !important;*/
-            background-color: black;
-        }
-        .video-thumbnail {
-            display: block;
         }
 
         .background-card {
